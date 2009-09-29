@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-09-29 18:41+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:15 models.py:45
+msgid "Error"
+msgstr ""
+
+#: models.py:24
+msgid "anonymous"
+msgstr ""
+
+#: models.py:29
+msgid "If the request was by a site registered user, defined it here."
+msgstr ""
+
+#: models.py:31
+msgid "Date"
+msgstr ""
+
+#: models.py:33
+msgid "Processing time"
+msgstr ""
+
+#: models.py:33
+msgid "Time the request took to process (in microseconds)"
+msgstr ""
+
+#: models.py:35
+msgid "Requested URL"
+msgstr ""
+
+#: models.py:37
+msgid "Referer"
+msgstr ""
+
+#: models.py:37
+msgid "If the user was re-directed from another website, define it here."
+msgstr ""
+
+#: models.py:39
+msgid "Client IP address"
+msgstr ""
+
+#: models.py:41
+msgid "Client hostname"
+msgstr ""
+
+#: models.py:43
+msgid "Browser"
+msgstr ""
+
+#: models.py:43
+msgid ""
+"The user agent tag from the browser. Please note this may not correspond to "
+"actual client being used since many browsers can send fake tags."
+msgstr ""
+
+#: models.py:45
+msgid "If an error was produced during the user visit, log it here."
+msgstr ""
+
+#: models.py:47
+msgid "City"
+msgstr ""
+
+#: models.py:47
+msgid "The city from where the request originated."
+msgstr ""
+
+#: models.py:49
+msgid "Country"
+msgstr ""
+
+#: models.py:49
+msgid "The country from where the request originated."
+msgstr ""
+
+#: models.py:51
+msgid "Country code "
+msgstr ""
+
+#: models.py:51
+msgid "The 2-digit country code from where the request originated."
+msgstr ""
+
+#: utils.py:40 views.py:99
+msgid "Site users"
+msgstr ""
+
+#: utils.py:41 utils.py:165 utils.py:215 views.py:100
+msgid "Anonymous"
+msgstr ""
+
+#: utils.py:56
+msgid "others"
+msgstr ""
+
+#: utils.py:75 utils.py:235
+msgid "Others"
+msgstr ""
+
+#: utils.py:78
+msgid "Unknown"
+msgstr ""
+
+#: utils.py:164 utils.py:214
+msgid "Logged users"
+msgstr ""
+
+#: utils.py:264
+msgid "milliseconds"
+msgstr ""
+
+#: utils.py:288
+msgid "day hours"
+msgstr ""
+
+#: views.py:39 templates/audit/overview.html:36
+msgid "Site usage"
+msgstr ""
+
+#: views.py:40 templates/audit/overview.html:41
+msgid "User fidelity"
+msgstr ""
+
+#: views.py:67
+msgid "Hits per month"
+msgstr ""
+
+#: views.py:69
+msgid "Hits per week"
+msgstr ""
+
+#: views.py:71
+msgid "Usage hours"
+msgstr ""
+
+#: views.py:137
+msgid "Request serving time"
+msgstr ""
+
+#: templates/audit/overview.html:8
+msgid "Website Access Statistics"
+msgstr ""
+
+#: templates/audit/overview.html:15 templates/audit/overview.html.py:20
+msgid "Overview"
+msgstr ""
+
+#: templates/audit/overview.html:16 templates/audit/overview.html.py:21
+#: templates/audit/overview.html:46
+msgid "Popularity"
+msgstr ""
+
+#: templates/audit/overview.html:17 templates/audit/overview.html.py:22
+msgid "Identity"
+msgstr ""
+
+#: templates/audit/overview.html:18 templates/audit/overview.html.py:23
+msgid "Performance"
+msgstr ""
+
+#: templates/audit/overview.html:27
+msgid "Summary"
+msgstr ""
+
+#: templates/audit/overview.html:29
+msgid "Start date"
+msgstr ""
+
+#: templates/audit/overview.html:29
+msgid "months ago"
+msgstr ""
+
+#: templates/audit/overview.html:30
+msgid "Total hits for logged-in users"
+msgstr ""
+
+#: templates/audit/overview.html:31
+msgid "Total hits for anonymous users"
+msgstr ""
+
+#: templates/audit/overview.html:32
+msgid "Number of errors"
+msgstr ""
+
+#: templates/audit/overview.html:65 templates/audit/overview.html.py:73
+#: templates/audit/overview.html:80 templates/audit/overview.html.py:87
+msgid "No data available"
+msgstr ""
+
+#: templates/audit/overview.html:94
+msgid "visit"
+msgstr ""
+
+#: templates/audit/overview.html:94
+msgid "s"
+msgstr ""
