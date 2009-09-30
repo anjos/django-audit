@@ -10,9 +10,11 @@ import os
 if not os.environ.has_key('DJANGO_SETTINGS_MODULE'):
   os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
 
+from audit.conf import settings
 from audit.models import UserActivity 
-from audit.utils import try_set_location
+import datetime
+from dateutil.relativedelta import *
 
-for k in UserActivity.objects.filter(country=''):
-   try_set_location(k)
-   k.save()
+def main():
+  cut_date = datetime.datetime.today() -relativedelta(months=AUDIT_MONTHS_TO_LOG)
+  for k in UserActivity.objects.filter(date__lte=cut_date): k.delete()

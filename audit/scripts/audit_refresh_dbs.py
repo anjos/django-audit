@@ -20,5 +20,6 @@ def refresh_db(path, bin):
   if os.path.exists(path): os.unlink(path)
   os.rename(gzip[:-3], path)
 
-refresh_db(settings.AUDIT_COUNTRY_DATABASE, 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz')
-refresh_db(settings.AUDIT_CITY_DATABASE, 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz')
+def main():
+  refresh_db(settings.AUDIT_COUNTRY_DATABASE, 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz')
+  refresh_db(settings.AUDIT_CITY_DATABASE, 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz')
