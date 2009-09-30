@@ -18,9 +18,6 @@ setup(
     package_data = {
       'audit': [
         'templates/audit/*.html',
-        'media/db/*.dat',
-        'media/db/install.sh',
-        'media/db/Makefile',
         'locale/*/LC_MESSAGES/django.po',
         'locale/*/LC_MESSAGES/django.mo',
         ],
@@ -28,9 +25,9 @@ setup(
 
     entry_points = {
       'console_scripts': [
-        'audit_relocate = audit.scripts.audit_relocate.main',
-        'audit_refresh_db = audit.scripts.audit_refresh_db.main',
-        'audit_prune = audit.scripts.audit_prune.main',
+        'audit_relocate.py = audit.scripts.audit_relocate:main',
+        'audit_refresh_db.py = audit.scripts.audit_refresh_db:main',
+        'audit_prune.py = audit.scripts.audit_prune:main',
         ],
       },
 
