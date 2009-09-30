@@ -18,7 +18,7 @@ class Activity:
       user = request.user if request.user.is_authenticated() else None,
       date = datetime.now(),
       request_url = request.META.get('PATH_INFO', ''),
-      referer_url = request.META.get('HTTP_REFERER', '')
+      referer_url = request.META.get('HTTP_REFERER', ''),
       client_address = request.META.get('REMOTE_ADDR', ''),
       client_host = request.META.get('REMOTE_HOST', ''), 
       browser_info = request.META.get('HTTP_USER_AGENT', ''),
