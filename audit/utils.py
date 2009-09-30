@@ -12,10 +12,12 @@ from django.utils.translation import ugettext
 from django.db.models import Min, Max, Count
 from pygeoip import GeoIP
 from audit.conf import settings
-if settings.AUDIT_COUNTRY_DATABASE:
+import os
+
+if os.path.exists(settings.AUDIT_COUNTRY_DATABASE):
   COUNTRY = GeoIP(settings.AUDIT_COUNTRY_DATABASE)
 else: COUNTRY=None
-if settings.AUDIT_CITY_DATABASE:
+if os.path.exists(settings.AUDIT_CITY_DATABASE):
   CITY = GeoIP(settings.AUDIT_CITY_DATABASE)
 else: CITY=None
 from pygooglechart import PieChart3D, StackedVerticalBarChart, Axis
