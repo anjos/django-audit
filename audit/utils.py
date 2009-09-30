@@ -55,16 +55,27 @@ def user_fidelity(width, height, caption, log, n):
   clutter(data, n, ugettext('others'))
   return pie_chart(width, height, caption, data.values(), data.keys())
 
-def city_lookup(ip):
-  if not CITY: return None 
-  return CITY.record_by_addr(ip)
-
 def country_lookup(ip):
-  if not COUNTRY: return None 
   return {
       'country_code': COUNTRY.country_code_by_addr(ip),
       'country_name': COUNTRY.country_name_by_addr(ip),
+      'city': None,
     }
+
+def try_set_location(activity):
+  location = None
+  if not activity.client_address: return
+  if activity.client_address:
+    try:
+      if CITY: location = CITY.record_by_addr(activity.client_address)
+      elif COUNTRY: location = country_lookup(activity.client_address)
+    except:
+      return
+  else: return
+  if not location: return
+  activity.city = location['city']
+  activity.country = location['country_name']
+  activity.country_code = location['country_code']
 
 def eval_field(q, n, field):
   """Evaluate field statistics."""

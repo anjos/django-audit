@@ -44,11 +44,11 @@ class UserActivity(models.Model):
 
   error = models.TextField(_(u'Error'), help_text=_(u'If an error was produced during the user visit, log it here.'), null=True, blank=True)
 
-  city = models.CharField(_(u'City'), help_text=_(u'The city from where the request originated.'), blank=True, null=True, max_length='64')
+  city = models.CharField(_(u'City'), help_text=_(u'The city from where the request originated.'), blank=True, null=False, max_length='64', default='')
 
-  country = models.CharField(_(u'Country'), help_text=_(u'The country from where the request originated.'), blank=True, null=True, max_length='32')
+  country = models.CharField(_(u'Country'), help_text=_(u'The country from where the request originated.'), blank=True, null=False, max_length='32', default='')
 
-  country_code = models.CharField(_(u'Country code '), help_text=_(u'The 2-digit country code from where the request originated.'), blank=True, null=True, max_length=3, db_index=True)
+  country_code = models.CharField(_(u'Country code '), help_text=_(u'The 2-digit country code from where the request originated.'), blank=True, null=False, max_length=3, db_index=True, default='')
 
   def set_processing_time(self):
     self.processing_time = (datetime.now()-self.date).microseconds

@@ -7,9 +7,8 @@
 """
 
 from datetime import datetime
-from audit.models import *
-from audit.conf import settings
-from audit.utils import country_lookup, city_lookup 
+from audit.models import UserActivity
+from audit.utils import try_set_location
 
 class Activity:
   """Middleware that tracks the user activity on every website hit."""
@@ -33,16 +32,7 @@ class Activity:
 
     # Makes 1 database lookup. If the city database is available, prefer that 
     # one, otherwise, mark the city as "Unknown" and perform country lookup.
-    location = city_lookup(request.META['REMOTE_ADDR'])
-    if location:
-      self.activity.city = location['city']
-      self.activity.country = location['country_name']
-      self.activity.country_code = location['country_code']
-    else:
-      location = country_lookup(request.META['REMOTE_ADDR'])
-      if location:
-        self.activity.country = location['country_name']
-        self.activity.country_code = location['country_code']
+    try_set_location(self.activity)
         
   def process_exception(self, request, exception):
     self.activity.error = str(exception)
