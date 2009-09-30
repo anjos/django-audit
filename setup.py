@@ -26,7 +26,7 @@ setup(
     entry_points = {
       'console_scripts': [
         'audit_relocate.py = audit.scripts.audit_relocate:main',
-        'audit_refresh_db.py = audit.scripts.audit_refresh_db:main',
+        'audit_refresh_db.py = audit.scripts.audit_refresh_dbs:main',
         'audit_prune.py = audit.scripts.audit_prune:main',
         ],
       },

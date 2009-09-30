@@ -34,7 +34,6 @@ fi
 if [ ! -d media ]; then
   mkdir media;
   cd media;
-  ln -s ../sw/audit*/audit/media audit;
   ln -s ../sw/Django*/django/contrib/admin/media django;
   svn co http://django-rosetta.googlecode.com/svn/trunk/rosetta/templates/rosetta rosetta
   cd ${start_dir};

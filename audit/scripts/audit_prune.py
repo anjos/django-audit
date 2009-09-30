@@ -16,5 +16,5 @@ import datetime
 from dateutil.relativedelta import *
 
 def main():
-  cut_date = datetime.datetime.today() -relativedelta(months=AUDIT_MONTHS_TO_LOG)
+  cut_date = datetime.datetime.today() -relativedelta(months=settings.AUDIT_MONTHS_TO_LOG)
   for k in UserActivity.objects.filter(date__lte=cut_date): k.delete()

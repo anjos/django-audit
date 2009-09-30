@@ -11,14 +11,16 @@ if not os.environ.has_key('DJANGO_SETTINGS_MODULE'):
   os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
 
 from audit.conf import settings
-import urllib
+import urllib, shutil
 
 def refresh_db(path, bin):
   print "Refreshing installation of %s..." % path
   (gzip, headers) = urllib.urlretrieve(bin)
   os.system('gzip -d %s' % gzip)
   if os.path.exists(path): os.unlink(path)
-  os.rename(gzip[:-3], path)
+  dir = os.path.dirname(path)
+  if not os.path.exists(dir): os.makedirs(dir)
+  shutil.move(gzip[:-3], path)
 
 def main():
   refresh_db(settings.AUDIT_COUNTRY_DATABASE, 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz')
