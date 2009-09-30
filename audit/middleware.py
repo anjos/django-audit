@@ -14,20 +14,14 @@ class Activity:
   """Middleware that tracks the user activity on every website hit."""
 
   def process_request(self, request):
-
-    if request.META.has_key('HTTP_REFERER'):
-      referer = request.META['HTTP_REFERER']
-    else:
-      referer = ''
-
     self.activity = UserActivity(
       user = request.user if request.user.is_authenticated() else None,
       date = datetime.now(),
-      request_url = request.META['PATH_INFO'],
-      referer_url = referer,
-      client_address = request.META['REMOTE_ADDR'],
-      client_host = request.META['REMOTE_HOST'],  
-      browser_info = request.META['HTTP_USER_AGENT']
+      request_url = request.META.get('PATH_INFO', ''),
+      referer_url = request.META.get('HTTP_REFERER', '')
+      client_address = request.META.get('REMOTE_ADDR', ''),
+      client_host = request.META.get('REMOTE_HOST', ''), 
+      browser_info = request.META.get('HTTP_USER_AGENT', ''),
     )
 
     # Makes 1 database lookup. If the city database is available, prefer that 
