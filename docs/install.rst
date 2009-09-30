@@ -28,3 +28,6 @@ Follow these steps:
 
 7. Copy the templates at "audit/templates/audit" to your own templates
    directory and edit them as you see fit.
+
+8. In the "admin" interface make sure all people that is allowed to access the
+   statistics information has the "view_audit" permission.
