@@ -19,28 +19,30 @@ AUDIT_CITY_DATABASE = getattr(settings, 'AUDIT_CITY_DATABASE',
   os.path.join(settings.MEDIA_ROOT, 'audit/db/GeoLiteCity.dat'))
 
 # Number of months to log
-AUDIT_MONTHS_TO_LOG = 24
+AUDIT_MONTHS_TO_LOG = getattr(settings, 'AUDIT_MONTHS_TO_LOG', 24)
 
 # Default number of months to show in views
-AUDIT_MONTHS_TO_SHOW = 6 
+AUDIT_MONTHS_TO_SHOW = getattr(settings, 'AUDIT_MONTHS_TO_SHOW', 6)
 
 # Users to show when displaying the fidelity
-AUDIT_USERS_TO_SHOW = 6
+AUDIT_USERS_TO_SHOW = getattr(settings, 'AUDIT_USERS_TO_SHOW', 6)
 
 # The width and height of pie charts produced
-AUDIT_PIE_WIDTH = 400 #pixels
-AUDIT_PIE_HEIGHT = 100 #pixels
+AUDIT_PIE_WIDTH = getattr(settings, 'AUDIT_PIE_WIDTH', 450) #pixels
+AUDIT_PIE_HEIGHT = getattr(settings, 'AUDIT_PIE_HEIGHT', 120) #pixels
+AUDIT_PLOT_WIDTH = getattr(settings, 'AUDIT_PLOT_WIDTH', 600) #pixels
+AUDIT_PLOT_HEIGHT = getattr(settings, 'AUDIT_PLOT_HEIGHT', 200) #pixels
 
 # The number of countries and cities on the statistics
-AUDIT_NUMBER_OF_COUNTRIES = 6
-AUDIT_NUMBER_OF_CITIES = 8 
-
-# The popularity bar chart configuration
-AUDIT_POPULARITY_WIDTH = 600 #pixels
-AUDIT_POPULARITY_HEIGHT = 200 #pixels
+AUDIT_NUMBER_OF_COUNTRIES = getattr(settings, 'AUDIT_NUMBER_OF_COUNTRIES', 6)
+AUDIT_NUMBER_OF_CITIES = getattr(settings, 'AUDIT_NUMBER_OF_CITIES', 8)
 
 # How many URLs in the "most visited" category
-AUDIT_MAXIMUM_URLS = 10 
+AUDIT_MAXIMUM_URLS = getattr(settings, 'AUDIT_MAXIMUM_URLS', 10)
 
 # Colors for logged and anonymous users
-AUDIT_CHART_COLORS = ['4d89f9', 'c6d9fd']
+AUDIT_CHART_COLORS = getattr(settings, 'AUDIT_CHART_COLORS', ['4d89f9', 'c6d9fd'])
+
+# Background colors for the charts
+AUDIT_IMAGE_BACKGROUND = getattr(settings, 'AUDIT_IMAGE_BACKGROUND', 'ffffff')
+AUDIT_CHART_BACKGROUND = getattr(settings, 'AUDIT_CHART_BACKGROUND', 'ffffff')

@@ -63,12 +63,12 @@ def popularity(request, months=None):
 
   #now we have a date from the past to look-up
   visited = most_visited(q, settings.AUDIT_MAXIMUM_URLS)
-  popularity = monthy_popularity(settings.AUDIT_POPULARITY_WIDTH, 
-      settings.AUDIT_POPULARITY_HEIGHT, _(u'Hits per month'), q)
-  weekly = weekly_popularity(settings.AUDIT_POPULARITY_WIDTH,
-      settings.AUDIT_POPULARITY_HEIGHT, _(u'Hits per week'), q)
-  hours = usage_hours(settings.AUDIT_POPULARITY_WIDTH, 
-      settings.AUDIT_POPULARITY_HEIGHT, _(u'Usage hours'), q)
+  popularity = monthy_popularity(settings.AUDIT_PLOT_WIDTH, 
+      settings.AUDIT_PLOT_HEIGHT, _(u'Hits per month'), q)
+  weekly = weekly_popularity(settings.AUDIT_PLOT_WIDTH,
+      settings.AUDIT_PLOT_HEIGHT, _(u'Hits per week'), q)
+  hours = usage_hours(settings.AUDIT_PLOT_WIDTH, 
+      settings.AUDIT_PLOT_HEIGHT, _(u'Usage hours'), q)
 
   #and we display it
   return render_to_response('audit/overview.html',
@@ -133,8 +133,8 @@ def performance(request, months=None):
   q = UserActivity.objects.filter(date__gte=date)
   log = q.exclude(user=None)
   unlog = q.filter(user=None)
-  serving = serving_time(settings.AUDIT_POPULARITY_WIDTH, 
-      settings.AUDIT_POPULARITY_HEIGHT, _(u'Request serving time'), q)
+  serving = serving_time(settings.AUDIT_PLOT_WIDTH, 
+      settings.AUDIT_PLOT_HEIGHT, _(u'Request serving time'), q)
 
   return render_to_response('audit/overview.html',
                             { 

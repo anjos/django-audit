@@ -31,3 +31,8 @@ Follow these steps:
 
 8. In the "admin" interface make sure all people that is allowed to access the
    statistics information has the "view_audit" permission.
+
+9. You should setup cron jobs to update the IP database once a month (MaxMind
+   does it at the first day of each month), to prune the database and to try
+   relocating addresses not resolved in the database. Use the audit_*.py
+   scripts installed to achieve that.

@@ -20,13 +20,16 @@ else: COUNTRY=None
 if os.path.exists(settings.AUDIT_CITY_DATABASE):
   CITY = GeoIP(settings.AUDIT_CITY_DATABASE)
 else: CITY=None
-from pygooglechart import PieChart3D, StackedVerticalBarChart, Axis
+from pygooglechart import PieChart3D, StackedVerticalBarChart, Axis, Chart
 import operator
 import datetime
 from dateutil.relativedelta import *
 
 def pie_chart(width, height, caption, data, labels):
   chart = PieChart3D(width, height)
+  chart.set_colours(settings.AUDIT_CHART_COLORS)
+  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
+  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data(data)
   # calculates the percentages
   total = sum(data)
@@ -83,20 +86,23 @@ def eval_field(q, n, field):
   """Evaluate field statistics."""
   data = q.values(field).annotate(count=Count(field))
   tmp = {}
-  for k in data: tmp[k[field]] = k['count']
+  for k in data: 
+    if k[field]: tmp[k[field]] = k['count']
+    else: tmp[ugettext(u'Unknown').encode('utf-8')] = k['count']
   clutter(tmp, n, ugettext(u'Others').encode('utf-8'))
-  retval = {}
-  for k,v in tmp.iteritems(): 
-    name = k if k else ugettext(u'Unknown').encode('utf-8')
-    retval[name] = retval.get(name, 0) + v
-  return retval
+  return tmp 
 
 def pie_country(width, height, caption, q, n=6):
   hits = eval_field(q, n, 'country')
   return pie_chart(width, height, caption, hits.values(), hits.keys())
 
 def pie_city(width, height, caption, q, n=10):
-  hits = eval_field(q, n, 'city')
+  data = q.values('city', 'country_code').annotate(count=Count('city'))
+  hits = {}
+  for k in data: 
+    if k['city']: hits[k['city'] + ', ' + k['country_code']] = k['count']
+    else: hits[ugettext(u'Unknown').encode('utf-8')] = k['count']
+  clutter(hits, n, ugettext(u'Others').encode('utf-8'))
   return pie_chart(width, height, caption, hits.values(), hits.keys())
 
 BROWSER = [
@@ -106,6 +112,8 @@ BROWSER = [
       'firefox',
       'chrome',
       'googlebot',
+      'msnbot',
+      'slurp',
       'netscape',
     ]
 
@@ -171,6 +179,8 @@ def monthy_popularity(width, height, caption, q):
 
   chart = StackedVerticalBarChart(width, height, y_range=(0, max))
   chart.set_colours(settings.AUDIT_CHART_COLORS)
+  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
+  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data([k['logged'] for k in bars])
   chart.add_data([k['anon'] for k in bars])
   chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
@@ -221,6 +231,8 @@ def weekly_popularity(width, height, caption, q):
 
   chart = StackedVerticalBarChart(width, height, y_range=(0, max))
   chart.set_colours(settings.AUDIT_CHART_COLORS)
+  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
+  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data([k['logged'] for k in bars])
   chart.add_data([k['anon'] for k in bars])
   chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
@@ -269,6 +281,8 @@ def serving_time(width, height, caption, q, bins=15):
 
   chart = StackedVerticalBarChart(width, height, y_range=(0, max_y))
   chart.set_colours(settings.AUDIT_CHART_COLORS)
+  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
+  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data(bar_log)
   chart.add_data(bar_unlog)
   chart.set_axis_labels(Axis.BOTTOM, intervals)
@@ -276,6 +290,8 @@ def serving_time(width, height, caption, q, bins=15):
   unit[bins/2] = ugettext(u'milliseconds').encode('utf-8')
   chart.set_axis_labels(Axis.BOTTOM, unit)
   chart.set_axis_labels(Axis.LEFT, (0, max_y))
+  chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
+    ugettext(u'Anonymous').encode('utf-8')])
 
   return {'url': chart.get_url(), 'width': width, 'height': height,
       'caption': caption}
@@ -292,6 +308,8 @@ def usage_hours(width, height, caption, q):
 
   chart = StackedVerticalBarChart(width, height, y_range=(0, maximum))
   chart.set_colours(settings.AUDIT_CHART_COLORS)
+  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
+  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data(bar_log)
   chart.add_data(bar_unlog)
   chart.set_bar_width(15) #pixels
