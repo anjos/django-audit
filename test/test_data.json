@@ -1,0 +1,5240 @@
+[
+  {
+    "pk": 1, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 811575, 
+      "country": "", 
+      "browser_info": "", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "", 
+      "error": null, 
+      "date": "2009-09-30 14:04:09", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": ""
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 125077, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:04:17", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 746623, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:04:18", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 101793, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:04:31", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 836880, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:04:32", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 870102, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:04:39", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 38208, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:04:55", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 897889, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:05:19", 
+      "request_url": "/audit/performance/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 848345, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/performance/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:05:27", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 550946, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:05:54", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 8120, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:06:01", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 76763, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:06:17", 
+      "request_url": "/admin/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 76641, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:06:23", 
+      "request_url": "/admin/audit/useractivity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 65391, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:06:29", 
+      "request_url": "/admin/audit/useractivity/4/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 2683, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/4/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:06:29", 
+      "request_url": "/admin/jsi18n/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 67060, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:06:48", 
+      "request_url": "/admin/audit/useractivity/5/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 1767, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/5/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:06:48", 
+      "request_url": "/admin/jsi18n/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 67489, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:06:57", 
+      "request_url": "/admin/audit/useractivity/12/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 1769, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/12/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:06:57", 
+      "request_url": "/admin/jsi18n/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 64929, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:07:46", 
+      "request_url": "/admin/audit/useractivity/10/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 1746, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/10/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:07:46", 
+      "request_url": "/admin/jsi18n/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 418667, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:38:34", 
+      "request_url": "/admin/audit/useractivity/10/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 15559, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/10/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:38:36", 
+      "request_url": "/admin/jsi18n/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 121793, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/10/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:38:41", 
+      "request_url": "/admin/audit/useractivity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 585, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:38:49", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 103646, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:38:51", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 756597, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:38:59", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 810267, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:39:08", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 304290, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": "Caught an exception while rendering: 'NoneType' object has no attribute 'entry'\n\nOriginal Traceback (most recent call last):\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/debug.py\", line 71, in render_node\n    result = node.render(context)\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/__init__.py\", line 936, in render\n    dict = func(*args)\n  File \"./google/templatetags/google_tags.py\", line 39, in next_agenda_item\n  File \"./google/models.py\", line 143, in _next_event\nAttributeError: 'NoneType' object has no attribute 'entry'\n", 
+      "date": "2009-09-30 14:47:21", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 261311, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": "Caught an exception while rendering: 'NoneType' object has no attribute 'entry'\n\nOriginal Traceback (most recent call last):\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/debug.py\", line 71, in render_node\n    result = node.render(context)\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/__init__.py\", line 936, in render\n    dict = func(*args)\n  File \"./google/templatetags/google_tags.py\", line 39, in next_agenda_item\n  File \"./google/models.py\", line 143, in _next_event\nAttributeError: 'NoneType' object has no attribute 'entry'\n", 
+      "date": "2009-09-30 14:47:56", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 561, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:47:59", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 272776, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": "Caught an exception while rendering: 'NoneType' object has no attribute 'entry'\n\nOriginal Traceback (most recent call last):\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/debug.py\", line 71, in render_node\n    result = node.render(context)\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/__init__.py\", line 936, in render\n    dict = func(*args)\n  File \"./google/templatetags/google_tags.py\", line 39, in next_agenda_item\n  File \"./google/models.py\", line 143, in _next_event\nAttributeError: 'NoneType' object has no attribute 'entry'\n", 
+      "date": "2009-09-30 14:48:10", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 855231, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:50:13", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 795054, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:50:23", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 673101, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 14:50:30", 
+      "request_url": "/audit/performance/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 794, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 14:50:41", 
+      "request_url": "/robots.txt/", 
+      "client_host": "", 
+      "client_address": "72.30.65.50"
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 369278, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-09-30 14:50:41", 
+      "request_url": "/en/robots.txt/", 
+      "client_host": "", 
+      "client_address": "72.30.65.50"
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 849, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 14:50:46", 
+      "request_url": "/node/43/", 
+      "client_host": "", 
+      "client_address": "72.30.65.50"
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 34336, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-09-30 14:50:50", 
+      "request_url": "/en/node/43/", 
+      "client_host": "", 
+      "client_address": "72.30.65.50"
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 263823, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/performance/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:03:01", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 876330, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:03:07", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 773665, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:03:14", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 234388, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:03:56", 
+      "request_url": "/admin/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 126359, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:03:59", 
+      "request_url": "/admin/audit/useractivity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 67562, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:04:07", 
+      "request_url": "/admin/audit/useractivity/38/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 2633, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/38/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:04:07", 
+      "request_url": "/admin/jsi18n/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 73067, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/38/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:06:50", 
+      "request_url": "/admin/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 176425, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:06:53", 
+      "request_url": "/admin/auth/user/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 49, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 275883, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/auth/user/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:01", 
+      "request_url": "/admin/auth/user/26/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 1776, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/auth/user/26/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:01", 
+      "request_url": "/admin/jsi18n/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 70874, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/auth/user/26/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:09", 
+      "request_url": "/admin/auth/user/26/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 240109, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/auth/user/26/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:10", 
+      "request_url": "/admin/auth/user/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 569, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:17", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 809464, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:18", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 128153, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:23", 
+      "request_url": "/accounts/logout/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 7628, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:25", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 103268, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:28", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 58, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 657, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:29", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 59, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 704440, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:29", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 60, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 2771, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:34", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 61, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 95474, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:34", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 62, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 119190, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/fr/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:48", 
+      "request_url": "/accounts/logout/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 63, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 584, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/fr/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:48", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 64, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 865315, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/fr/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:49", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 65, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 89808, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:56", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 66, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 629501, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:07:57", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 67, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 685371, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:08:01", 
+      "request_url": "/translation/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 68, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 294928, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:14", 
+      "request_url": "/translation/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 69, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 79029, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:17", 
+      "request_url": "/admin/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 70, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 42880, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:27", 
+      "request_url": "/admin/auth/group/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 71, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 155859, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/auth/group/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:31", 
+      "request_url": "/admin/auth/group/2/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 72, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 1786, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/auth/group/2/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:31", 
+      "request_url": "/admin/jsi18n/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 73, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 135706, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/auth/group/2/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:49", 
+      "request_url": "/admin/auth/group/2/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 74, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 98479, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/auth/group/2/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:49", 
+      "request_url": "/admin/auth/group/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 75, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 62993, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/auth/group/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:52", 
+      "request_url": "/admin/logout/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 76, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 589, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:55", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 77, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 687234, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:11:56", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 78, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 151889, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:12:01", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 79, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 579, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:12:01", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 80, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 210691, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/pt-br/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:12:02", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 81, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 756, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:12:08", 
+      "request_url": "/internal_error.html/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 82, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 57718, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": "", 
+      "date": "2009-09-30 15:12:08", 
+      "request_url": "/fr/internal_error.html/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 83, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 655604, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:12:13", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 84, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 937356, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:12:35", 
+      "request_url": "/audit/performance/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 85, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 909365, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/performance/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:16:37", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 86, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 822704, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:17:40", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 87, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 758938, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 15:18:05", 
+      "request_url": "/audit/performance/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 88, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Couvet", 
+      "processing_time": 357777, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-09-30 17:15:37", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "80.83.41.229"
+    }
+  }, 
+  {
+    "pk": 89, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Couvet", 
+      "processing_time": 124417, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-09-30 17:15:39", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "80.83.41.229"
+    }
+  }, 
+  {
+    "pk": 90, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Boise", 
+      "processing_time": 680556, 
+      "country": "United States", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; DigExt)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 18:01:08", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "207.70.9.101"
+    }
+  }, 
+  {
+    "pk": 91, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Beijing", 
+      "processing_time": 149543, 
+      "country": "China", 
+      "browser_info": "Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CN", 
+      "error": null, 
+      "date": "2009-09-30 18:36:11", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "220.181.94.232"
+    }
+  }, 
+  {
+    "pk": 92, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 134784, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/performance/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 18:51:17", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 93, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 219773, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/performance/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 18:51:20", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 94, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 960363, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 18:51:30", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 95, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 775504, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 18:51:37", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 96, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 896459, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 18:52:47", 
+      "request_url": "/audit/performance/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 97, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 988656, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/performance/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 18:52:58", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 98, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 639714, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 18:53:00", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 99, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 732947, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 18:55:58", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 100, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "San Diego", 
+      "processing_time": 979205, 
+      "country": "United States", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.0; Windows NT 5.1; FunWebProducts; (R1 1.5); .NET CLR 1.1.4322)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 19:31:53", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "208.80.193.40"
+    }
+  }, 
+  {
+    "pk": 101, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 562823, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 19:46:46", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "67.195.114.46"
+    }
+  }, 
+  {
+    "pk": 102, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Mountain View", 
+      "processing_time": 637, 
+      "country": "United States", 
+      "browser_info": "Googlebot-Image/1.0", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 19:47:20", 
+      "request_url": "/robots.txt/", 
+      "client_host": "", 
+      "client_address": "66.249.67.234"
+    }
+  }, 
+  {
+    "pk": 103, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Mountain View", 
+      "processing_time": 187035, 
+      "country": "United States", 
+      "browser_info": "Googlebot-Image/1.0", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-09-30 19:47:20", 
+      "request_url": "/en/robots.txt/", 
+      "client_host": "", 
+      "client_address": "66.249.67.234"
+    }
+  }, 
+  {
+    "pk": 104, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Mountain View", 
+      "processing_time": 545, 
+      "country": "United States", 
+      "browser_info": "Googlebot-Image/1.0", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 19:47:21", 
+      "request_url": "/files/unidos/images/macunaima.gif/", 
+      "client_host": "", 
+      "client_address": "66.249.65.131"
+    }
+  }, 
+  {
+    "pk": 105, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Mountain View", 
+      "processing_time": 384169, 
+      "country": "United States", 
+      "browser_info": "Googlebot-Image/1.0", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-09-30 19:47:21", 
+      "request_url": "/en/files/unidos/images/macunaima.gif/", 
+      "client_host": "", 
+      "client_address": "66.249.67.234"
+    }
+  }, 
+  {
+    "pk": 106, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 538, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 19:52:24", 
+      "request_url": "/our-place/", 
+      "client_host": "", 
+      "client_address": "67.195.114.46"
+    }
+  }, 
+  {
+    "pk": 107, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 6986, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-09-30 19:52:27", 
+      "request_url": "/en/our-place/", 
+      "client_host": "", 
+      "client_address": "67.195.114.46"
+    }
+  }, 
+  {
+    "pk": 108, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 236117, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 19:52:49", 
+      "request_url": "/accounts/profile/", 
+      "client_host": "", 
+      "client_address": "67.195.114.46"
+    }
+  }, 
+  {
+    "pk": 109, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 917594, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 20:10:04", 
+      "request_url": "/google/videos/", 
+      "client_host": "", 
+      "client_address": "67.195.114.46"
+    }
+  }, 
+  {
+    "pk": 110, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 527190, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 20:42:32", 
+      "request_url": "/training/submit/", 
+      "client_host": "", 
+      "client_address": "67.195.114.46"
+    }
+  }, 
+  {
+    "pk": 111, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 646114, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 20:42:36", 
+      "request_url": "/training/stage-hiver-2009/submit/", 
+      "client_host": "", 
+      "client_address": "67.195.114.46"
+    }
+  }, 
+  {
+    "pk": 112, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Granges", 
+      "processing_time": 781757, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB6; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; InfoPath.2; .NET CLR 3.5.30729; .NET CLR 3.0.30618; OfficeLiveConnector.1.3; OfficeLivePatch.0.0)", 
+      "referer_url": "http://www.google.ch/search?hl=fr&source=hp&q=cours+samba+geneve&meta=&aq=f&oq=", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-09-30 21:22:28", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "188.155.125.127"
+    }
+  }, 
+  {
+    "pk": 113, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Granges", 
+      "processing_time": 474561, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB6; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; InfoPath.2; .NET CLR 3.5.30729; .NET CLR 3.0.30618; OfficeLiveConnector.1.3; OfficeLivePatch.0.0)", 
+      "referer_url": "http://www.google.ch/search?hl=fr&source=hp&q=cours+samba+geneve&meta=&aq=f&oq=", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-09-30 21:22:29", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "188.155.125.127"
+    }
+  }, 
+  {
+    "pk": 114, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Granges", 
+      "processing_time": 558, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB6; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; InfoPath.2; .NET CLR 3.5.30729; .NET CLR 3.0.30618; OfficeLiveConnector.1.3; OfficeLivePatch.0.0)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-09-30 21:22:35", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "188.155.125.127"
+    }
+  }, 
+  {
+    "pk": 115, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Granges", 
+      "processing_time": 67313, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB6; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; InfoPath.2; .NET CLR 3.5.30729; .NET CLR 3.0.30618; OfficeLiveConnector.1.3; OfficeLivePatch.0.0)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-09-30 21:22:35", 
+      "request_url": "/en/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "188.155.125.127"
+    }
+  }, 
+  {
+    "pk": 116, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Granges", 
+      "processing_time": 31898, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB6; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; InfoPath.2; .NET CLR 3.5.30729; .NET CLR 3.0.30618; OfficeLiveConnector.1.3; OfficeLivePatch.0.0)", 
+      "referer_url": "http://www.google.ch/search?hl=fr&source=hp&q=cours+samba+geneve&meta=&aq=f&oq=", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-09-30 21:24:04", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "188.155.125.127"
+    }
+  }, 
+  {
+    "pk": 117, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Granges", 
+      "processing_time": 660, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB6; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; InfoPath.2; .NET CLR 3.5.30729; .NET CLR 3.0.30618; OfficeLiveConnector.1.3; OfficeLivePatch.0.0)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-09-30 21:24:05", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "188.155.125.127"
+    }
+  }, 
+  {
+    "pk": 118, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Granges", 
+      "processing_time": 278720, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB6; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; InfoPath.2; .NET CLR 3.5.30729; .NET CLR 3.0.30618; OfficeLiveConnector.1.3; OfficeLivePatch.0.0)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-09-30 21:24:05", 
+      "request_url": "/en/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "188.155.125.127"
+    }
+  }, 
+  {
+    "pk": 119, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 356384, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "Caught an exception while rendering: 'NoneType' object has no attribute 'entry'\n\nOriginal Traceback (most recent call last):\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/debug.py\", line 71, in render_node\n    result = node.render(context)\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/__init__.py\", line 936, in render\n    dict = func(*args)\n  File \"./google/templatetags/google_tags.py\", line 39, in next_agenda_item\n  File \"/home/unidosps/unidosdegeneve.com/project/google/models.py\", line 143, in _next_event\n    entries = [CalendarEntry(k) for k in self.feed.entry]\nAttributeError: 'NoneType' object has no attribute 'entry'\n", 
+      "date": "2009-09-30 22:02:58", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "65.55.106.234"
+    }
+  }, 
+  {
+    "pk": 120, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 498150, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 22:04:19", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "65.55.106.234"
+    }
+  }, 
+  {
+    "pk": 121, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 497604, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.batukenfete.fr/site/programme-09/batucadas-invitees1.html", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:12:55", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 122, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 13682, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.batukenfete.fr/site/programme-09/batucadas-invitees1.html", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:12:57", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 123, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 538, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:13:07", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 124, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 15866, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": "", 
+      "date": "2009-09-30 23:13:11", 
+      "request_url": "/en/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 125, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 28107, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/fr/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:13:53", 
+      "request_url": "/training/submit/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 126, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 767327, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/fr/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:13:54", 
+      "request_url": "/training/stage-hiver-2009/submit/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 127, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 717892, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/training/stage-hiver-2009/submit/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:13:55", 
+      "request_url": "/captcha/image/c5c0ee8c1059102a54e2d85ac1a55b04d8c5061a/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 128, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 535, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:13:56", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 129, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 6801, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": "", 
+      "date": "2009-09-30 23:13:56", 
+      "request_url": "/en/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 130, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 360, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.batukenfete.fr/site/programme-09/batucadas-invitees1.html", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:14:53", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 131, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 122210, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.batukenfete.fr/site/programme-09/batucadas-invitees1.html", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:14:54", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 132, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 588792, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/fr/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:15:02", 
+      "request_url": "/google/agenda/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 133, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 168108, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/google/agenda/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:15:40", 
+      "request_url": "/google/photos/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 134, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 543, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/google/agenda/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:15:41", 
+      "request_url": "/our-place/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 135, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 8137, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/google/agenda/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": "", 
+      "date": "2009-09-30 23:15:41", 
+      "request_url": "/fr/our-place/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 136, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 100792, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/fr/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:15:45", 
+      "request_url": "/google/agenda/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 137, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 571, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/google/agenda/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:15:48", 
+      "request_url": "/our-place/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 138, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 164545, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/google/agenda/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": "", 
+      "date": "2009-09-30 23:15:50", 
+      "request_url": "/fr/our-place/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 139, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 545255, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/fr/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:15:54", 
+      "request_url": "/google/agenda/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 140, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 567798, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/google/agenda/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:15:58", 
+      "request_url": "/contact/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 141, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 27439, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/contact/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:15:59", 
+      "request_url": "/captcha/image/1abc1e5f6e2f5d866c39d12231a92918f470d210/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 142, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 986535, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/contact/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:16:07", 
+      "request_url": "/accounts/profile/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 143, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 564, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/profile/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-09-30 23:17:39", 
+      "request_url": "/our-mission/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 144, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Crest-voland", 
+      "processing_time": 707980, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Orange 8.0; GTB6; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/profile/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": "", 
+      "date": "2009-09-30 23:17:39", 
+      "request_url": "/fr/our-mission/", 
+      "client_host": "", 
+      "client_address": "90.28.233.171"
+    }
+  }, 
+  {
+    "pk": 145, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 549, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 23:17:45", 
+      "request_url": "/taxonomy/term/15/0/feed/", 
+      "client_host": "", 
+      "client_address": "72.30.65.50"
+    }
+  }, 
+  {
+    "pk": 146, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 49165, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-09-30 23:17:46", 
+      "request_url": "/en/taxonomy/term/15/0/feed/", 
+      "client_host": "", 
+      "client_address": "72.30.65.50"
+    }
+  }, 
+  {
+    "pk": 147, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 1566, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 23:58:46", 
+      "request_url": "/node/121/", 
+      "client_host": "", 
+      "client_address": "65.55.207.100"
+    }
+  }, 
+  {
+    "pk": 148, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 558, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-09-30 23:58:49", 
+      "request_url": "/node/121/", 
+      "client_host": "", 
+      "client_address": "65.55.207.100"
+    }
+  }, 
+  {
+    "pk": 149, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Beijing", 
+      "processing_time": 275991, 
+      "country": "China", 
+      "browser_info": "Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CN", 
+      "error": null, 
+      "date": "2009-10-01 00:12:42", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "220.181.94.232"
+    }
+  }, 
+  {
+    "pk": 150, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 367, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.8.1) VoilaBot BETA 1.2 (support.voilabot@orange-ftgroup.com)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 00:17:48", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "81.52.143.37"
+    }
+  }, 
+  {
+    "pk": 151, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Erfurt", 
+      "processing_time": 449097, 
+      "country": "Germany", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90)", 
+      "referer_url": "http://www.unidosdegeneve.com/contact/", 
+      "user": null, 
+      "country_code": "DE", 
+      "error": null, 
+      "date": "2009-10-01 02:37:28", 
+      "request_url": "/contact/", 
+      "client_host": "", 
+      "client_address": "84.19.186.177"
+    }
+  }, 
+  {
+    "pk": 152, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Beijing", 
+      "processing_time": 400348, 
+      "country": "China", 
+      "browser_info": "Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CN", 
+      "error": null, 
+      "date": "2009-10-01 03:50:40", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "220.181.94.232"
+    }
+  }, 
+  {
+    "pk": 153, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "San Diego", 
+      "processing_time": 839865, 
+      "country": "United States", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 3.1; InfoPath.1; MEGAUPLOAD 1.0)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 06:37:54", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "208.80.193.32"
+    }
+  }, 
+  {
+    "pk": 154, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Beijing", 
+      "processing_time": 627551, 
+      "country": "China", 
+      "browser_info": "Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CN", 
+      "error": null, 
+      "date": "2009-10-01 07:25:02", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "220.181.94.232"
+    }
+  }, 
+  {
+    "pk": 155, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sunnyvale", 
+      "processing_time": 237072, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 07:49:10", 
+      "request_url": "/announce/agenda/unsubscribe/", 
+      "client_host": "", 
+      "client_address": "67.195.112.108"
+    }
+  }, 
+  {
+    "pk": 156, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 1599, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 08:15:45", 
+      "request_url": "/img_assist/load/textarea/", 
+      "client_host": "", 
+      "client_address": "65.55.207.99"
+    }
+  }, 
+  {
+    "pk": 157, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 540, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 08:15:46", 
+      "request_url": "/img_assist/load/textarea/", 
+      "client_host": "", 
+      "client_address": "65.55.207.99"
+    }
+  }, 
+  {
+    "pk": 158, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 423002, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 08:55:49", 
+      "request_url": "/taxonomy/term/24/", 
+      "client_host": "", 
+      "client_address": "65.55.106.135"
+    }
+  }, 
+  {
+    "pk": 159, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 531, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 08:56:01", 
+      "request_url": "/taxonomy/term/24/", 
+      "client_host": "", 
+      "client_address": "65.55.106.135"
+    }
+  }, 
+  {
+    "pk": 160, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 635096, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 10:47:42", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 161, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 23182, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 10:48:25", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 162, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 541, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 10:49:27", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 163, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 497340, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 10:49:27", 
+      "request_url": "/en/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 164, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 106874, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 10:49:32", 
+      "request_url": "/google/agenda/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 165, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Beijing", 
+      "processing_time": 670119, 
+      "country": "China", 
+      "browser_info": "Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CN", 
+      "error": null, 
+      "date": "2009-10-01 11:07:05", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "220.181.94.232"
+    }
+  }, 
+  {
+    "pk": 166, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 696627, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 12:15:19", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "65.55.106.179"
+    }
+  }, 
+  {
+    "pk": 167, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 808999, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 12:15:27", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "65.55.106.179"
+    }
+  }, 
+  {
+    "pk": 168, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 232274, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 12:59:17", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 169, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 844383, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 12:59:42", 
+      "request_url": "/contact/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 170, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 118462, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/contact/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 12:59:42", 
+      "request_url": "/captcha/image/acc13444eac5fab83536c80492b924638fd9c7bb/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 171, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 545, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/contact/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 12:59:47", 
+      "request_url": "/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 172, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 358428, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/contact/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 12:59:47", 
+      "request_url": "/en/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 173, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 541, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 12:59:48", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 174, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 68210, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 12:59:48", 
+      "request_url": "/en/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 175, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 18746, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/contact/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 12:59:49", 
+      "request_url": "/en/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 176, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 66990, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 12:59:49", 
+      "request_url": "/en/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 177, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 548, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 12:59:50", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 178, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 65112, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 12:59:51", 
+      "request_url": "/en/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 179, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 503, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 12:59:51", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 180, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 975087, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 12:59:51", 
+      "request_url": "/en/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 181, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 524341, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/contact/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 12:59:55", 
+      "request_url": "/google/photos/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 182, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 552, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/google/photos/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 13:00:03", 
+      "request_url": "/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 183, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 21676, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/google/photos/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 13:00:04", 
+      "request_url": "/en/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 184, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 377, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 13:00:14", 
+      "request_url": "/fr/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 185, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 21082, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 13:00:14", 
+      "request_url": "/en/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 186, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 564, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 13:00:17", 
+      "request_url": "/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 187, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 25338, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 13:00:17", 
+      "request_url": "/en/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 188, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 36900, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/google/photos/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 13:00:23", 
+      "request_url": "/accounts/profile/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 189, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 551, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/profile/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 13:01:05", 
+      "request_url": "/our-mission/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 190, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 65705, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/profile/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 13:01:05", 
+      "request_url": "/en/our-mission/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 191, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 541, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/profile/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 13:01:10", 
+      "request_url": "/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 192, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 58245, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/profile/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 13:01:10", 
+      "request_url": "/en/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 193, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 723337, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/profile/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 13:01:14", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 194, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 538, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 13:02:33", 
+      "request_url": "/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 195, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 8400, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5", 
+      "referer_url": "http://www.unidosdegeneve.com/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 13:02:33", 
+      "request_url": "/en/our-place/", 
+      "client_host": "", 
+      "client_address": "128.141.31.239"
+    }
+  }, 
+  {
+    "pk": 196, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Villeneuve-la-comptal", 
+      "processing_time": 523401, 
+      "country": "France", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)", 
+      "referer_url": "http://www.suisse-romande.com/cours-musique-suisse-romande.html", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 13:09:32", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "86.68.190.101"
+    }
+  }, 
+  {
+    "pk": 197, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 641, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 13:10:29", 
+      "request_url": "/robots.txt/", 
+      "client_host": "", 
+      "client_address": "65.55.106.134"
+    }
+  }, 
+  {
+    "pk": 198, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 10788, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 13:10:29", 
+      "request_url": "/en/robots.txt/", 
+      "client_host": "", 
+      "client_address": "65.55.106.134"
+    }
+  }, 
+  {
+    "pk": 199, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 548, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 13:11:18", 
+      "request_url": "/node/100/", 
+      "client_host": "", 
+      "client_address": "65.55.106.134"
+    }
+  }, 
+  {
+    "pk": 200, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 542, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 13:11:31", 
+      "request_url": "/node/100/", 
+      "client_host": "", 
+      "client_address": "65.55.106.134"
+    }
+  }, 
+  {
+    "pk": 201, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Hausham", 
+      "processing_time": 938453, 
+      "country": "Germany", 
+      "browser_info": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)", 
+      "referer_url": "http://www.BigFinder.de/", 
+      "user": null, 
+      "country_code": "DE", 
+      "error": null, 
+      "date": "2009-10-01 13:12:18", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "83.133.125.202"
+    }
+  }, 
+  {
+    "pk": 202, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Hausham", 
+      "processing_time": 844391, 
+      "country": "Germany", 
+      "browser_info": "", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "DE", 
+      "error": null, 
+      "date": "2009-10-01 13:12:19", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "83.133.125.202"
+    }
+  }, 
+  {
+    "pk": 203, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Hausham", 
+      "processing_time": 726888, 
+      "country": "Germany", 
+      "browser_info": "", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "DE", 
+      "error": null, 
+      "date": "2009-10-01 13:12:20", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "83.133.125.202"
+    }
+  }, 
+  {
+    "pk": 204, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 117637, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 13:43:17", 
+      "request_url": "/en/user/register/", 
+      "client_host": "", 
+      "client_address": "65.55.106.234"
+    }
+  }, 
+  {
+    "pk": 205, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 15185, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 13:43:26", 
+      "request_url": "/en/user/register/", 
+      "client_host": "", 
+      "client_address": "65.55.106.234"
+    }
+  }, 
+  {
+    "pk": 206, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Beijing", 
+      "processing_time": 193579, 
+      "country": "China", 
+      "browser_info": "Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CN", 
+      "error": null, 
+      "date": "2009-10-01 14:53:39", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "220.181.94.232"
+    }
+  }, 
+  {
+    "pk": 207, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 508112, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.8", 
+      "referer_url": "http://www.google.com/search?hl=fr&q=unidos+geneve&btnG=Rechercher&lr=", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:03:32", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "160.53.250.124"
+    }
+  }, 
+  {
+    "pk": 208, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 1403, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.8", 
+      "referer_url": "http://www.google.com/search?hl=fr&q=unidos+geneve&btnG=Rechercher&lr=", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:03:34", 
+      "request_url": "/fr/", 
+      "client_host": "", 
+      "client_address": "160.53.250.124"
+    }
+  }, 
+  {
+    "pk": 209, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 880033, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.8", 
+      "referer_url": "http://www.unidosdegeneve.com/fr/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:03:42", 
+      "request_url": "/google/agenda/", 
+      "client_host": "", 
+      "client_address": "160.53.250.124"
+    }
+  }, 
+  {
+    "pk": 210, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 170159, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.8", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:03:51", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "160.53.250.124"
+    }
+  }, 
+  {
+    "pk": 211, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 69586, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.8", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 15:03:52", 
+      "request_url": "/fr/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "160.53.250.124"
+    }
+  }, 
+  {
+    "pk": 212, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 965, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.8", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:03:52", 
+      "request_url": "/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "160.53.250.124"
+    }
+  }, 
+  {
+    "pk": 213, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Geneva", 
+      "processing_time": 13279, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.8", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": "", 
+      "date": "2009-10-01 15:03:52", 
+      "request_url": "/fr/favicon.ico/", 
+      "client_host": "", 
+      "client_address": "160.53.250.124"
+    }
+  }, 
+  {
+    "pk": 214, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 167668, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:13:56", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 215, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 822760, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:14:16", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 216, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 858481, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:14:50", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 217, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 791482, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:14:54", 
+      "request_url": "/audit/performance/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 218, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 855, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; es-es) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:18:35", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "83.77.172.70"
+    }
+  }, 
+  {
+    "pk": 219, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 125748, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; es-es) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:18:35", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "83.77.172.70"
+    }
+  }, 
+  {
+    "pk": 220, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 292373, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/performance/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:18:41", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 221, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 119808, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; es-es) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/login/?next=/audit/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:18:44", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "83.77.172.70"
+    }
+  }, 
+  {
+    "pk": 222, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 909134, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; es-es) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/login/?next=/audit/", 
+      "user": 3, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:18:45", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "83.77.172.70"
+    }
+  }, 
+  {
+    "pk": 223, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 165476, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:19:01", 
+      "request_url": "/admin/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 224, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 949519, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; es-es) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 3, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:19:01", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "83.77.172.70"
+    }
+  }, 
+  {
+    "pk": 225, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 890421, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; es-es) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 3, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:19:08", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "83.77.172.70"
+    }
+  }, 
+  {
+    "pk": 226, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 282564, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:19:14", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 227, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 842725, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; es-es) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 3, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 15:19:22", 
+      "request_url": "/audit/performance/", 
+      "client_host": "", 
+      "client_address": "83.77.172.70"
+    }
+  }, 
+  {
+    "pk": 228, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 862, 
+      "country": "United States", 
+      "browser_info": "taptubot *** please read http://www.taptu.com/corp/taptubot ***", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:20:17", 
+      "request_url": "/robots.txt/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 229, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 108239, 
+      "country": "United States", 
+      "browser_info": "taptubot *** please read http://www.taptu.com/corp/taptubot ***", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:20:17", 
+      "request_url": "/en/robots.txt/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 230, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 301572, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:20:19", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 231, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 898, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:20:51", 
+      "request_url": "/apple-touch-icon.png/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 232, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 99452, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:20:58", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 233, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 874274, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:21:05", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 234, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 842, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:21:42", 
+      "request_url": "/m/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 235, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 14229, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:21:43", 
+      "request_url": "/en/m/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 236, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 885, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:21:46", 
+      "request_url": "/mobile/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 237, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 112981, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:21:47", 
+      "request_url": "/en/mobile/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 238, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 863, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:22:04", 
+      "request_url": "/mobi/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 239, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 143122, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:22:06", 
+      "request_url": "/en/mobi/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 240, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 378389, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:22:12", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 241, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 848, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:22:21", 
+      "request_url": "/iphone/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 242, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 14502, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:22:21", 
+      "request_url": "/en/iphone/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 243, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 841, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:22:23", 
+      "request_url": "/pda/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 244, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 306077, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:22:25", 
+      "request_url": "/en/pda/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 245, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 840, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:22:29", 
+      "request_url": "/m/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 246, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 81940, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:22:30", 
+      "request_url": "/en/m/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 247, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 843, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:22:37", 
+      "request_url": "/mobile/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 248, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 7654, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:22:37", 
+      "request_url": "/en/mobile/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 249, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 841, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:22:39", 
+      "request_url": "/mobi/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 250, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 10401, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:22:39", 
+      "request_url": "/en/mobi/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 251, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 843, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:22:43", 
+      "request_url": "/iphone/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 252, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 73158, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:22:44", 
+      "request_url": "/en/iphone/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 253, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 833, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:22:53", 
+      "request_url": "/pda/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 254, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 52170, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": "", 
+      "date": "2009-10-01 15:22:54", 
+      "request_url": "/en/pda/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 255, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Venice", 
+      "processing_time": 714144, 
+      "country": "United States", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1.6; taptu-downloader) Gecko/20070725 Firefox/2.0.0.6", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 15:22:55", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "67.202.34.27"
+    }
+  }, 
+  {
+    "pk": 256, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 128575, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:30:19", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 257, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 98937, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 37, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:30:27", 
+      "request_url": "/accounts/logout/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 258, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 782, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:30:27", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 259, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 6924, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:30:28", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 260, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 115022, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/login/?next=/audit/popularity/", 
+      "user": null, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:30:32", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 261, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 935726, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/login/?next=/audit/popularity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:30:34", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 262, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 97521, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:30:42", 
+      "request_url": "/admin/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 263, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 312633, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:30:45", 
+      "request_url": "/admin/audit/useractivity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 264, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 161606, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:31:23", 
+      "request_url": "/admin/audit/useractivity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 265, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 157752, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/admin/audit/useractivity/?p=1", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:31:36", 
+      "request_url": "/admin/audit/useractivity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 266, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 116486, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:52:44", 
+      "request_url": "/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 267, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 754236, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:52:48", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 268, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 262361, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": "Caught an exception while rendering: 'NoneType' object has no attribute 'entry'\n\nOriginal Traceback (most recent call last):\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/debug.py\", line 71, in render_node\n    result = node.render(context)\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/__init__.py\", line 936, in render\n    dict = func(*args)\n  File \"./google/templatetags/google_tags.py\", line 39, in next_agenda_item\n  File \"/home/unidosps/unidosdegeneve.com/project/google/models.py\", line 143, in _next_event\n    entries = [CalendarEntry(k) for k in self.feed.entry]\nAttributeError: 'NoneType' object has no attribute 'entry'\n", 
+      "date": "2009-10-01 15:53:43", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 269, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 906822, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:53:51", 
+      "request_url": "/pt-br/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 270, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 931030, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:54:00", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 271, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 459559, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": "Caught an exception while rendering: 'NoneType' object has no attribute 'entry'\n\nOriginal Traceback (most recent call last):\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/debug.py\", line 71, in render_node\n    result = node.render(context)\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/__init__.py\", line 936, in render\n    dict = func(*args)\n  File \"./google/templatetags/google_tags.py\", line 39, in next_agenda_item\n  File \"/home/unidosps/unidosdegeneve.com/project/google/models.py\", line 143, in _next_event\n    entries = [CalendarEntry(k) for k in self.feed.entry]\nAttributeError: 'NoneType' object has no attribute 'entry'\n", 
+      "date": "2009-10-01 15:54:18", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 272, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 371168, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": "Caught an exception while rendering: 'NoneType' object has no attribute 'entry'\n\nOriginal Traceback (most recent call last):\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/debug.py\", line 71, in render_node\n    result = node.render(context)\n  File \"/home/unidosps/unidosdegeneve.com/sw-python2.5/Django-1.1-py2.5.egg/django/template/__init__.py\", line 936, in render\n    dict = func(*args)\n  File \"./google/templatetags/google_tags.py\", line 39, in next_agenda_item\n  File \"/home/unidosps/unidosdegeneve.com/project/google/models.py\", line 143, in _next_event\n    entries = [CalendarEntry(k) for k in self.feed.entry]\nAttributeError: 'NoneType' object has no attribute 'entry'\n", 
+      "date": "2009-10-01 15:54:32", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 273, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 172789, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:54:40", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 274, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 925971, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:54:46", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 275, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 303562, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:59:38", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 276, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 880927, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 15:59:46", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 277, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 820921, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 16:00:43", 
+      "request_url": "/audit/performance/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 278, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 59401, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 16:24:54", 
+      "request_url": "/node/113/", 
+      "client_host": "", 
+      "client_address": "65.55.106.208"
+    }
+  }, 
+  {
+    "pk": 279, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "", 
+      "processing_time": 814, 
+      "country": "United States", 
+      "browser_info": "msnbot/2.0b (+http://search.msn.com/msnbot.htm)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "US", 
+      "error": null, 
+      "date": "2009-10-01 16:24:57", 
+      "request_url": "/node/113/", 
+      "client_host": "", 
+      "client_address": "65.55.106.208"
+    }
+  }, 
+  {
+    "pk": 280, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Les Acacias", 
+      "processing_time": 520485, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.14) Gecko/2009082707 Firefox/3.0.14 (.NET CLR 3.5.30729)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 16:57:42", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "212.25.23.2"
+    }
+  }, 
+  {
+    "pk": 281, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Les Acacias", 
+      "processing_time": 892199, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.14) Gecko/2009082707 Firefox/3.0.14 (.NET CLR 3.5.30729)", 
+      "referer_url": "", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 16:57:43", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "212.25.23.2"
+    }
+  }, 
+  {
+    "pk": 282, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Les Acacias", 
+      "processing_time": 152690, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.14) Gecko/2009082707 Firefox/3.0.14 (.NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/login/?next=/audit/", 
+      "user": null, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 16:57:52", 
+      "request_url": "/accounts/login/", 
+      "client_host": "", 
+      "client_address": "212.25.23.2"
+    }
+  }, 
+  {
+    "pk": 283, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Les Acacias", 
+      "processing_time": 576768, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.14) Gecko/2009082707 Firefox/3.0.14 (.NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/accounts/login/?next=/audit/", 
+      "user": 16, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 16:57:54", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "212.25.23.2"
+    }
+  }, 
+  {
+    "pk": 284, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Les Acacias", 
+      "processing_time": 805361, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.14) Gecko/2009082707 Firefox/3.0.14 (.NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 16, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 16:58:54", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "212.25.23.2"
+    }
+  }, 
+  {
+    "pk": 285, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Les Acacias", 
+      "processing_time": 813079, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.14) Gecko/2009082707 Firefox/3.0.14 (.NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 16, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 16:59:03", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "212.25.23.2"
+    }
+  }, 
+  {
+    "pk": 286, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Les Acacias", 
+      "processing_time": 812751, 
+      "country": "Switzerland", 
+      "browser_info": "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.0.14) Gecko/2009082707 Firefox/3.0.14 (.NET CLR 3.5.30729)", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 16, 
+      "country_code": "CH", 
+      "error": null, 
+      "date": "2009-10-01 17:00:32", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "212.25.23.2"
+    }
+  }, 
+  {
+    "pk": 287, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 798271, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 17:02:19", 
+      "request_url": "/audit/performance/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 288, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 724200, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/performance/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 17:05:35", 
+      "request_url": "/audit/popularity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 289, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 955487, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/popularity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 17:06:13", 
+      "request_url": "/audit/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 290, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 946884, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 17:06:43", 
+      "request_url": "/audit/identity/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }, 
+  {
+    "pk": 291, 
+    "model": "audit.useractivity", 
+    "fields": {
+      "city": "Sergy", 
+      "processing_time": 715588, 
+      "country": "France", 
+      "browser_info": "Mozilla/5.0 (X11; U; Linux x86_64; pt-BR; rv:1.9.0.14) Gecko/2009090217 Ubuntu/9.04 (jaunty) Firefox/3.0.14", 
+      "referer_url": "http://www.unidosdegeneve.com/audit/identity/", 
+      "user": 1, 
+      "country_code": "FR", 
+      "error": null, 
+      "date": "2009-10-01 17:07:37", 
+      "request_url": "/attendance/", 
+      "client_host": "", 
+      "client_address": "137.138.210.102"
+    }
+  }
+]
