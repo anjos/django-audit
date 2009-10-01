@@ -42,7 +42,7 @@ def pie_chart(width, height, caption, data, labels):
 
 def pie_usage(width, height, caption, log, unlog):
   return pie_chart(width, height, caption, [log.count(), unlog.count()],
-      [ugettext(u'Site users'), ugettext(u'Anonymous')])
+      [ugettext(u'Logged users'), ugettext(u'Anonymous')])
 
 def clutter(data, n, other_label):
   if len(data) > n:
@@ -318,6 +318,8 @@ def usage_hours(width, height, caption, q):
   unit[12] = ugettext(u'day hours').encode('utf-8')
   chart.set_axis_labels(Axis.BOTTOM, unit)
   chart.set_axis_labels(Axis.LEFT, (0, maximum))
+  chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
+    ugettext(u'Anonymous').encode('utf-8')])
 
   return {'url': chart.get_url(), 'width': width, 'height': height,
       'caption': caption}
