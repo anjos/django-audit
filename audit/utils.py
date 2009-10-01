@@ -72,7 +72,9 @@ def try_set_location(activity):
   if not activity.client_address: return
   if activity.client_address:
     try:
-      if CITY: location = CITY.record_by_addr(activity.client_address)
+      if CITY: 
+        location = CITY.record_by_addr(activity.client_address)
+        location['city'] = location.get('city', '')
       elif COUNTRY: location = country_lookup(activity.client_address)
     except:
       return
@@ -101,6 +103,8 @@ def pie_city(width, height, caption, q, n=10):
   hits = {}
   for k in data: 
     if k['city']: hits[k['city'] + ', ' + k['country_code']] = k['count']
+    elif k['country_code']: hits[ugettext(u'Unknown').encode('utf-8') + ', ' \
+        + k['country_code']] = k['count']
     else: hits[ugettext(u'Unknown').encode('utf-8')] = k['count']
   clutter(hits, n, ugettext(u'Others').encode('utf-8'))
   return pie_chart(width, height, caption, hits.values(), hits.keys())
