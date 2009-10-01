@@ -46,12 +46,14 @@ def pie_usage(width, height, caption, log, unlog):
 
 def clutter(data, n, other_label):
   if len(data) > n:
-    threshold = sorted(data.values, reverse=True)[n-1]
+    threshold = sorted(data.values(), reverse=True)[n-1]
     data[other_label] = 0
+    delete = []
     for k in data.iterkeys():
       if data[k] < threshold and k != other_label:
         data[other_label] += data[k]
-        del data[k]
+        delete.append(k)
+    for k in delete: del data[k]
 
 def user_fidelity(width, height, caption, log, n):
   users = log.values('user__username').annotate(count=Count('user'))
