@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-29 18:41+0200\n"
+"POT-Creation-Date: 2009-10-01 18:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,35 +98,33 @@ msgstr ""
 msgid "The 2-digit country code from where the request originated."
 msgstr ""
 
-#: utils.py:40 views.py:99
-msgid "Site users"
-msgstr ""
-
-#: utils.py:41 utils.py:165 utils.py:215 views.py:100
-msgid "Anonymous"
-msgstr ""
-
-#: utils.py:56
-msgid "others"
-msgstr ""
-
-#: utils.py:75 utils.py:235
-msgid "Others"
-msgstr ""
-
-#: utils.py:78
-msgid "Unknown"
-msgstr ""
-
-#: utils.py:164 utils.py:214
+#: utils.py:45 utils.py:192 utils.py:242 utils.py:297 utils.py:325
+#: templates/audit/overview.html:32
 msgid "Logged users"
 msgstr ""
 
-#: utils.py:264
+#: utils.py:45 utils.py:193 utils.py:243 utils.py:298 utils.py:326
+#: views.py:112 templates/audit/overview.html:32
+msgid "Anonymous"
+msgstr ""
+
+#: utils.py:62
+msgid "others"
+msgstr ""
+
+#: utils.py:95 utils.py:108 utils.py:110
+msgid "Unknown"
+msgstr ""
+
+#: utils.py:96 utils.py:111 utils.py:263
+msgid "Others"
+msgstr ""
+
+#: utils.py:294
 msgid "milliseconds"
 msgstr ""
 
-#: utils.py:288
+#: utils.py:322
 msgid "day hours"
 msgstr ""
 
@@ -138,19 +136,23 @@ msgstr ""
 msgid "User fidelity"
 msgstr ""
 
-#: views.py:67
+#: views.py:73
 msgid "Hits per month"
 msgstr ""
 
-#: views.py:69
+#: views.py:75
 msgid "Hits per week"
 msgstr ""
 
-#: views.py:71
+#: views.py:77
 msgid "Usage hours"
 msgstr ""
 
-#: views.py:137
+#: views.py:111
+msgid "Site users"
+msgstr ""
+
+#: views.py:155
 msgid "Request serving time"
 msgstr ""
 
