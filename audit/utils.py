@@ -157,25 +157,25 @@ def monthy_popularity(width, height, caption, q):
   if not q: return
 
   minimum = q.aggregate(Min('date'))['date__min'] 
+  minimum = datetime.datetime(minimum.year, minimum.month, 1, 0, 0, 0)
   maximum = q.aggregate(Max('date'))['date__max']
+  maximum = datetime.datetime(maximum.year, maximum.month, 1, 0, 0, 0)
   months = abs(relativedelta(minimum, maximum).months)
 
   minimum = datetime.datetime(minimum.year, minimum.month, 1, 0, 0, 0)
   intervals = [minimum + relativedelta(months=k) for k in range(months)]
-  if not intervals: intervals.append(maximum)
-  else: intervals = intervals[1:] + [maximum]
-  intervals = [(datetime.datetime(k.year, k.month, 1, 0, 0, 0),
-    datetime.datetime(k.year, k.month, 1, 0, 0, 0) +
-    relativedelta(months=1)) for k in intervals]
+  intervals += [maximum, maximum + relativedelta(months=1)]
 
   log = q.exclude(user=None)
   unlog = q.filter(user=None)
   max = 0
   bars = []
-  for k in intervals:
-    bars.append({'label0': k[0].strftime('%b'), 'label1': k[0].strftime('%Y'),
-      'logged': log.filter(date__gte=k[0]).filter(date__lt=k[1]).count(),
-      'anon': unlog.filter(date__gte=k[0]).filter(date__lt=k[1]).count(),
+  for k in range(len(intervals)-1):
+    bars.append({
+      'label0': intervals[k].strftime('%b'), 
+      'label1': intervals[k].strftime('%Y'),
+      'logged': log.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      'anon': unlog.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       })
     hits = bars[-1]['logged'] + bars[-1]['anon']
     if hits > max: max = hits
@@ -208,26 +208,24 @@ def weekly_popularity(width, height, caption, q):
   if not q: return
 
   minimum = q.aggregate(Min('date'))['date__min'] 
+  minimum = datetime.datetime(minimum.year, minimum.month, minimum.day, 0, 0, 0) + relativedelta(weekday=MO(-1))
   maximum = q.aggregate(Max('date'))['date__max']
+  maximum = datetime.datetime(maximum.year, maximum.month, maximum.day, 0, 0, 0) + relativedelta(weekday=MO(-1))
   weeks = abs(relativedelta(minimum, maximum).days/7)
 
-  minimum = datetime.datetime(minimum.year, minimum.month, 
-      minimum.day, 0, 0, 0) - relativedelta(weekday=MO)
   intervals = [minimum + relativedelta(weeks=k) for k in range(weeks)]
-  if not intervals: intervals.append(maximum)
-  else: intervals = intervals[1:] + [maximum]
-  intervals = [(datetime.datetime(k.year, k.month, k.day, 0, 0, 0),
-    datetime.datetime(k.year, k.month, k.day, 0, 0, 0) +
-    relativedelta(weeks=+1)) for k in intervals]
+  intervals += [maximum, maximum + relativedelta(weeks=1)]
 
   log = q.exclude(user=None)
   unlog = q.filter(user=None)
   max = 0
   bars = []
-  for k in intervals:
-    bars.append({'label0': k[0].strftime('%U'), 'label1': k[0].strftime('%Y'),
-      'logged': log.filter(date__gte=k[0]).filter(date__lt=k[1]).count(),
-      'anon': unlog.filter(date__gte=k[0]).filter(date__lt=k[1]).count(),
+  for k in range(len(intervals)-1):
+    bars.append({
+      'label0': intervals[k].strftime('%U'), 
+      'label1': intervals[k].strftime('%Y'),
+      'logged': log.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      'anon': unlog.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       })
     hits = bars[-1]['logged'] + bars[-1]['anon']
     if hits > max: max = hits

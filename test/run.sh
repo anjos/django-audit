@@ -48,6 +48,7 @@ cd ${start_dir};
 cd project;
 ${PYTHON} -m compileall .
 ${PYTHON} manage.py test audit;
+${PYTHON} manage.py loaddata -v 1 ../test_data.json
 # and let the webserver running
 ${PYTHON} manage.py runserver 8080;
 cd ${start_dir};
