@@ -76,11 +76,17 @@ def popularity(request, months=None):
   hours = usage_hours(settings.AUDIT_PLOT_WIDTH, 
       settings.AUDIT_PLOT_HEIGHT, _(u'Usage hours'), q)
 
+  eq = q.exclude(error=None).exclude(error=u'')
+  errors = {'total': eq.count(), 
+            'log': eq.exclude(user=None).count(),
+            'unlog': eq.filter(user=None).count(),
+           }
+
   #and we display it
   return render_to_response('audit/overview.html',
                             { 
                               'hits': (log.count(), unlog.count()),
-                              'errors': q.exclude(error=None).count(),
+                              'errors': errors, 
                               'date': date,
                               'months': months,
                               'ago': months_ago,
@@ -116,11 +122,17 @@ def identity(request, months=None):
   os = (os, osu)
   browser = (browser, browseru)
 
+  eq = q.exclude(error=None).exclude(error=u'')
+  errors = {'total': eq.count(), 
+            'log': eq.exclude(user=None).count(),
+            'unlog': eq.filter(user=None).count(),
+           }
+
   #and we display it
   return render_to_response('audit/overview.html',
                             { 
                               'hits': (log.count(), unlog.count()),
-                              'errors': q.exclude(error=None).count(),
+                              'errors': errors, 
                               'date': date,
                               'months': months,
                               'ago': months_ago,
@@ -142,10 +154,16 @@ def performance(request, months=None):
   serving = serving_time(settings.AUDIT_PLOT_WIDTH, 
       settings.AUDIT_PLOT_HEIGHT, _(u'Request serving time'), q)
 
+  eq = q.exclude(error=None).exclude(error=u'')
+  errors = {'total': eq.count(), 
+            'log': eq.exclude(user=None).count(),
+            'unlog': eq.filter(user=None).count(),
+           }
+
   return render_to_response('audit/overview.html',
                             { 
                               'hits': (log.count(), unlog.count()),
-                              'errors': q.exclude(error=None).count(),
+                              'errors': errors, 
                               'date': date,
                               'months': months,
                               'ago': months_ago,
