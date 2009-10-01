@@ -29,7 +29,7 @@
   <li>{% trans "Start date" %}: {{ date|date:"j/M/Y" }} ({{ ago }} {% trans "months ago" %})</li>
   <li>{% trans "Total hits for logged-in users" %}: {{ hits.0 }}</li>
   <li>{% trans "Total hits for anonymous users" %}: {{ hits.1 }}</li>
-  <li>{% trans "Number of errors" %}: {{ errors }}</li>
+  <li>{% trans "Number of errors" %}: {{ errors.total }} ({% trans "Logged users" %}: {{ errors.log }}/{% trans "Anonymous" %}: {{ errors.unlog }})</li>
 </ul>
 
 {% if logunlog %}
