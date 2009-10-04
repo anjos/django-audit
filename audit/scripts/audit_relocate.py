@@ -14,6 +14,6 @@ from audit.models import UserActivity
 from audit.utils import try_set_location
 
 def main():
-  for k in UserActivity.objects.filter(country=''):
+  for k in UserActivity.objects.filter(city=''):
      try_set_location(k)
      k.save()
