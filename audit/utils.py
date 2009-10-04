@@ -82,9 +82,9 @@ def try_set_location(activity):
       return
   else: return
   if not location: return
-  activity.city = location['city']
-  activity.country = location['country_name']
-  activity.country_code = location['country_code']
+  activity.city = location['city'].decode('iso-8859-1')
+  activity.country = location['country_name'].decode('iso-8859-1')
+  activity.country_code = location['country_code'].decode('iso-8859-1')
 
 def eval_field(q, n, field):
   """Evaluate field statistics."""
