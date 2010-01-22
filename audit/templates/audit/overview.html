@@ -8,6 +8,7 @@
 {% block title %}{% trans "Website Access Statistics" %}{% endblock %}
 
 {% block content %}
+<div class="audit">
 <h2 class="title">Website Access Statistics</h2>
 
 <h4>
@@ -94,5 +95,5 @@
   {% for obj in visited %}<li><a href="{{ obj.0 }}">{{ obj.0 }}</a>: {{ obj.1 }} {% trans "visit" %}{{ obj.1|pluralize:_("s") }}</li>{% endfor %}
 </ol>
 {% endif %}
-
+</div>
 {% endblock %}
