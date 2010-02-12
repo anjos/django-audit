@@ -12,7 +12,7 @@ PROJECT=audit
 
 # ACTION: Executes a simple cleanup (remove '~' files and pyc files) and then
 # will compile the PO locale files.
-all: simpleclean
+all: clean strings compile 
 
 # ACTION: Builds the PO locale files, by reading our source code and updating
 # the existing message catalog. This will not compile the resulting PO source
@@ -37,10 +37,13 @@ remove_django:
 languages: install_django strings compile
 
 update_languages:
-	@for l in $(LANGUAGES); do cp test/sw/audit*/audit/locale/$$l/LC_MESSAGES/django.po audit/locale/$$l/LC_MESSAGES/; done
+	@for l in $(LANGUAGES); do cp test/sw/$(PROJECT)*/$(PROJECT)/locale/$$l/LC_MESSAGES/django.po $(PROJECT)/locale/$$l/LC_MESSAGES/; done
 
 test: 
 	@cd test && ./run.sh
+
+link_test:
+	@cd test && LINK=1 ./run.sh
 
 clean: remove_django
 	find . -name '*~' -print0 | xargs -0 rm -vf 

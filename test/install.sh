@@ -49,5 +49,18 @@ function install () {
   echo "### Installation of $package is done!"
 }
 
-install audit ${audit}
+function link_install () {
+  install $1 $2;
+  echo "### Link installing $1..."
+  location=`readlink -f $2/$1`;
+  cd ${INSTALLDIR}/djpro-*;
+  rm -rf $1;
+  ln -s $location .;
+  cd -;
+}
+
+# If you define "LINK" to any value, we use the link install strategy
+if [ -n "$LINK" ]; then link_install audit ${audit};
+else install audit ${audit}; fi
+
 install rosetta ${rosetta}
