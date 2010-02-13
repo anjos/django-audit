@@ -12,7 +12,7 @@ PROJECT=audit
 
 # ACTION: Executes a simple cleanup (remove '~' files and pyc files) and then
 # will compile the PO locale files.
-all: clean strings compile 
+all: clean install_django strings compile 
 
 # ACTION: Builds the PO locale files, by reading our source code and updating
 # the existing message catalog. This will not compile the resulting PO source
