@@ -12,6 +12,22 @@ from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
 from django.utils.translation import ugettext_lazy as _
 
+class UserAgent(models.Model):
+  """Represents an identified user agent."""
+
+  def __unicode__(self):
+    return u'%s@%s: regexp("%s")' % (self.browser, self.os, self.regexp)
+
+  regexp = models.CharField(_(u'Regular expression'), max_length=100,
+      db_index=True, unique=True, null=False, blank=False,
+      help_text=_(u'The regular expression that will match the user agent'))
+
+  browser = models.CharField(_(u'Browser'), max_length=100,
+      help_text=_(u'The actual browser doing the request'))
+
+  os = models.CharField(_(u'Operating System'), max_length=100, 
+      help_text=_(u'The Operating System for this browser'))
+
 class UserActivity(models.Model):
   """Represents a user (single) hit at our website."""
 
@@ -23,7 +39,7 @@ class UserActivity(models.Model):
   def __unicode__(self):
     user = _(u'anonymous')
     if self.user: user = self.user.username
-    return u'%s: %s %s - %s' % (user, self.date, self.error, self.request_url)
+    return u'%s@%s %s (%s): %s' % (user, self.date, self.request_url, self.browser_info, self.error)
 
   user = models.ForeignKey(User, null=True, blank=True, db_index=True,
       help_text=_(u'If the request was by a site registered user, defined it here.'))
