@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-01 18:00+0200\n"
+"POT-Creation-Date: 2010-02-12 17:14+0100\n"
 "PO-Revision-Date: 2009-09-29 18:39\n"
 "Last-Translator: <andre.dos.anjos@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,57 +16,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.4.5.svn\n"
 
-#: admin.py:15 models.py:45
+#: admin.py:15 models.py:61
 msgid "Error"
 msgstr "Erreur"
 
-#: models.py:24
+#: models.py:21
+msgid "Regular expression"
+msgstr ""
+
+#: models.py:23
+msgid "The regular expression that will match the user agent"
+msgstr ""
+
+#: models.py:25 models.py:59
+msgid "Browser"
+msgstr "Navigateur"
+
+#: models.py:26
+#, fuzzy
+msgid "The actual browser doing the request"
+msgstr "La ville d'où la demande est originaire."
+
+#: models.py:28
+msgid "Operating System"
+msgstr ""
+
+#: models.py:29
+msgid "The Operating System for this browser"
+msgstr ""
+
+#: models.py:40
 msgid "anonymous"
 msgstr "anonyme"
 
-#: models.py:29
+#: models.py:45
 msgid "If the request was by a site registered user, defined it here."
 msgstr ""
 "Si la demande a été faite par un utilisateur du site, il est défini ici."
 
-#: models.py:31
+#: models.py:47
 msgid "Date"
 msgstr "Date"
 
-#: models.py:33
+#: models.py:49
 msgid "Processing time"
 msgstr "Délai de traitement"
 
-#: models.py:33
+#: models.py:49
 msgid "Time the request took to process (in microseconds)"
 msgstr "Temps de traitement  de la demande (en microsecondes)"
 
-#: models.py:35
+#: models.py:51
 msgid "Requested URL"
 msgstr "URL demandée"
 
-#: models.py:37
+#: models.py:53
 msgid "Referer"
 msgstr "Site anterieur"
 
-#: models.py:37
+#: models.py:53
 msgid "If the user was re-directed from another website, define it here."
 msgstr ""
 "Si l'utilisateur était redirigé à partir un autre site, le définir ici."
 
-#: models.py:39
+#: models.py:55
 msgid "Client IP address"
 msgstr "Adresse IP du client"
 
-#: models.py:41
+#: models.py:57
 msgid "Client hostname"
 msgstr "Nome du client"
 
-#: models.py:43
-msgid "Browser"
-msgstr "Navigateur"
-
-#: models.py:43
+#: models.py:59
 msgid ""
 "The user agent tag from the browser. Please note this may not correspond to "
 "actual client being used since many browsers can send fake tags."
@@ -75,70 +96,70 @@ msgstr ""
 "valeur peut ne pas correspondre aux valeurs effectifs parce que nombreux "
 "navigateurs peuvent envoyer des faux tags."
 
-#: models.py:45
+#: models.py:61
 msgid "If an error was produced during the user visit, log it here."
 msgstr ""
 "Si une erreur s'est produit lors de la visite d'utilisateur, écrivez-le ici."
 
-#: models.py:47
+#: models.py:63
 msgid "City"
 msgstr "Ville"
 
-#: models.py:47
+#: models.py:63
 msgid "The city from where the request originated."
 msgstr "La ville d'où la demande est originaire."
 
-#: models.py:49
+#: models.py:65
 msgid "Country"
 msgstr "Pays"
 
-#: models.py:49
+#: models.py:65
 msgid "The country from where the request originated."
 msgstr "Le pays d'où provient la demande."
 
-#: models.py:51
+#: models.py:67
 msgid "Country code "
 msgstr "Code du pays"
 
-#: models.py:51
+#: models.py:67
 msgid "The 2-digit country code from where the request originated."
 msgstr "Le code à 2 chiffres du pays d'où provient la demande."
 
-#: utils.py:45 utils.py:192 utils.py:242 utils.py:297 utils.py:325
-#: templates/audit/overview.html:32
+#: utils.py:47 utils.py:230 utils.py:280 utils.py:335 utils.py:363
+#: templates/audit/overview.html:33
 msgid "Logged users"
 msgstr "Utilisateurs du site"
 
-#: utils.py:45 utils.py:193 utils.py:243 utils.py:298 utils.py:326
-#: views.py:112 templates/audit/overview.html:32
+#: utils.py:47 utils.py:231 utils.py:281 utils.py:336 utils.py:364
+#: views.py:112 templates/audit/overview.html:33
 msgid "Anonymous"
 msgstr "Anonyme"
 
-#: utils.py:62
+#: utils.py:64
 msgid "others"
 msgstr "d'autres"
 
-#: utils.py:95 utils.py:108 utils.py:110
+#: utils.py:97 utils.py:110 utils.py:112
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: utils.py:96 utils.py:111 utils.py:263
+#: utils.py:98 utils.py:113 utils.py:301
 msgid "Others"
 msgstr "D'autres"
 
-#: utils.py:294
+#: utils.py:332
 msgid "milliseconds"
 msgstr "millisecondes"
 
-#: utils.py:322
+#: utils.py:360
 msgid "day hours"
 msgstr "heures du jour"
 
-#: views.py:39 templates/audit/overview.html:36
+#: views.py:39 templates/audit/overview.html:37
 msgid "Site usage"
 msgstr "Utilisation du site"
 
-#: views.py:40 templates/audit/overview.html:41
+#: views.py:40 templates/audit/overview.html:42
 msgid "User fidelity"
 msgstr "Fidélité des utilisateurs"
 
@@ -158,64 +179,93 @@ msgstr "Heures d'utilisation"
 msgid "Site users"
 msgstr "Utilisateurs du site"
 
-#: views.py:155
+#: views.py:113
+msgid "Search bots"
+msgstr ""
+
+#: views.py:158
 msgid "Request serving time"
 msgstr "Temps de traitement des demandes"
 
-#: templates/audit/overview.html:8
+#: templates/audit/overview.html:8 templates/audit/overview.html.py:12
 msgid "Website Access Statistics"
 msgstr "Statistique d'accès au Site"
 
-#: templates/audit/overview.html:15 templates/audit/overview.html.py:20
+#: templates/audit/overview.html:16 templates/audit/overview.html.py:21
 msgid "Overview"
 msgstr "Sommaire"
 
-#: templates/audit/overview.html:16 templates/audit/overview.html.py:21
-#: templates/audit/overview.html:46
+#: templates/audit/overview.html:17 templates/audit/overview.html.py:22
+#: templates/audit/overview.html:47
 msgid "Popularity"
 msgstr "Popularité"
 
-#: templates/audit/overview.html:17 templates/audit/overview.html.py:22
+#: templates/audit/overview.html:18 templates/audit/overview.html.py:23
 msgid "Identity"
 msgstr "Identité"
 
-#: templates/audit/overview.html:18 templates/audit/overview.html.py:23
+#: templates/audit/overview.html:19 templates/audit/overview.html.py:24
 msgid "Performance"
 msgstr "Performance"
 
-#: templates/audit/overview.html:27
+#: templates/audit/overview.html:28
 msgid "Summary"
 msgstr "Sommaire"
 
-#: templates/audit/overview.html:29
+#: templates/audit/overview.html:30
 msgid "Start date"
 msgstr "Date de début"
 
-#: templates/audit/overview.html:29
+#: templates/audit/overview.html:30
 msgid "months ago"
 msgstr "mois en arrière"
 
-#: templates/audit/overview.html:30
+#: templates/audit/overview.html:31
 msgid "Total hits for logged-in users"
 msgstr "Nombre de pages pour les utilisateurs connectés"
 
-#: templates/audit/overview.html:31
+#: templates/audit/overview.html:32
 msgid "Total hits for anonymous users"
 msgstr "Nombre de pages pour les utilisateurs anonymes"
 
-#: templates/audit/overview.html:32
+#: templates/audit/overview.html:33
 msgid "Number of errors"
 msgstr "Nombre d'erreurs"
 
-#: templates/audit/overview.html:65 templates/audit/overview.html.py:73
-#: templates/audit/overview.html:80 templates/audit/overview.html.py:87
+#: templates/audit/overview.html:64
+msgid "Access by country"
+msgstr ""
+
+#: templates/audit/overview.html:66 templates/audit/overview.html.py:74
+#: templates/audit/overview.html:81 templates/audit/overview.html.py:88
+#: templates/audit/overview.html:94
 msgid "No data available"
 msgstr "Aucune donnée disponible"
 
-#: templates/audit/overview.html:94
+#: templates/audit/overview.html:72
+msgid "Access by city"
+msgstr ""
+
+#: templates/audit/overview.html:79
+msgid "Access by OS"
+msgstr ""
+
+#: templates/audit/overview.html:86
+msgid "Access by browser"
+msgstr ""
+
+#: templates/audit/overview.html:93
+msgid "Access by bots"
+msgstr ""
+
+#: templates/audit/overview.html:98
+msgid "Most popular URLs"
+msgstr ""
+
+#: templates/audit/overview.html:100
 msgid "visit"
 msgstr "visite"
 
-#: templates/audit/overview.html:94
+#: templates/audit/overview.html:100
 msgid "s"
 msgstr "s"

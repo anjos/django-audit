@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="audit">
-<h2 class="title">Website Access Statistics</h2>
+<h2 class="title">{% trans "Website Access Statistics" %}</h2>
 
 <h4>
   {% if months %}
@@ -61,7 +61,7 @@
 {% endif %}
 
 {% if country %}
-<h3>Access by country</h3>
+<h3>{% trans "Access by country" %}</h3>
 {% for obj in country %}
 <table><tr><td>{% if obj %}<img src="{{ obj.url }}" width="{{ obj.width }}" height="{{ obj.height }}"/>{% else %}{% trans "No data available" %}{% endif %}</td></tr><caption>{{ obj.caption }}</caption></table>
 {% endfor %}
@@ -69,28 +69,33 @@
 
 
 {% if city %}
-<h3>Access by city</h3>
+<h3>{% trans "Access by city" %}</h3>
 {% for obj in city %}
 <table><tr><td>{% if obj %}<img src="{{ obj.url }}" width="{{ obj.width }}" height="{{ obj.height }}"/>{% else %}{% trans "No data available" %}{% endif %}</td></tr><caption>{{ obj.caption }}</caption></table>
 {% endfor %}
 {% endif %}
 
 {% if os %}
-<h3>Access by OS</h3>
+<h3>{% trans "Access by OS" %}</h3>
 {% for obj in os %}
 <table><tr><td>{% if obj %}<img src="{{ obj.url }}" width="{{ obj.width }}" height="{{ obj.height }}"/>{% else %}{% trans "No data available" %}{% endif %}</td></tr><caption>{{ obj.caption }}</caption></table>
 {% endfor %}
 {% endif %}
 
 {% if browser %}
-<h3>Access by browser</h3>
+<h3>{% trans "Access by browser" %}</h3>
 {% for obj in browser %}
 <table><tr><td>{% if obj %}<img src="{{ obj.url }}" width="{{ obj.width }}" height="{{ obj.height }}"/>{% else %}{% trans "No data available" %}{% endif %}</td></tr><caption>{{ obj.caption }}</caption></table>
 {% endfor %}
 {% endif %}
 
-{% if visited %} 
-<h3>Most popular URLs</h3>
+{% if bots %}
+<h3>{% trans "Access by bots" %}</h3>
+<table><tr><td>{% if obj %}<img src="{{ bots.url }}" width="{{ bots.width }}" height="{{ bots.height }}"/>{% else %}{% trans "No data available" %}{% endif %}</td></tr><caption>{{ bots.caption }}</caption></table>
+{% endif %}
+
+{% if visited %}
+<h3>{% trans "Most popular URLs" %}</h3>
 <ol>
   {% for obj in visited %}<li><a href="{{ obj.0 }}">{{ obj.0 }}</a>: {{ obj.1 }} {% trans "visit" %}{{ obj.1|pluralize:_("s") }}</li>{% endfor %}
 </ol>

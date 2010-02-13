@@ -110,6 +110,7 @@ def identity(request, months=None):
   height = settings.AUDIT_PIE_HEIGHT
   users_caption = _(u'Site users')
   anonymous_caption = _(u'Anonymous')
+  bots_caption = _(u'Search bots')
 
   country = (pie_country(width, height, users_caption, log, 
     settings.AUDIT_NUMBER_OF_COUNTRIES), pie_country(width, height, 
@@ -121,6 +122,7 @@ def identity(request, months=None):
   osu, browseru = pie_browsers(width, height, anonymous_caption, unlog)
   os = (os, osu)
   browser = (browser, browseru)
+  bots = pie_bots(width, height, bots_caption, unlog)
 
   eq = q.exclude(error=None).exclude(error=u'')
   errors = {'total': eq.count(), 
@@ -140,6 +142,7 @@ def identity(request, months=None):
                               'city': city,
                               'os': os,
                               'browser': browser,
+                              'bots': bots,
                             },
                             context_instance=RequestContext(request))
 

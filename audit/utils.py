@@ -14,12 +14,14 @@ from pygeoip import GeoIP
 from audit.conf import settings
 import os
 
+# Loads location databases
 if os.path.exists(settings.AUDIT_COUNTRY_DATABASE):
   COUNTRY = GeoIP(settings.AUDIT_COUNTRY_DATABASE)
 else: COUNTRY=None
 if os.path.exists(settings.AUDIT_CITY_DATABASE):
   CITY = GeoIP(settings.AUDIT_CITY_DATABASE)
 else: CITY=None
+
 from pygooglechart import PieChart3D, StackedVerticalBarChart, Axis, Chart
 import operator
 import datetime
@@ -117,10 +119,13 @@ BROWSER = [
       'msie',
       'firefox',
       'chrome',
+      'netscape',
+    ]
+
+BOTS = [
       'googlebot',
       'msnbot',
       'slurp',
-      'netscape',
     ]
 
 OPERATING_SYSTEM = [
@@ -129,27 +134,60 @@ OPERATING_SYSTEM = [
       'macintosh',
     ]
 
-def eval_browsers(q):
+def eval_browsers(q, exclude_bots=True):
+  """Evaluate browser statistics."""
+
+  for k in q:
+    print k
+  
+  # evaluate browsers
+  browser = {}
+  consider = BROWSER
+  if not exclude_bots: consider += BOTS
+  
+  os_qs = [] #saves the queries used for browsers
+  for k in consider:
+    xq = q.filter(browser_info__icontains=k)
+    if exclude_bots:
+      for b in BOTS: xq = xq.exclude(browser_info__icontains=b)
+    if xq.count():
+      browser[k] = xq.count()
+    os_qs.append(xq)
+
+  browser['others'] = q.count() - sum(browser.values()) 
+  if exclude_bots:
+    bots = eval_bots(q)
+    browser['others'] -= sum(bots.values())
+ 
+  # evaluate OS based on the exclusion criteria as before
+  os = {}
+  totals = 0
+  for query in os_qs:
+    for k in query:
+      os[k] = q.filter(browser_info__icontains=k).count()
+      totals += os[k]
+  os['others'] = q.count() - totals
+
+  return os, browser
+
+def eval_bots(q):
   """Evaluate browser statistics."""
   browser = {}
   os = {}
   totals = 0
-  for k in BROWSER: 
+  for k in BOTS: 
     browser[k] = q.filter(browser_info__icontains=k).count()
     totals += browser[k]
-  browser['others'] = q.count() - totals
-  totals = 0
-  for k in OPERATING_SYSTEM: 
-    os[k] = q.filter(browser_info__icontains=k).count()
-    totals += os[k]
-  os['others'] = q.count() - totals
-
-  return os, browser
+  return browser 
 
 def pie_browsers(width, height, caption, q):
   os, browser = eval_browsers(q)
   return (pie_chart(width, height, caption, os.values(), os.keys()),
       pie_chart(width, height, caption, browser.values(), browser.keys()))
+
+def pie_bots(width, height, caption, q):
+  browser = eval_bots(q)
+  return pie_chart(width, height, caption, browser.values(), browser.keys())
 
 def monthy_popularity(width, height, caption, q):
   """Calculates a popularity barchart per month."""
