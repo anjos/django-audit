@@ -28,6 +28,7 @@ setup(
         'audit_relocate.py = audit.scripts.audit_relocate:main',
         'audit_refresh_db.py = audit.scripts.audit_refresh_dbs:main',
         'audit_prune.py = audit.scripts.audit_prune:main',
+        'audit_update_ua_db.py = audit.scripts.audit_update_ua_db:main',
         ],
       },
 
