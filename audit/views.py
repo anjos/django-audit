@@ -80,11 +80,11 @@ def popularity(request, months=None):
   hq = q.exclude(agent__bot=True)
   visited = most_visited(hq, settings.AUDIT_MAXIMUM_URLS)
   popularity = monthy_popularity(settings.AUDIT_PLOT_WIDTH, 
-      settings.AUDIT_PLOT_HEIGHT, _(u'Hits per month'), hq)
+      settings.AUDIT_PLOT_HEIGHT, _(u'Hits per month'), q)
   weekly = weekly_popularity(settings.AUDIT_PLOT_WIDTH,
-      settings.AUDIT_PLOT_HEIGHT, _(u'Hits per week'), hq)
+      settings.AUDIT_PLOT_HEIGHT, _(u'Hits per week'), q)
   hours = usage_hours(settings.AUDIT_PLOT_WIDTH, 
-      settings.AUDIT_PLOT_HEIGHT, _(u'Usage hours'), hq)
+      settings.AUDIT_PLOT_HEIGHT, _(u'Usage hours'), q)
 
   eq = q.exclude(error=None).exclude(error=u'')
   errors = {'total': eq.count(), 
