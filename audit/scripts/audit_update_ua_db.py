@@ -116,7 +116,7 @@ def main():
       updated += 1
     except: 
       ua = UserAgent()
-      print 'Creating %s:%s@%s' % (b, v, entry[platform])
+      #print 'Creating %s:%s@%s' % (b, v, entry[platform])
       created += 1
     ua.regexp = r
     if b: ua.browser = b.lower()
