@@ -9,6 +9,17 @@
 import os, sys, csv, codecs
 import urllib, shutil, re
 
+# matches the name or regular expression by case-insensitive search
+BOTS = [
+    'inktomi',
+    'slurp',
+    'bot',
+    'crawler',
+    'engine',
+    'baidu',
+    'spider',
+    ]
+
 class UTF8Recoder:
   """Iterator that reads an encoded stream and reencodes the input to UTF-8"""
 
@@ -73,6 +84,7 @@ def main():
   version_re = re.compile(r'^(?P<browser>\S*)\s*(?P<version>[\d\.]*)$')
   updated = 0
   created = 0
+  bots = 0
 
   for entry in reader:
 
@@ -109,7 +121,18 @@ def main():
     ua.regexp = r
     if b: ua.browser = b.lower()
     if v: ua.version = v.lower()
+    else: ua.version = 'unknown'
     if entry[platform]: ua.os = entry[platform].lower()
+    else: ua.os = 'unknown'
+
+    #checks bot status
+    ua.bot = False
+    for k in BOTS:
+      if ua.browser.find(k) >= 0 or ua.regexp.find(k) >= 0:
+        ua.bot = True
+        bots += 1
+        break
+
     ua.save()
 
   # remove the downloaded database
@@ -119,6 +142,7 @@ def main():
   print 'Finished updating User-Agent database from %s' % url
   print 'Updated %d entries' % updated
   print 'Created %d entries' % created 
+  print '%d robots in total' % bots 
 
 if __name__ == '__main__':
   main()

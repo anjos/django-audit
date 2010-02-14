@@ -28,9 +28,9 @@
 <h3>{% trans "Summary" %}</h3>
 <ul>
   <li>{% trans "Start date" %}: {{ date|date:"j/M/Y" }} ({{ ago }} {% trans "months ago" %})</li>
-  <li>{% trans "Total hits for logged-in users" %}: {{ hits.0 }}</li>
-  <li>{% trans "Total hits for anonymous users" %}: {{ hits.1 }}</li>
-  <li>{% trans "Number of errors" %}: {{ errors.total }} ({% trans "Logged users" %}: {{ errors.log }}/{% trans "Anonymous" %}: {{ errors.unlog }})</li>
+  <li>{% trans "Total hits for logged-in users" %}: {{ hits.0 }} ({% blocktrans count errors.log as counter %}{{ counter }} error{% plural %}{{ counter }} errors{% endblocktrans %})</li>
+  <li>{% trans "Total hits for anonymous users" %}: {{ hits.1 }} ({% blocktrans count errors.unlog as counter %}{{ counter }} error{% plural %}{{ counter }} errors{% endblocktrans %})</li>
+  <li>{% trans "Total hits for robots" %}: {{ hits.2 }} ({% blocktrans count errors.bots as counter %}{{ counter }} error{% plural %}{{ counter }} errors{% endblocktrans %})</li>
 </ul>
 
 {% if logunlog %}
@@ -91,7 +91,7 @@
 
 {% if bots %}
 <h3>{% trans "Access by bots" %}</h3>
-<table><tr><td>{% if obj %}<img src="{{ bots.url }}" width="{{ bots.width }}" height="{{ bots.height }}"/>{% else %}{% trans "No data available" %}{% endif %}</td></tr><caption>{{ bots.caption }}</caption></table>
+<table><tr><td><img src="{{ bots.url }}" width="{{ bots.width }}" height="{{ bots.height }}"/></td></tr><caption>{{ bots.caption }}</caption></table>
 {% endif %}
 
 {% if visited %}

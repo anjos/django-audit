@@ -23,7 +23,7 @@ class UserAgent(models.Model):
 
   regexp = models.CharField(_(u'Regular expression'), max_length=100,
       db_index=True, unique=True, null=False, blank=False,
-      help_text=_(u'The regular expression that will match the user agent'))
+      help_text=_(u'The regular expression that will be search at the user agent string'))
 
   browser = models.CharField(_(u'Browser'), max_length=100,
       help_text=_(u'The actual browser doing the request'))
@@ -33,6 +33,8 @@ class UserAgent(models.Model):
 
   os = models.CharField(_(u'Operating System'), max_length=100, 
       help_text=_(u'The Operating System for this browser'))
+
+  bot = models.BooleanField(_(u'Robot'), help_text=_(u'Is this entry a known search bot?'), blank=False, null=False, default=False)
 
 class UserActivity(models.Model):
   """Represents a user (single) hit at our website."""
@@ -74,7 +76,7 @@ class UserActivity(models.Model):
 
   country_code = models.CharField(_(u'Country code'), help_text=_(u'The 2-digit country code from where the request originated.'), blank=True, null=False, max_length=3, db_index=True, default='')
 
-  languages = models.CharField(_(u'Accepted languages'), help_text=_(u'The language codes that would be better according to the requester.'), blank=True, null=False, max_length=100, default='')
+  languages = models.CharField(_(u'Accepted languages'), help_text=_(u'The language codes that would be better according to the requester.'), blank=True, null=True, max_length=100, default='')
 
   def set_processing_time(self):
     self.processing_time = (datetime.now()-self.date).microseconds

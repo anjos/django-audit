@@ -95,7 +95,7 @@ def eval_field(q, n, field):
   for k in data: 
     if k[field]: tmp[k[field]] = k['count']
     else: tmp[ugettext(u'Unknown').encode('utf-8')] = k['count']
-  clutter(tmp, n, ugettext(u'Others').encode('utf-8'))
+  clutter(tmp, n, ugettext(u'others').encode('utf-8'))
   return tmp 
 
 def pie_country(width, height, caption, q, n=6):
@@ -110,80 +110,35 @@ def pie_city(width, height, caption, q, n=10):
     elif k['country_code']: hits[ugettext(u'Unknown').encode('utf-8') + ', ' \
         + k['country_code']] = k['count']
     else: hits[ugettext(u'Unknown').encode('utf-8')] = k['count']
-  clutter(hits, n, ugettext(u'Others').encode('utf-8'))
+  clutter(hits, n, ugettext(u'others').encode('utf-8'))
   return pie_chart(width, height, caption, hits.values(), hits.keys())
 
-BROWSER = [
-      'safari',
-      'konqueror',
-      'msie',
-      'firefox',
-      'chrome',
-      'netscape',
-    ]
-
-BOTS = [
-      'googlebot',
-      'msnbot',
-      'slurp',
-    ]
-
-OPERATING_SYSTEM = [
-      'linux',
-      'windows',
-      'macintosh',
-    ]
-
-def eval_browsers(q, exclude_bots=True):
+def eval_browsers(q, clip=8):
   """Evaluate browser statistics."""
 
+  browser = {} 
+  os = {}
   for k in q:
-    print k
-  
-  # evaluate browsers
-  browser = {}
-  consider = BROWSER
-  if not exclude_bots: consider += BOTS
-  
-  os_qs = [] #saves the queries used for browsers
-  for k in consider:
-    xq = q.filter(browser_info__icontains=k)
-    if exclude_bots:
-      for b in BOTS: xq = xq.exclude(browser_info__icontains=b)
-    if xq.count():
-      browser[k] = xq.count()
-    os_qs.append(xq)
+    browser[k.agent.browser] = browser.get(k.agent.browser, 0) + 1
+    os[k.agent.os] = os.get(k.agent.os, 0) + 1
 
-  browser['others'] = q.count() - sum(browser.values()) 
-  if exclude_bots:
-    bots = eval_bots(q)
-    browser['others'] -= sum(bots.values())
- 
-  # evaluate OS based on the exclusion criteria as before
-  os = {}
-  totals = 0
-  for query in os_qs:
-    for k in query:
-      os[k] = q.filter(browser_info__icontains=k).count()
-      totals += os[k]
-  os['others'] = q.count() - totals
-
+  clutter(browser, clip, ugettext(u'others').encode('utf-8'))
+  clutter(os, clip, ugettext(u'others').encode('utf-8'))
+  
   return os, browser
-
-def eval_bots(q):
-  """Evaluate browser statistics."""
-  browser = {}
-  os = {}
-  totals = 0
-  for k in BOTS: 
-    browser[k] = q.filter(browser_info__icontains=k).count()
-    totals += browser[k]
-  return browser 
 
 def pie_browsers(width, height, caption, q):
   os, browser = eval_browsers(q)
   return (pie_chart(width, height, caption, os.values(), os.keys()),
       pie_chart(width, height, caption, browser.values(), browser.keys()))
+
+def eval_bots(q, clip=8):
+  """Evaluate browser statistics."""
+  browser = {} 
+  for k in q:
+    browser[k.agent.browser] = browser.get(k.agent.browser, 0) + 1
+  clutter(browser, clip, ugettext(u'others').encode('utf-8'))
+  return browser 
 
 def pie_bots(width, height, caption, q):
   browser = eval_bots(q)
@@ -298,7 +253,7 @@ def most_visited(q, n):
   if data:
     vals = sorted(zip(data.keys(), data.values()), key=operator.itemgetter(1), reverse=True)
     retval = vals[:n]
-    retval.append((_(u'Others'), sum(map(operator.itemgetter(1), vals[n:]))))
+    retval.append((_(u'others'), sum(map(operator.itemgetter(1), vals[n:]))))
     return retval
   else:
     return {}
