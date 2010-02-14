@@ -271,10 +271,12 @@ def serving_time(width, height, caption, q, bins=15):
   # intervals.append(maximum)
 
   log = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.exclude(user=None)]]
-  unlog = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.filter(user=None)]]
+  unlog = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.filter(user=None).exclude(agent__bot=True)]]
+  bots = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.filter(user=None).filter(agent__bot=True)]]
   bar_log = [log.count(k) for k in range(bins)]
   bar_unlog = [unlog.count(k) for k in range(bins)]
-  max_y = max([sum(k) for k in zip(bar_log, bar_unlog)])
+  bar_bots = [bots.count(k) for k in range(bins)]
+  max_y = max([sum(k) for k in zip(bar_log, bar_unlog, bar_bots)])
 
   chart = StackedVerticalBarChart(width, height, y_range=(0, max_y))
   chart.set_colours(settings.AUDIT_CHART_COLORS)
@@ -282,13 +284,15 @@ def serving_time(width, height, caption, q, bins=15):
   chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data(bar_log)
   chart.add_data(bar_unlog)
+  chart.add_data(bar_bots)
   chart.set_axis_labels(Axis.BOTTOM, intervals)
   unit = [''] * bins
   unit[bins/2] = ugettext(u'milliseconds').encode('utf-8')
   chart.set_axis_labels(Axis.BOTTOM, unit)
   chart.set_axis_labels(Axis.LEFT, (0, max_y))
   chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-    ugettext(u'Anonymous').encode('utf-8')])
+    ugettext(u'Anonymous users').encode('utf-8'),
+    ugettext(u'Search bots').encode('utf-8')])
 
   return {'url': chart.get_url(), 'width': width, 'height': height,
       'caption': caption}
