@@ -160,7 +160,8 @@ def monthy_popularity(width, height, caption, q):
   intervals += [maximum, maximum + relativedelta(months=1)]
 
   log = q.exclude(user=None)
-  unlog = q.filter(user=None)
+  unlog = q.filter(user=None).exclude(agent__bot=True)
+  bots = q.filter(user=None).filter(agent__bot=True)
   max = 0
   bars = []
   for k in range(len(intervals)-1):
@@ -169,8 +170,9 @@ def monthy_popularity(width, height, caption, q):
       'label1': intervals[k].strftime('%Y'),
       'logged': log.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       'anon': unlog.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      'bots': bots.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       })
-    hits = bars[-1]['logged'] + bars[-1]['anon']
+    hits = bars[-1]['logged'] + bars[-1]['anon'] + bars[-1]['bots']
     if hits > max: max = hits
 
   # here we have all labels organized and entries counted.
@@ -182,8 +184,10 @@ def monthy_popularity(width, height, caption, q):
   chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data([k['logged'] for k in bars])
   chart.add_data([k['anon'] for k in bars])
+  chart.add_data([k['bots'] for k in bars])
   chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-    ugettext(u'Anonymous').encode('utf-8')])
+    ugettext(u'Anonymous').encode('utf-8'),
+    ugettext(u'Search bots').encode('utf-8')])
   chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
   label1 = [k['label1'] for k in bars]
   # avoid duplicates in the year axis
@@ -210,7 +214,8 @@ def weekly_popularity(width, height, caption, q):
   intervals += [maximum, maximum + relativedelta(weeks=1)]
 
   log = q.exclude(user=None)
-  unlog = q.filter(user=None)
+  unlog = q.filter(user=None).filter(agent__bot=False)
+  bots = q.filter(user=None).exclude(agent__bot=False)
   max = 0
   bars = []
   for k in range(len(intervals)-1):
@@ -219,8 +224,9 @@ def weekly_popularity(width, height, caption, q):
       'label1': intervals[k].strftime('%Y'),
       'logged': log.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       'anon': unlog.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      'bots': bots.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       })
-    hits = bars[-1]['logged'] + bars[-1]['anon']
+    hits = bars[-1]['logged'] + bars[-1]['anon'] + bars[-1]['bots']
     if hits > max: max = hits
 
   # here we have all labels organized and entries counted.
@@ -232,8 +238,10 @@ def weekly_popularity(width, height, caption, q):
   chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data([k['logged'] for k in bars])
   chart.add_data([k['anon'] for k in bars])
+  chart.add_data([k['bots'] for k in bars])
   chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-    ugettext(u'Anonymous').encode('utf-8')])
+    ugettext(u'Anonymous').encode('utf-8'),
+    ugettext(u'Search bots').encode('utf-8')])
   chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
   label1 = [k['label1'] for k in bars]
   # avoid duplicates in the year axis
@@ -300,12 +308,14 @@ def serving_time(width, height, caption, q, bins=15):
 def usage_hours(width, height, caption, q):
   """An histogram of the usage hours"""
   log = [k.date.hour for k in q.exclude(user=None)]
-  unlog = [k.date.hour for k in q.filter(user=None)]
+  unlog = [k.date.hour for k in q.filter(user=None).exclude(agent__bot=True)]
+  bots = [k.date.hour for k in q.filter(user=None).filter(agent__bot=True)]
   intervals = range(24)
 
   bar_log = [log.count(k) for k in intervals]
   bar_unlog = [unlog.count(k) for k in intervals]
-  maximum = max([sum(k) for k in zip(bar_log, bar_unlog)])
+  bar_bots = [bots.count(k) for k in intervals]
+  maximum = max([sum(k) for k in zip(bar_log, bar_unlog, bar_bots)])
 
   chart = StackedVerticalBarChart(width, height, y_range=(0, maximum))
   chart.set_colours(settings.AUDIT_CHART_COLORS)
@@ -313,6 +323,7 @@ def usage_hours(width, height, caption, q):
   chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data(bar_log)
   chart.add_data(bar_unlog)
+  chart.add_data(bar_bots)
   chart.set_bar_width(15) #pixels
   chart.set_axis_labels(Axis.BOTTOM, intervals)
   unit = [''] * 24
@@ -320,7 +331,8 @@ def usage_hours(width, height, caption, q):
   chart.set_axis_labels(Axis.BOTTOM, unit)
   chart.set_axis_labels(Axis.LEFT, (0, maximum))
   chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-    ugettext(u'Anonymous').encode('utf-8')])
+    ugettext(u'Anonymous').encode('utf-8'),
+    ugettext(u'Search bots').encode('utf-8')])
 
   return {'url': chart.get_url(), 'width': width, 'height': height,
       'caption': caption}
