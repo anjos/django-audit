@@ -22,6 +22,7 @@ class Activity:
       client_address = request.META.get('REMOTE_ADDR', ''),
       client_host = request.META.get('REMOTE_HOST', ''), 
       browser_info = request.META.get('HTTP_USER_AGENT', ''),
+      languages = request.META.get('HTTP_ACCEPT_LANGUAGE', ''),
     )
 
     # Makes 1 database lookup. If the city database is available, prefer that 

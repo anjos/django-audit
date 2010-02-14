@@ -52,10 +52,9 @@ function install () {
 function link_install () {
   install $1 $2;
   echo "### Link installing $1..."
-  location=`readlink -f $2/$1`;
   cd ${INSTALLDIR}/audit-*;
   rm -rf $1;
-  ln -s $location .;
+  ln -s ../../$2/$1 .;
   cd -;
 }
 

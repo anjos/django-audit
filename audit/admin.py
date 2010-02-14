@@ -14,8 +14,15 @@ def error(object):
   return bool(object.error) 
 error.short_description = _(u'Error')
 
+class UserAgentAdmin(admin.ModelAdmin):
+  list_display = ('browser', 'version', 'os', 'regexp')
+  list_filter = ('browser', 'os')
+  model = UserAgent 
+
+admin.site.register(UserAgent, UserAgentAdmin)
+
 class ActivityAdmin(admin.ModelAdmin):
-  list_display = ('user', 'date', 'request_url', 'processing_time', error)
+  list_display = ('user', 'date', 'request_url', 'processing_time', error, 'agent')
   list_filter = ('user', 'date')
   model = UserActivity
 
