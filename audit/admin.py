@@ -10,20 +10,25 @@ from django.contrib import admin
 from audit.models import * 
 from django.utils.translation import ugettext_lazy as _
 
-def error(object):
-  return bool(object.error) 
-error.short_description = _(u'Error')
-
 class UserAgentAdmin(admin.ModelAdmin):
-  list_display = ('browser', 'version', 'os', 'locked', 'regexp')
-  list_filter = ('locked', 'os', 'browser')
+  list_display = ('browser', 'version', 'os', 'locked', 'bot', 'regexp')
+  list_filter = ('locked', 'bot', 'os', 'browser')
   model = UserAgent 
 
 admin.site.register(UserAgent, UserAgentAdmin)
 
+def error(object):
+  return bool(object.error) 
+error.short_description = _(u'Error')
+
+def bot(object):
+  if object.agent: return object.agent.bot
+  return False
+bot.short_descriptio = _(u'Bot')
+
 class ActivityAdmin(admin.ModelAdmin):
-  list_display = ('user', 'date', 'request_url', 'processing_time', error, 'agent')
-  list_filter = ('user', 'date')
+  list_display = ('user', 'date', 'request_url', 'processing_time', error, 'agent', bot)
+  list_filter = ('user', 'date', 'agent')
   model = UserActivity
 
 admin.site.register(UserActivity, ActivityAdmin)
