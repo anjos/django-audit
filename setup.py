@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 setup(
 
     name = "audit",
-    version = "0.3.8", 
+    version = "0.3.9", 
     packages = find_packages(),
 
     # we also need all translation files and templates

@@ -15,8 +15,8 @@ def error(object):
 error.short_description = _(u'Error')
 
 class UserAgentAdmin(admin.ModelAdmin):
-  list_display = ('browser', 'version', 'os', 'regexp')
-  list_filter = ('browser', 'os')
+  list_display = ('browser', 'version', 'os', 'locked', 'regexp')
+  list_filter = ('locked', 'os', 'browser')
   model = UserAgent 
 
 admin.site.register(UserAgent, UserAgentAdmin)
