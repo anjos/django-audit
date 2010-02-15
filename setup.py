@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 setup(
 
     name = "audit",
-    version = "0.3.3", 
+    version = "0.3.4", 
     packages = find_packages(),
 
     # we also need all translation files and templates
@@ -30,6 +30,7 @@ setup(
         'audit_prune.py = audit.scripts.audit_prune:main',
         'audit_update_ua_db.py = audit.scripts.audit_update_ua_db:main',
         'audit_find_agents.py = audit.scripts.audit_find_agents:main',
+        'audit_prune_bots.py = audit.scripts.audit_prune_bots:main',
         ],
       },
 
