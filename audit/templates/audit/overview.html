@@ -13,15 +13,15 @@
 
 <h4>
   {% if months %}
-    <a href="{% url audit-overview-months months %}">{% trans "Overview" %}</a> &middot;
-    <a href="{% url audit-popularity-months months %}">{% trans "Popularity" %}</a> &middot;
-    <a href="{% url audit-identity-months months %}">{% trans "Identity" %}</a> &middot;
-    <a href="{% url audit-performance-months months %}">{% trans "Performance" %}</a>
+    <a href="{% url audit:overview-months months %}">{% trans "Overview" %}</a> &middot;
+    <a href="{% url audit:popularity-months months %}">{% trans "Popularity" %}</a> &middot;
+    <a href="{% url audit:identity-months months %}">{% trans "Identity" %}</a> &middot;
+    <a href="{% url audit:performance-months months %}">{% trans "Performance" %}</a>
   {% else %}
-    <a href="{% url audit-overview %}">{% trans "Overview" %}</a> &middot;
-    <a href="{% url audit-popularity %}">{% trans "Popularity" %}</a> &middot;
-    <a href="{% url audit-identity %}">{% trans "Identity" %}</a> &middot;
-    <a href="{% url audit-performance %}">{% trans "Performance" %}</a>
+    <a href="{% url audit:overview %}">{% trans "Overview" %}</a> &middot;
+    <a href="{% url audit:popularity %}">{% trans "Popularity" %}</a> &middot;
+    <a href="{% url audit:identity %}">{% trans "Identity" %}</a> &middot;
+    <a href="{% url audit:performance %}">{% trans "Performance" %}</a>
   {% endif %}
 </h4>
 
