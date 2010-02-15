@@ -75,6 +75,7 @@ def main():
   updated = 0
   created = 0
   bots = 0
+  locked = 0
 
   for entry in reader:
 
@@ -103,6 +104,10 @@ def main():
     # create the user agents, if none for the same regexp is there
     try: 
       ua = UserAgent.objects.get(regexp=r)
+      if ua.locked: #we cannot update these
+        locked += 1
+        continue
+
       updated += 1
     except: 
       ua = UserAgent()
@@ -132,6 +137,7 @@ def main():
   print 'Finished updating User-Agent database from %s' % url
   print 'Updated %d entries' % updated
   print 'Created %d entries' % created 
+  print '%d entries were locked' % locked
   print '%d robots in total' % bots 
 
 if __name__ == '__main__':

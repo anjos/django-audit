@@ -36,6 +36,8 @@ class UserAgent(models.Model):
 
   bot = models.BooleanField(_(u'Robot'), help_text=_(u'Is this entry a known search bot?'), blank=False, null=False, default=False)
 
+  locked = models.BooleanField(_(u'Locked'), help_text=_(u'If you would like to avoid automatic updates on this entry, you should set this flag'), blank=False, null=False, default=False)
+
 class UserActivity(models.Model):
   """Represents a user (single) hit at our website."""
 
