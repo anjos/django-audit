@@ -58,3 +58,19 @@ AUDIT_CACHE_ALL_VIEWS = getattr(settings, 'AUDIT_CACHE_ALL_VIEWS', 0)
 # non-robot statistics. If you set this to to a number smaller than zero, no
 # statistics for bots will be kept. 
 AUDIT_KEEP_BOT_STATISTICS = getattr(settings, 'AUDIT_KEEP_BOT_STATISTICS', 0.2)
+
+# On this variable, you should keep a list of known bots.
+AUDIT_KNOWN_BOTS = getattr(settings, 'AUDIT_KNOWN_BOTS', 
+    [
+     'inktomi',
+     'slurp',
+     'bot',
+     'crawler',
+     'engine',
+     'baidu',
+     'spider',
+     'twiceler',
+     'research projects',
+    ]
+  )
+

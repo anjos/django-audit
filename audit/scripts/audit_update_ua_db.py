@@ -9,17 +9,6 @@
 import os, sys, csv, codecs
 import urllib, shutil, re
 
-# matches the name or regular expression by case-insensitive search
-BOTS = [
-    'inktomi',
-    'slurp',
-    'bot',
-    'crawler',
-    'engine',
-    'baidu',
-    'spider',
-    ]
-
 class UTF8Recoder:
   """Iterator that reads an encoded stream and reencodes the input to UTF-8"""
 
@@ -53,6 +42,7 @@ if not os.environ.has_key('DJANGO_SETTINGS_MODULE'):
   os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
 
 from audit.models import UserAgent
+from audit.conf import settings
 
 def download(db, name):
   """Downloads the file pointed by "db" and put it in "name"."""
@@ -127,7 +117,7 @@ def main():
 
     #checks bot status
     ua.bot = False
-    for k in BOTS:
+    for k in AUDIT_KNOWN_BOTS:
       if ua.browser.find(k) >= 0 or ua.regexp.find(k) >= 0:
         ua.bot = True
         bots += 1
