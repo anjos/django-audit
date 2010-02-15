@@ -21,7 +21,7 @@ class UserAgent(models.Model):
     if self.os: retval += u' (%s)' % self.os
     return retval
 
-  regexp = models.CharField(_(u'Regular expression'), max_length=100,
+  regexp = models.CharField(_(u'Regular expression'), max_length=200,
       db_index=True, unique=True, null=False, blank=False,
       help_text=_(u'The regular expression that will be search at the user agent string'))
 
