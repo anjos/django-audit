@@ -71,6 +71,7 @@ AUDIT_KNOWN_BOTS = getattr(settings, 'AUDIT_KNOWN_BOTS',
      'spider',
      'twiceler',
      'research projects',
+     'teoma',
     ]
   )
 
