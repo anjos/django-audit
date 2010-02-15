@@ -117,7 +117,7 @@ def main():
 
     #checks bot status
     ua.bot = False
-    for k in AUDIT_KNOWN_BOTS:
+    for k in settings.AUDIT_KNOWN_BOTS:
       if ua.browser.find(k) >= 0 or ua.regexp.find(k) >= 0:
         ua.bot = True
         bots += 1
