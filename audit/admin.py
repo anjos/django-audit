@@ -28,7 +28,7 @@ bot.short_descriptio = _(u'Bot')
 
 class ActivityAdmin(admin.ModelAdmin):
   list_display = ('user', 'date', 'request_url', 'processing_time', error, 'agent', bot)
-  list_filter = ('user', 'date', 'agent')
+  list_filter = ('user', 'date', 'request_url', 'agent')
   model = UserActivity
 
 admin.site.register(UserActivity, ActivityAdmin)
