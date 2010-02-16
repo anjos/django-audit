@@ -95,7 +95,8 @@
 {% endif %}
 
 {% if visited %}
-<h3>{% trans "Most popular URLs (visited by people, not bots)" %}</h3>
+<h3>{% trans "Most popular URLs" %}</h3>
+<p>{% trans "Statistics in this section cover only visits by real clients and not bots. Logged-in users are excluded as well." %}</p>
 <ol>
   {% for obj in visited %}<li><a href="{{ obj.0 }}">{{ obj.0 }}</a>: {{ obj.1 }} {% trans "visit" %}{{ obj.1|pluralize:_("s") }}</li>{% endfor %}
 </ol>

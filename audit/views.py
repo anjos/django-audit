@@ -77,7 +77,7 @@ def popularity(request, months=None):
   unlog_bots = unlog.exclude(agent__bot=False)
 
   #now we have a date from the past to look-up
-  hq = q.exclude(agent__bot=True)
+  hq = q.exclude(agent__bot=True).filter(user=None)
   visited = most_visited(hq, settings.AUDIT_MAXIMUM_URLS)
   popularity = monthy_popularity(settings.AUDIT_PLOT_WIDTH, 
       settings.AUDIT_PLOT_HEIGHT, _(u'Hits per month'), q)
