@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 setup(
 
     name = "audit",
-    version = "0.3.12", 
+    version = "0.3.13", 
     packages = find_packages(),
 
     # we also need all translation files and templates
@@ -39,7 +39,6 @@ setup(
     install_requires = [
       'Django>=1.1',
       'docutils',
-      'setuptools',
       'pygeoip',
       'pygooglechart',
       'dateutils',
