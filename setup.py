@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 setup(
 
     name = "audit",
-    version = "0.3.13", 
+    version = "0.4", 
     packages = find_packages(),
 
     # we also need all translation files and templates
@@ -25,11 +25,8 @@ setup(
 
     entry_points = {
       'console_scripts': [
-        'audit_relocate.py = audit.scripts.audit_relocate:main',
-        'audit_refresh_db.py = audit.scripts.audit_refresh_dbs:main',
+        'audit_reval.py = audit.scripts.audit_reval:main',
         'audit_prune.py = audit.scripts.audit_prune:main',
-        'audit_update_ua_db.py = audit.scripts.audit_update_ua_db:main',
-        'audit_find_agents.py = audit.scripts.audit_find_agents:main',
         'audit_prune_bots.py = audit.scripts.audit_prune_bots:main',
         ],
       },
@@ -42,10 +39,6 @@ setup(
       'pygeoip',
       'pygooglechart',
       'dateutils',
-      ],
-
-    dependency_links = [
-      'http://docutils.sourceforge.net/docutils-snapshot.tgz',
       ],
 
     # metadata for upload to PyPI

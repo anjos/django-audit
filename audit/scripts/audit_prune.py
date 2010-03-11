@@ -8,7 +8,7 @@
 
 import os
 if not os.environ.has_key('DJANGO_SETTINGS_MODULE'):
-  os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
+  os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 from audit.conf import settings
 from audit.models import UserActivity 

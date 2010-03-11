@@ -10,25 +10,22 @@ from django.contrib import admin
 from audit.models import * 
 from django.utils.translation import ugettext_lazy as _
 
-class UserAgentAdmin(admin.ModelAdmin):
-  list_display = ('browser', 'version', 'os', 'locked', 'bot', 'regexp')
-  list_filter = ('locked', 'bot', 'os', 'browser')
-  model = UserAgent 
+def os_img(self):
+  return '<img src="%s" height="16" width="16" title="%s"/>' % \
+      (self.os_icon_url(), self.os_name)
+os_img.short_description = _(u'OS') 
+os_img.allow_tags = True
 
-admin.site.register(UserAgent, UserAgentAdmin)
-
-def error(object):
-  return bool(object.error) 
-error.short_description = _(u'Error')
-
-def bot(object):
-  if object.agent: return object.agent.bot
-  return False
-bot.short_descriptio = _(u'Bot')
+def ua_img(self):
+  return '<img src="%s" height="16" width="16" title="%s"/>' % \
+      (self.ua_icon_url(), self.ua_name)
+ua_img.short_description = _(u'Browser') 
+ua_img.allow_tags = True
 
 class ActivityAdmin(admin.ModelAdmin):
-  list_display = ('user', 'date', 'request_url', 'processing_time', error, 'agent', bot)
-  list_filter = ('user', 'date', 'request_url', 'agent')
+  list_display = ('user', 'date', 'country', 'processing_time', os_img,
+      ua_img, UserActivity.is_success, UserActivity.is_human, 'request_url')
+  list_filter = ('user', 'date', 'ua_family', 'os_family', 'request_url')
   model = UserActivity
 
 admin.site.register(UserActivity, ActivityAdmin)

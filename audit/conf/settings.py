@@ -18,6 +18,10 @@ AUDIT_COUNTRY_DATABASE = getattr(settings, 'AUDIT_COUNTRY_DATABASE',
 AUDIT_CITY_DATABASE = getattr(settings, 'AUDIT_CITY_DATABASE',
   os.path.join(settings.MEDIA_ROOT, 'audit/db/GeoLiteCity.dat'))
 
+# The directory that contains the UserAgent database 
+AUDIT_USERAGENT_DATABASE = getattr(settings, 'AUDIT_USERAGENT_DATABASE',
+  os.path.join(settings.MEDIA_ROOT, 'audit/db'))
+
 # Number of months to log
 AUDIT_MONTHS_TO_LOG = getattr(settings, 'AUDIT_MONTHS_TO_LOG', 24)
 

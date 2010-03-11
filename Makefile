@@ -1,52 +1,55 @@
 # Dear emacs, this is -*- Makefile -*-
 # Created by Andre Anjos <Andre.dos.Anjos@gmail.com>, 20-Mar-2007
 
-# These are helpers
-MAKE_MESSAGE=sw/django-admin.py makemessages --all --extension=html,py,txt
-COMPILE_MESSAGE=sw/django-admin.py compilemessages
+# These are variables you can configure for your application
+python=python2.5
 LANGUAGES=en pt_BR fr es
-PYTHON=python2.5
-PROJECT=audit
+
+# These are helpers
+admin=sw/bin/django-admin.py
+project=$(shell basename `pwd`)
+MAKE_MESSAGE=$(admin) makemessages --all --extension=html,py,txt
+COMPILE_MESSAGE=$(admin) compilemessages
 
 .PHONY: test clean 
 
-# ACTION: Executes a simple cleanup (remove '~' files and pyc files) and then
-# will compile the PO locale files.
-all: clean install_django strings compile 
+.PHONY: clean mrproper generate_bootstrap bootstrap upgrade strings compile languages 
 
-# ACTION: Builds the PO locale files, by reading our source code and updating
-# the existing message catalog. This will not compile the resulting PO source
-# files.
-strings:
-	@echo "Updating language files...";
-	@cd $(PROJECT); for l in $(LANGUAGES); do if [ ! -d locale/$$l ]; then mkdir -pv locale/$$l; fi; done;
-	@cd $(PROJECT) && ../$(MAKE_MESSAGE);
+parser:
+	@echo "Downloading UA parser and icons...";
+	@./scripts/unzip_url.py audit http://user-agent-string.info/ua_rep/uasparser.py.zip
+	@./scripts/unzip_url.py audit/media/img/os http://user-agent-string.info/rpc/get_data.php?ico=os
+	@./scripts/unzip_url.py audit/media/img/ua http://user-agent-string.info/rpc/get_data.php?ico=ua 
 
-# ACTION: This will literally compile the PO files into MO files, that can be
-# loaded by your web application
-compile:
-	@echo "Compiling language files...";
-	@cd $(PROJECT) && ../$(COMPILE_MESSAGE);
+generate_bootstrap:
+	$(MAKE) --directory=scripts generate
 
-install_django:
-	@./scripts/install_django.sh;
+bootstrap: generate_bootstrap parser
+	@./scripts/bootstrap.py --quiet --no-site-packages --python=$(python) sw
 
-remove_django:
-	@rm -rf sw*
+upgrade:
+	@./scripts/bootstrap.py --quiet --no-site-packages --python=$(python) --upgrade sw
 
-languages: install_django strings compile
+clean: 	
+	@find . -name '*~' -print0 | xargs -0 rm -vf 
+	@rm -rf pip-log.txt *.egg-info
+	$(MAKE) --directory=scripts clean
+	$(MAKE) --directory=test clean
 
-update_languages:
-	@for l in $(LANGUAGES); do cp test/sw/$(PROJECT)*/$(PROJECT)/locale/$$l/LC_MESSAGES/django.po $(PROJECT)/locale/$$l/LC_MESSAGES/; done
+test:
+	$(MAKE) --directory=test all
 
-test: 
-	@cd test && ./run.sh
+mrproper: clean
+	@rm -rf sw 
+	$(MAKE) --directory=scripts mrproper 
+	$(MAKE) --directory=test mrproper
+	@find . -name '*.pyc' -or -name '*.pyo' -print0 | xargs -0 rm -vf
 
-link_test:
-	@cd test && LINK=1 ./run.sh
+strings: bootstrap
+	@cd $(project); for l in $(LANGUAGES); do if [ ! -d locale/$$l ]; then mkdir -pv locale/$$l; fi; done;
+	@cd $(project) && ../$(MAKE_MESSAGE);
 
-clean: remove_django
-	find . -name '*~' -print0 | xargs -0 rm -vf 
-	find . -name '*.py?' -print0 | xargs -0 rm -vf
-	@cd test && ./cleanup.sh
-	@rm -rf *.egg-info build temp
+compile: bootstrap
+	@cd $(project) && ../$(COMPILE_MESSAGE);
+
+languages: strings compile

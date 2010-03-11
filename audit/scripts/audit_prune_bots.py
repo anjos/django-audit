@@ -8,20 +8,18 @@
 
 import os
 if not os.environ.has_key('DJANGO_SETTINGS_MODULE'):
-  os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
+  os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 from audit.conf import settings
-from audit.models import UserActivity 
+from audit.models import * 
 
 def main():
   #keeping us safe...
   max = float(settings.AUDIT_KEEP_BOT_STATISTICS)
   if max < 0: max = 0
 
-  q = UserActivity.objects.exclude(agent=None)
-  print 'Found %d classified UserActivites' % q.count()
-  bots = q.filter(agent__bot=True).order_by('-date')
-  nonbot_count = q.filter(agent__bot=False).count()
+  bots = RobotActivity.objects.order_by('-date')
+  nonbot_count = HumanActivity.objects.all().count()
   maximum_count_to_keep = nonbot_count * max
 
   to_delete = bots.count() - maximum_count_to_keep

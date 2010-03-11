@@ -13,6 +13,7 @@ from django.db.models import Min, Max, Count
 from pygeoip import GeoIP
 from audit.conf import settings
 import os
+from audit.uasparser import UASparser
 
 # Loads location databases
 if os.path.exists(settings.AUDIT_COUNTRY_DATABASE):
@@ -87,6 +88,19 @@ def try_set_location(activity):
   activity.city = location['city'].decode('iso-8859-1')
   activity.country = location['country_name'].decode('iso-8859-1')
   activity.country_code = location['country_code'].decode('iso-8859-1')
+
+def try_ua_parsing(activity):
+  """Tries to parse the UA string from the request."""
+  if not activity.browser_info: return
+  parser = UASparser(settings.AUDIT_USERAGENT_DATABASE)
+  result = parser.parse(str(activity.browser_info))
+  activity.ua_name = result['ua_name']
+  activity.ua_icon = result['ua_icon']
+  activity.ua_family = result['ua_family']
+  activity.os_name = result['os_name']
+  activity.os_icon = result['os_icon']
+  activity.os_family = result['os_family']
+  activity.ua_type = result['typ']
 
 def eval_field(q, n, field):
   """Evaluate field statistics."""

@@ -6,37 +6,13 @@
 """Models to log user statistics
 """
 
+import os
 from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
 from django.utils.translation import ugettext_lazy as _
-
-class UserAgent(models.Model):
-  """Represents an identified user agent."""
-
-  def __unicode__(self):
-    retval = u'%s' % self.browser
-    if self.version: retval += u' %s' % self.version
-    if self.os: retval += u' (%s)' % self.os
-    return retval
-
-  regexp = models.CharField(_(u'Regular expression'), max_length=200,
-      db_index=True, unique=True, null=False, blank=False,
-      help_text=_(u'The regular expression that will be search at the user agent string'))
-
-  browser = models.CharField(_(u'Browser'), max_length=100,
-      help_text=_(u'The actual browser doing the request'))
-
-  version = models.CharField(_(u'Version'), max_length=10,
-      help_text=_(u'The version of the browser doing the request'))
-
-  os = models.CharField(_(u'Operating System'), max_length=100, 
-      help_text=_(u'The Operating System for this browser'))
-
-  bot = models.BooleanField(_(u'Robot'), help_text=_(u'Is this entry a known search bot?'), blank=False, null=False, default=False)
-
-  locked = models.BooleanField(_(u'Locked'), help_text=_(u'If you would like to avoid automatic updates on this entry, you should set this flag'), blank=False, null=False, default=False)
+from django.core.urlresolvers import reverse
 
 class UserActivity(models.Model):
   """Represents a user (single) hit at our website."""
@@ -68,8 +44,6 @@ class UserActivity(models.Model):
 
   browser_info = models.CharField(_(u'Browser'), help_text=_(u'The user agent tag from the browser. Please note this may not correspond to actual client being used since many browsers can send fake tags.'), null=True, blank=True, max_length=512)
 
-  agent = models.ForeignKey(UserAgent, help_text=_(u'The user agent against this browser_info matches best.'), null=True)
-
   error = models.TextField(_(u'Error'), help_text=_(u'If an error was produced during the user visit, log it here.'), null=True, blank=True)
 
   city = models.CharField(_(u'City'), help_text=_(u'The city from where the request originated.'), blank=True, null=False, max_length='64', default='')
@@ -80,6 +54,161 @@ class UserActivity(models.Model):
 
   languages = models.CharField(_(u'Accepted languages'), help_text=_(u'The language codes that would be better according to the requester.'), blank=True, null=True, max_length=100, default='')
 
+  # information that will get parsed by UASparser
+  ua_name = models.CharField(_(u'Browser'), help_text=_(u'The browser name'), blank=True, null=True, max_length=50)
+
+  ua_icon = models.CharField(_(u'Browser icon'), help_text=_(u'The name of the browser icon to use for this user agent'), blank=True, null=True, max_length=50)
+
+  ua_family = models.CharField(_(u'Browser family'), help_text=_(u'The family of browsers this browser belongs to'), blank=True, null=True, max_length=50)
+
+  os_name = models.CharField(_(u'OS'), help_text=_(u'The name of the OS the request came from'), blank=True, null=True, max_length=50)
+
+  os_icon = models.CharField(_(u'OS icon'), help_text=_(u'The name of the OS icon to use for this operating system'), blank=True, null=True, max_length=50)
+  
+  os_family = models.CharField(_(u'OS family'), help_text=_(u'The family of OSs this browser belongs to'), blank=True, null=True, max_length=50)
+
+  ua_type = models.CharField(_(u'Browser type'), help_text=_(u'The browser type'), blank=True, null=True, max_length=50)
+
+  def os_icon_url(self):
+    """Computes the icon URL for the activity."""
+    return reverse('media', args=[os.path.join('audit', 'img', 'os', self.os_icon)])
+  os_icon_url.short_description = _(u'OS icon URL')
+
+  def ua_icon_url(self):
+    """Computes the icon URL for the activity."""
+    return reverse('media', args=[os.path.join('audit', 'img', 'ua', self.ua_icon)])
+  ua_icon_url.short_description = _(u'Browser icon URL')
+
+  def is_error(self):
+    """Verifies if we were on error"""
+    return bool(self.error)
+  is_error.short_description = _(u'Error')
+  is_error.boolean = True
+
+  def is_success(self):
+    """Verifies if we returned successfuly"""
+    return not self.is_error()
+  is_success.short_description = _(u'Success')
+  is_success.boolean = True
+
+  def is_bot(self):
+    """Is the user agent a robot?"""
+    return self.ua_type.lower() == 'robot'
+  is_bot.short_description = _(u'Bot')
+  is_bot.boolean = True
+
+  def is_human(self):
+    """Is the user agent representing a real user?"""
+    return not self.is_bot()
+  is_human.short_description = _(u'Human')
+  is_human.boolean = True
+
   def set_processing_time(self):
     self.processing_time = (datetime.now()-self.date).microseconds
 
+# From this point onwards a series of proxies to help us locate specific user
+# activities faster.
+class UnidentifiedActivityManager(models.Manager):
+  """Selects user activities from which the system does not know about the UA/OS"""
+
+  def get_query_set(self):
+    return super(IdentifiedActivity, self).get_query_set().filter(Q(ua_name__iexact='unknown') | Q(ua_name='') | Q(ua_name=None))
+
+class UnidentifiedActivity(UserActivity):
+  """Activites without the UA string correctly identified."""
+  manager = UnidentifiedActivityManager()
+
+  class Meta:
+    proxy = True
+
+class IdentifiedActivityManager(models.Manager):
+  """Selects user activities from which the system knows about the UA/OS"""
+
+  def get_query_set(self):
+    return super(IdentifiedActivity, self).get_query_set().exclude(Q(ua_name__iexact='unknown') | Q(ua_name='') | q(ua_name=None))
+
+class IdentifiedActivity(UserActivity):
+  """Activites with the UA string correctly identified."""
+  manager = IdentifiedActivityManager()
+
+  class Meta:
+    proxy = True
+
+class RobotActivityManager(IdentifiedActivityManager):
+  """Select robot activity"""
+
+  def get_query_set(self):
+    return super(RobotActivity, self).get_query_set().filter(ua_type__iexact='robot')
+
+class RobotActivity(IdentifiedActivity):
+  """Activites by robots."""
+  manager = RobotActivityManager()
+
+  class Meta:
+    proxy = True
+
+class HumanActivityManager(IdentifiedActivityManager):
+  """Select human activity"""
+
+  def get_query_set(self):
+    return super(HumanActivity, self).get_query_set().exclude(ua_type__iexact='robot')
+
+class HumanActivity(IdentifiedActivity):
+  """Activites by humans."""
+  manager = HumanActivityManager()
+
+  class Meta:
+    proxy = True
+
+class UnlocatedActivityManager(models.Manager):
+  """Selects places with cities or countries that were not identified."""
+
+  def get_query_set(self):
+    return super(UnlocatedActivityManager, self).get_query_set().filter(Q(city='')|Q(country=''))
+
+class UnlocatedActivity(UserActivity):
+  """Activites without city or country located."""
+  manager = UnidentifiedActivityManager()
+
+  class Meta:
+    proxy = True
+
+class LocatedActivityManager(models.Manager):
+  """Selects activities that were well located."""
+
+  def get_query_set(self):
+    return super(LocatedActivityManager, self).get_query_set().exclude(Q(city='')|Q(country=''))
+
+class LocatedActivity(UserActivity):
+  """Activites with city and country located."""
+  manager = LocatedActivityManager()
+
+  class Meta:
+    proxy = True
+
+class SiteUserActivityManager(models.Manager):
+  """Selects activities by site users."""
+
+  def get_query_set(self):
+    return super(SiteUserActivity, self).get_query_set().exclude(user=None)
+
+class SiteUserActivityManager(UserActivity):
+  """Activites by authenticated users."""
+  manager = SiteUserActivityManager()
+
+  class Meta:
+    proxy = True
+
+class AnonymousActivityManager(models.Manager):
+  """Selects activities by unauthenticated users."""
+
+  def get_query_set(self):
+    return super(AnonymousActivity, self).get_query_set().filter(user=None)
+
+class AnonymousActivity(UserActivity):
+  """Activites by unauthenticated users."""
+
+  manager = AnonymousActivityManager()
+
+  class Meta:
+    proxy = True

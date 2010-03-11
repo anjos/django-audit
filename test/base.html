@@ -1,4 +1,4 @@
-{% load i18n %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
     <title>{% block title %} NO TITLE? {% endblock %}</title>
@@ -6,10 +6,11 @@
   </head>
 
   <body>
+
     {% block content %}<p>Hello, there is no content provided?</p>{% endblock %}
 
     <div class="footer">
-     <hr /><p>{% trans "Automatically generated at " %}{% now "r" %}</p>
+     <hr /><p>Automatically generated at {% now "r" %}</p>
     </div>
 
  </body>
