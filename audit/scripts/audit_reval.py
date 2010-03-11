@@ -14,32 +14,12 @@ import os, sys
 if not os.environ.has_key('DJANGO_SETTINGS_MODULE'):
   os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-import urllib, shutil
 from audit.models import *
 from audit.utils import try_set_location, try_ua_parsing
-from audit.conf import settings
-
-def refresh_db(path, bin):
-  print "Refreshing installation of %s..." % path
-  (gzip, headers) = urllib.urlretrieve(bin)
-  os.system('gzip -d %s' % gzip)
-  if os.path.exists(path): os.unlink(path)
-  dir = os.path.dirname(path)
-  if not os.path.exists(dir): os.makedirs(dir)
-  shutil.move(gzip[:-3], path)
 
 def main():
   full = False
   if len(sys.argv) > 1: full = True
-
-  if full:
-    # if the user selected a full reload, we try a DB refresh for geo IP
-    try:
-      refresh_db(settings.AUDIT_COUNTRY_DATABASE, 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz')
-      refresh_db(settings.AUDIT_CITY_DATABASE, 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz')
-    except Exception, e:
-      print "Could not update the GeoIP databases: %s" % e
-      print "Continuing without a GeoIP database refresh..."
 
   if full:
     p = UserActivity.objects.all() # p = to relocate

@@ -15,16 +15,10 @@ COMPILE_MESSAGE=$(admin) compilemessages
 
 .PHONY: clean mrproper generate_bootstrap bootstrap upgrade strings compile languages 
 
-parser:
-	@echo "Downloading UA parser and icons...";
-	@./scripts/unzip_url.py audit http://user-agent-string.info/ua_rep/uasparser.py.zip
-	@./scripts/unzip_url.py audit/media/img/os http://user-agent-string.info/rpc/get_data.php?ico=os
-	@./scripts/unzip_url.py audit/media/img/ua http://user-agent-string.info/rpc/get_data.php?ico=ua 
-
 generate_bootstrap:
 	$(MAKE) --directory=scripts generate
 
-bootstrap: generate_bootstrap parser
+bootstrap: generate_bootstrap
 	@./scripts/bootstrap.py --quiet --no-site-packages --python=$(python) sw
 
 upgrade:

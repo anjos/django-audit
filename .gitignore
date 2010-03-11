@@ -8,6 +8,8 @@ build/
 *.egg-info/
 *.swp
 scripts/ez_setup.py
+scripts/bootstrap.py
 test/audit
-audit/media/db/Geo*.dat
+audit/media/db/
+audit/uasparser.py
 *.sql3

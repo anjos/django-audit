@@ -25,6 +25,7 @@ setup(
 
     entry_points = {
       'console_scripts': [
+        'audit_install.py = audit.scripts.audit_install:main',
         'audit_reval.py = audit.scripts.audit_reval:main',
         'audit_prune.py = audit.scripts.audit_prune:main',
         'audit_prune_bots.py = audit.scripts.audit_prune_bots:main',
