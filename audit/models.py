@@ -9,10 +9,12 @@
 import os
 from datetime import datetime
 from django.db import models
+from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
+from utils import generate_proxy
 
 class UserActivity(models.Model):
   """Represents a user (single) hit at our website."""
@@ -108,44 +110,14 @@ class UserActivity(models.Model):
 
 # From this point onwards a series of proxies to help us locate specific user
 # activities faster.
-class UnidentifiedActivityManager(models.Manager):
-  """Selects user activities from which the system does not know about the UA/OS"""
+UnidentifiedActivity = generate_proxy(UserActivity, 'filter', 
+  Q(ua_name__iexact='unknown') | Q(ua_name='') | Q(ua_name=None) )
 
-  def get_query_set(self):
-    return super(IdentifiedActivity, self).get_query_set().filter(Q(ua_name__iexact='unknown') | Q(ua_name='') | Q(ua_name=None))
+IdentifiedActivity = generate_proxy(UserActivity, 'exclude',
+  Q(ua_name__iexact='unknown') | Q(ua_name='') | Q(ua_name=None) )
 
-class UnidentifiedActivity(UserActivity):
-  """Activites without the UA string correctly identified."""
-  manager = UnidentifiedActivityManager()
-
-  class Meta:
-    proxy = True
-
-class IdentifiedActivityManager(models.Manager):
-  """Selects user activities from which the system knows about the UA/OS"""
-
-  def get_query_set(self):
-    return super(IdentifiedActivity, self).get_query_set().exclude(Q(ua_name__iexact='unknown') | Q(ua_name='') | q(ua_name=None))
-
-class IdentifiedActivity(UserActivity):
-  """Activites with the UA string correctly identified."""
-  manager = IdentifiedActivityManager()
-
-  class Meta:
-    proxy = True
-
-class RobotActivityManager(IdentifiedActivityManager):
-  """Select robot activity"""
-
-  def get_query_set(self):
-    return super(RobotActivity, self).get_query_set().filter(ua_type__iexact='robot')
-
-class RobotActivity(IdentifiedActivity):
-  """Activites by robots."""
-  manager = RobotActivityManager()
-
-  class Meta:
-    proxy = True
+RobotActivity = generate_proxy(IdentifiedActivity, 'filter', 
+    Q(ua_type__iexact='robot') )
 
 class HumanActivityManager(IdentifiedActivityManager):
   """Select human activity"""
@@ -160,15 +132,50 @@ class HumanActivity(IdentifiedActivity):
   class Meta:
     proxy = True
 
-class UnlocatedActivityManager(models.Manager):
-  """Selects places with cities or countries that were not identified."""
+class InternalActivityManager(models.Manager):
+  """Selects activites that are generated on our internal network."""
+  
+  def get_query_set(self):
+    return super(InternalActivityManager, self).get_query_set().filter(
+          Q(client_address__startswith='10.') |
+          Q(client_address__startswith='192.168.') |
+          Q(client_address__startswith='127.0.0') |
+          Q(client_address__startswith='169.254.') )
+
+class InternalActivity(UserActivity):
+  """Activities from a private network."""
+  manager = InternalActivityManager()
+
+  class Meta:
+    proxy = True
+
+class ExternalActivityManager(models.Manager):
+  """Selects activites that are generated from the outside of our network."""
+  
+  def get_query_set(self):
+    return super(ExternalActivityManager, self).get_query_set().exclude(
+          Q(client_address__startswith='10.') |
+          Q(client_address__startswith='192.168.') |
+          Q(client_address__startswith='127.0.0') |
+          Q(client_address__startswith='169.254.') )
+
+class ExternalActivity(UserActivity):
+  """Activities from an external network."""
+  manager = ExternalActivityManager() 
+
+  class Meta:
+    proxy = True
+
+class UnlocatedActivityManager(ExternalActivityManager):
+  """Selects activites that are generated on our internal network."""
 
   def get_query_set(self):
-    return super(UnlocatedActivityManager, self).get_query_set().filter(Q(city='')|Q(country=''))
+    return super(UnlocatedActivityManager, 
+        self).get_query_set().filter( Q(city='') | Q(country='') )
 
-class UnlocatedActivity(UserActivity):
+class UnlocatedActivity(ExternalActivity):
   """Activites without city or country located."""
-  manager = UnidentifiedActivityManager()
+  manager = UnlocatedActivityManager()
 
   class Meta:
     proxy = True

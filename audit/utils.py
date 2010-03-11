@@ -9,6 +9,7 @@
 # execute when we load
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext
+from django.db import models
 from django.db.models import Min, Max, Count
 from pygeoip import GeoIP
 from audit.conf import settings
@@ -350,3 +351,25 @@ def usage_hours(width, height, caption, q):
 
   return {'url': chart.get_url(), 'width': width, 'height': height,
       'caption': caption}
+
+def generate_proxy(parent, method, query):
+  """Generates a new Django proxy taking into consideration:
+  parent -- This will be the parent object for this class
+  query  -- The query that will be generated for this class
+  method -- The name of the method for the query ('get', 'exclude', 'filter')
+  """
+  parent_manager = getattr(parent, 'Manager', models.Manager)
+
+  class Manager(parent_manager):
+    def get_query_set(self):
+      func = getattr(parent_manager.get_query_set(self), method)
+      return func(query)
+
+  class ModelProxy(parent):
+    manager = Manager()
+    class Meta:
+      proxy = True
+
+  return ModelProxy
+
+
