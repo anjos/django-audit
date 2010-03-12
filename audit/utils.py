@@ -12,7 +12,8 @@ from django.utils.translation import ugettext
 from django.db import models
 from django.db.models import Min, Max, Count
 from pygeoip import GeoIP
-from audit.conf import settings
+from conf import settings
+from models import *
 import os
 
 try:
@@ -29,7 +30,7 @@ if os.path.exists(settings.AUDIT_CITY_DATABASE):
   CITY = GeoIP(settings.AUDIT_CITY_DATABASE)
 else: CITY=None
 
-from pygooglechart import PieChart3D, StackedVerticalBarChart, Axis, Chart
+from pygooglechart import PieChart3D, SimpleLineChart, StackedVerticalBarChart, Axis, Chart
 import operator
 import datetime
 from dateutil.relativedelta import *
@@ -139,8 +140,8 @@ def eval_browsers(q, clip=8):
   browser = {} 
   os = {}
   for k in q:
-    browser[k.agent.browser] = browser.get(k.agent.browser, 0) + 1
-    os[k.agent.os] = os.get(k.agent.os, 0) + 1
+    browser[k.ua_family] = browser.get(k.ua_family, 0) + 1
+    os[k.os_family] = os.get(k.os_family, 0) + 1
 
   clutter(browser, clip, ugettext(u'others').encode('utf-8'))
   clutter(os, clip, ugettext(u'others').encode('utf-8'))
@@ -156,7 +157,7 @@ def eval_bots(q, clip=8):
   """Evaluate browser statistics."""
   browser = {} 
   for k in q:
-    browser[k.agent.browser] = browser.get(k.agent.browser, 0) + 1
+    browser[k.ua_family] = browser.get(k.ua_family, 0) + 1
   clutter(browser, clip, ugettext(u'others').encode('utf-8'))
   return browser 
 
@@ -179,9 +180,9 @@ def monthy_popularity(width, height, caption, q):
   intervals = [minimum + relativedelta(months=k) for k in range(months)]
   intervals += [maximum, maximum + relativedelta(months=1)]
 
-  log = q.exclude(user=None)
-  unlog = q.filter(user=None).exclude(agent__bot=True)
-  bots = q.filter(user=None).filter(agent__bot=True)
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ).exclude(RobotQ)
+  bots = q.filter(AnonymousQ).filter(RobotQ)
   max = 0
   bars = []
   for k in range(len(intervals)-1):
@@ -219,8 +220,58 @@ def monthy_popularity(width, height, caption, q):
   return {'url': chart.get_url(), 'width': width, 'height': height,
       'caption': caption}
 
+def daily_popularity(width, height, caption, q, days=30):
+  """Calculates a popularity barchart per day."""
+
+  if not q: return
+
+  maximum = q.aggregate(Max('date'))['date__max']
+  maximum = datetime.datetime(maximum.year, maximum.month, maximum.day, 0, 0, 0)
+  minimum = maximum - relativedelta(days=days)
+
+  intervals = [minimum + relativedelta(days=k) for k in range(days)]
+  intervals += [maximum, maximum + relativedelta(days=1)]
+
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ).exclude(RobotQ)
+  bots = q.filter(AnonymousQ).filter(RobotQ)
+  max = 0
+  bars = []
+  for k in range(len(intervals)-1):
+    bars.append({
+      'label0': days-k, 
+      'logged': log.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      'anon': unlog.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      'bots': bots.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      })
+    hits = bars[-1]['logged'] + bars[-1]['anon'] + bars[-1]['bots']
+    if hits > max: max = hits
+
+  # here we have all labels organized and entries counted.
+  if not max: return 
+
+  chart = StackedVerticalBarChart(width, height, y_range=(0, max))
+  chart.set_bar_width(10) #pixels
+  chart.set_colours(settings.AUDIT_CHART_COLORS)
+  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
+  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
+  chart.add_data([k['logged'] for k in bars])
+  chart.add_data([k['anon'] for k in bars])
+  chart.add_data([k['bots'] for k in bars])
+  chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
+    ugettext(u'Anonymous').encode('utf-8'),
+    ugettext(u'Search bots').encode('utf-8')])
+  chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
+  unit = [''] * 30 
+  unit[15] = ugettext(u'days ago').encode('utf-8')
+  chart.set_axis_labels(Axis.BOTTOM, unit)
+  chart.set_axis_labels(Axis.LEFT, (0, max))
+ 
+  return {'url': chart.get_url(), 'width': width, 'height': height,
+      'caption': caption}
+
 def weekly_popularity(width, height, caption, q):
-  """Calculates a popularity barchart per month."""
+  """Calculates a popularity barchart per week."""
 
   if not q: return
 
@@ -228,14 +279,14 @@ def weekly_popularity(width, height, caption, q):
   minimum = datetime.datetime(minimum.year, minimum.month, minimum.day, 0, 0, 0) + relativedelta(weekday=MO(-1))
   maximum = q.aggregate(Max('date'))['date__max']
   maximum = datetime.datetime(maximum.year, maximum.month, maximum.day, 0, 0, 0) + relativedelta(weekday=MO(-1))
-  weeks = abs(relativedelta(minimum, maximum).days/7)
+  weeks = (maximum - minimum).days/7
 
   intervals = [minimum + relativedelta(weeks=k) for k in range(weeks)]
   intervals += [maximum, maximum + relativedelta(weeks=1)]
 
-  log = q.exclude(user=None)
-  unlog = q.filter(user=None).filter(agent__bot=False)
-  bots = q.filter(user=None).exclude(agent__bot=False)
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ).exclude(RobotQ)
+  bots = q.filter(AnonymousQ).filter(RobotQ)
   max = 0
   bars = []
   for k in range(len(intervals)-1):
@@ -298,9 +349,9 @@ def serving_time(width, height, caption, q, bins=15):
   intervals = [k*binwidth for k in range(bins)]
   # intervals.append(maximum)
 
-  log = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.exclude(user=None)]]
-  unlog = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.filter(user=None).exclude(agent__bot=True)]]
-  bots = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.filter(user=None).filter(agent__bot=True)]]
+  log = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.exclude(AnonymousQ)]]
+  unlog = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.filter(AnonymousQ).exclude(RobotQ)]]
+  bots = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.filter(AnonymousQ).filter(RobotQ)]]
   bar_log = [log.count(k) for k in range(bins)]
   bar_unlog = [unlog.count(k) for k in range(bins)]
   bar_bots = [bots.count(k) for k in range(bins)]
@@ -327,9 +378,9 @@ def serving_time(width, height, caption, q, bins=15):
 
 def usage_hours(width, height, caption, q):
   """An histogram of the usage hours"""
-  log = [k.date.hour for k in q.exclude(user=None)]
-  unlog = [k.date.hour for k in q.filter(user=None).exclude(agent__bot=True)]
-  bots = [k.date.hour for k in q.filter(user=None).filter(agent__bot=True)]
+  log = [k.date.hour for k in q.exclude(AnonymousQ)]
+  unlog = [k.date.hour for k in q.filter(AnonymousQ).exclude(RobotQ)]
+  bots = [k.date.hour for k in q.filter(AnonymousQ).filter(RobotQ)]
   intervals = range(24)
 
   bar_log = [log.count(k) for k in intervals]

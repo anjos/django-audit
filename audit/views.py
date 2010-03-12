@@ -11,9 +11,9 @@ from django.utils.translation import ugettext_lazy as _
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import Http404
-from audit.models import *
-from audit.utils import *
-from audit.conf import settings
+from models import *
+from utils import *
+from conf import settings
 import datetime
 from dateutil.relativedelta import *
 
@@ -29,13 +29,23 @@ def overview(request, months=None):
   """General view of the current statistics for city/country/browser usage."""
 
   date, months_ago = get_date(months)
-  q = UserActivity.objects.filter(date__gte=date).exclude(agent=None)
-  log = q.exclude(user=None)
-  unlog = q.filter(user=None)
+  q = ParsedProxy.objects.all().filter(date__gte=date)    
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ)
   
   #separate bots and humans
-  unlog_humans = unlog.filter(agent__bot=False)
-  unlog_bots = unlog.exclude(agent__bot=False)
+  unlog_humans = unlog.exclude(RobotQ)
+  unlog_bots = unlog.filter(RobotQ)
+
+  #errors
+  eq = q.exclude(SuccessQ)
+
+  errors = {
+            'total': eq.count(),
+            'log': eq.exclude(AnonymousQ).count(),
+            'unlog': eq.filter(AnonymousQ).exclude(RobotQ).count(),
+            'bots': eq.filter(AnonymousQ).filter(RobotQ).count(),
+           }
 
   width = settings.AUDIT_PIE_WIDTH 
   height = settings.AUDIT_PIE_HEIGHT
@@ -44,17 +54,14 @@ def overview(request, months=None):
   fidelity = user_fidelity(width, height, _(u'User fidelity'), log,
       settings.AUDIT_USERS_TO_SHOW)
 
-  eq = q.exclude(error=None).exclude(error=u'')
-  errors = {'total': eq.count(), 
-            'log': eq.exclude(user=None).count(),
-            'unlog': eq.filter(user=None).filter(agent__bot=False).count(),
-            'bots': eq.filter(user=None).filter(agent__bot=True).count(),
-           }
-
   #and we display it
   return render_to_response('audit/overview.html',
                             { 
-                              'hits': (log.count(), unlog_humans.count(), unlog_bots.count()),
+                              'hits': (
+                                log.count(), 
+                                unlog_humans.count(), 
+                                unlog_bots.count(),
+                                ),
                               'errors': errors, 
                               'date': date,
                               'months': months,
@@ -68,17 +75,29 @@ def overview(request, months=None):
 def popularity(request, months=None):
 
   date, months_ago = get_date(months)
-  q = UserActivity.objects.filter(date__gte=date).exclude(agent=None)
-  log = q.exclude(user=None)
-  unlog = q.filter(user=None)
-
+  q = ParsedProxy.objects.all().filter(date__gte=date)    
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ)
+  
   #separate bots and humans
-  unlog_humans = unlog.filter(agent__bot=False)
-  unlog_bots = unlog.exclude(agent__bot=False)
+  unlog_humans = unlog.exclude(RobotQ)
+  unlog_bots = unlog.filter(RobotQ)
+
+  #errors
+  eq = q.exclude(SuccessQ)
+
+  errors = {
+            'total': eq.count(),
+            'log': eq.exclude(AnonymousQ).count(),
+            'unlog': eq.filter(AnonymousQ).exclude(RobotQ).count(),
+            'bots': eq.filter(AnonymousQ).filter(RobotQ).count(),
+           }
 
   #now we have a date from the past to look-up
-  hq = q.exclude(agent__bot=True).filter(user=None)
+  hq = q.exclude(RobotQ).filter(AnonymousQ)
   visited = most_visited(hq, settings.AUDIT_MAXIMUM_URLS)
+  daily = daily_popularity(settings.AUDIT_PLOT_WIDTH,
+      settings.AUDIT_PLOT_HEIGHT, _(u'Hits per day'), q)
   popularity = monthy_popularity(settings.AUDIT_PLOT_WIDTH, 
       settings.AUDIT_PLOT_HEIGHT, _(u'Hits per month'), q)
   weekly = weekly_popularity(settings.AUDIT_PLOT_WIDTH,
@@ -86,22 +105,20 @@ def popularity(request, months=None):
   hours = usage_hours(settings.AUDIT_PLOT_WIDTH, 
       settings.AUDIT_PLOT_HEIGHT, _(u'Usage hours'), q)
 
-  eq = q.exclude(error=None).exclude(error=u'')
-  errors = {'total': eq.count(), 
-            'log': eq.exclude(user=None).count(),
-            'unlog': eq.filter(user=None).filter(agent__bot=False).count(),
-            'bots': eq.filter(user=None).filter(agent__bot=True).count(),
-           }
-
   #and we display it
   return render_to_response('audit/overview.html',
                             { 
-                              'hits': (log.count(), unlog_humans.count(), unlog_bots.count()),
+                              'hits': (
+                                log.count(), 
+                                unlog_humans.count(), 
+                                unlog_bots.count(),
+                                ),
                               'errors': errors, 
                               'date': date,
                               'months': months,
                               'ago': months_ago,
                               'popularity': popularity,
+                              'daily': daily,
                               'weekly': weekly,
                               'visited': visited, 
                               'hours': hours,
@@ -113,13 +130,23 @@ def popularity(request, months=None):
 def identity(request, months=None):
 
   date, months_ago = get_date(months)
-  q = UserActivity.objects.filter(date__gte=date).exclude(agent=None)
-  log = q.exclude(user=None)
-  unlog = q.filter(user=None)
-
+  q = ParsedProxy.objects.all().filter(date__gte=date)    
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ)
+  
   #separate bots and humans
-  unlog_humans = unlog.filter(agent__bot=False)
-  unlog_bots = unlog.exclude(agent__bot=False)
+  unlog_humans = unlog.exclude(RobotQ)
+  unlog_bots = unlog.filter(RobotQ)
+
+  #errors
+  eq = q.exclude(SuccessQ)
+
+  errors = {
+            'total': eq.count(),
+            'log': eq.exclude(AnonymousQ).count(),
+            'unlog': eq.filter(AnonymousQ).exclude(RobotQ).count(),
+            'bots': eq.filter(AnonymousQ).filter(RobotQ).count(),
+           }
 
   width = settings.AUDIT_PIE_WIDTH 
   height = settings.AUDIT_PIE_HEIGHT
@@ -139,17 +166,14 @@ def identity(request, months=None):
   browser = (browser, browseru)
   bots = pie_bots(width, height, bots_caption, unlog_bots)
 
-  eq = q.exclude(error=None).exclude(error=u'')
-  errors = {'total': eq.count(), 
-            'log': eq.exclude(user=None).count(),
-            'unlog': eq.filter(user=None).filter(agent__bot=False).count(),
-            'bots': eq.filter(user=None).filter(agent__bot=True).count(),
-           }
-
   #and we display it
   return render_to_response('audit/overview.html',
                             { 
-                              'hits': (log.count(), unlog_humans.count(), unlog_bots.count()),
+                              'hits': (
+                                log.count(), 
+                                unlog_humans.count(), 
+                                unlog_bots.count()
+                                ),
                               'errors': errors, 
                               'date': date,
                               'months': months,
@@ -167,27 +191,34 @@ def identity(request, months=None):
 def performance(request, months=None):
   
   date, months_ago = get_date(months)
-  q = UserActivity.objects.filter(date__gte=date).exclude(agent=None)
-  log = q.exclude(user=None)
-  unlog = q.filter(user=None)
-
+  q = ParsedProxy.objects.all().filter(date__gte=date)    
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ)
+  
   #separate bots and humans
-  unlog_humans = unlog.filter(agent__bot=False)
-  unlog_bots = unlog.exclude(agent__bot=False)
+  unlog_humans = unlog.exclude(RobotQ)
+  unlog_bots = unlog.filter(RobotQ)
+
+  #errors
+  eq = q.exclude(SuccessQ)
+
+  errors = {
+            'total': eq.count(),
+            'log': eq.exclude(AnonymousQ).count(),
+            'unlog': eq.filter(AnonymousQ).exclude(RobotQ).count(),
+            'bots': eq.filter(AnonymousQ).filter(RobotQ).count(),
+           }
 
   serving = serving_time(settings.AUDIT_PLOT_WIDTH, 
       settings.AUDIT_PLOT_HEIGHT, _(u'Request serving time'), q)
 
-  eq = q.exclude(error=None).exclude(error=u'')
-  errors = {'total': eq.count(), 
-            'log': eq.exclude(user=None).count(),
-            'unlog': eq.filter(user=None).filter(agent__bot=False).count(),
-            'bots': eq.filter(user=None).filter(agent__bot=True).count(),
-           }
-
   return render_to_response('audit/overview.html',
                             { 
-                              'hits': (log.count(), unlog_humans.count(), unlog_bots.count()),
+                              'hits': (
+                                log.count(), 
+                                unlog_humans.count(), 
+                                unlog_bots.count()
+                                ),
                               'errors': errors, 
                               'date': date,
                               'months': months,

@@ -131,6 +131,9 @@ UnlocatedQ = (Q(city='') | Q(country=''))
 # the site.
 AnonymousQ = Q(user=None)
 
+# Tells if the entry the response was successful
+SuccessQ = (Q(error=None) | Q(error=''))
+
 #
 # A series of Proxies to simplify the querying of the database
 #
@@ -214,3 +217,20 @@ class SiteUserProxy(UserActivity):
   objects = SiteUserManager()
   class Meta:
     proxy = True
+
+class SuccessManager(models.Manager):
+  def get_query_set(self):
+    return super(SuccessManager, self).get_query_set().filter(SuccessQ)
+class SuccessProxy(UserActivity):
+  objects = SiteUserManager()
+  class Meta:
+    proxy = True
+
+class ErrorManager(models.Manager):
+  def get_query_set(self):
+    return super(ErrorManager, self).get_query_set().exclude(SuccessQ)
+class ErrorProxy(UserActivity):
+  objects = SiteUserManager()
+  class Meta:
+    proxy = True
+

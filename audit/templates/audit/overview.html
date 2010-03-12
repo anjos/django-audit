@@ -43,8 +43,12 @@
 <table><tr><td><img src="{{ fidelity.url }}" width="{{ fidelity.width }}" height="{{ fidelity.height }}"/></td></tr><caption>{{ fidelity.caption }}</caption></table>
 {% endif %}
 
-{% if weekly %}
+{% if daily %}
 <h3>{% trans "Popularity" %}</h3>
+<table><tr><td><img src="{{ daily.url }}" width="{{ daily.width }}" height="{{ daily.height }}"/></td></tr><caption>{{ daily.caption }}</caption></table>
+{% endif %}
+
+{% if weekly %}
 <table><tr><td><img src="{{ weekly.url }}" width="{{ weekly.width }}" height="{{ weekly.height }}"/></td></tr><caption>{{ weekly.caption }}</caption></table>
 {% endif %}
 
