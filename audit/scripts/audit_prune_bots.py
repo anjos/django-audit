@@ -18,8 +18,8 @@ def main():
   max = float(settings.AUDIT_KEEP_BOT_STATISTICS)
   if max < 0: max = 0
 
-  bots = RobotActivity.objects.order_by('-date')
-  nonbot_count = HumanActivity.objects.all().count()
+  bots = RobotProxy.objects.order_by('-date')
+  nonbot_count = HumanProxy.objects.all().count()
   maximum_count_to_keep = nonbot_count * max
 
   to_delete = bots.count() - maximum_count_to_keep

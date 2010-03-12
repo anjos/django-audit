@@ -14,7 +14,12 @@ from django.db.models import Min, Max, Count
 from pygeoip import GeoIP
 from audit.conf import settings
 import os
-from audit.uasparser import UASparser
+
+try:
+  from audit.uasparser import UASparser
+except ImportError:
+  print '### WARNING ### You need to install the UASparser plugin!'
+  pass
 
 # Loads location databases
 if os.path.exists(settings.AUDIT_COUNTRY_DATABASE):
@@ -352,24 +357,27 @@ def usage_hours(width, height, caption, q):
   return {'url': chart.get_url(), 'width': width, 'height': height,
       'caption': caption}
 
-def generate_proxy(parent, method, query):
+def generate_proxy(name, parent, method, query):
   """Generates a new Django proxy taking into consideration:
+  name -- Is the base name of the new class to generate
   parent -- This will be the parent object for this class
   query  -- The query that will be generated for this class
   method -- The name of the method for the query ('get', 'exclude', 'filter')
   """
-  parent_manager = getattr(parent, 'Manager', models.Manager)
+  ParentManager = getattr(parent, 'Manager', models.Manager)
 
-  class Manager(parent_manager):
+  class Manager(ParentManager):
+    __query__ = query
+    __method__ = 
     def get_query_set(self):
-      func = getattr(parent_manager.get_query_set(self), method)
-      return func(query)
+      func = getattr(ParentManager.get_query_set(self), method)
+      func(self.__query__)
 
-  class ModelProxy(parent):
-    manager = Manager()
+  class Proxy(parent):
+    objects = Manager()
     class Meta:
       proxy = True
 
-  return ModelProxy
-
+  print Proxy.objects, id(Proxy.objects)
+  return Proxy
 

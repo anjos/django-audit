@@ -73,12 +73,12 @@ class UserActivity(models.Model):
 
   def os_icon_url(self):
     """Computes the icon URL for the activity."""
-    return reverse('media', args=[os.path.join('audit', 'img', 'os', self.os_icon)])
+    return reverse('media', args=[os.path.join('audit', 'db', 'ua', 'img', 'os', self.os_icon)])
   os_icon_url.short_description = _(u'OS icon URL')
 
   def ua_icon_url(self):
     """Computes the icon URL for the activity."""
-    return reverse('media', args=[os.path.join('audit', 'img', 'ua', self.ua_icon)])
+    return reverse('media', args=[os.path.join('audit', 'db', 'ua', 'img', 'ua', self.ua_icon)])
   ua_icon_url.short_description = _(u'Browser icon URL')
 
   def is_error(self):
@@ -108,114 +108,38 @@ class UserActivity(models.Model):
   def set_processing_time(self):
     self.processing_time = (datetime.now()-self.date).microseconds
 
-# From this point onwards a series of proxies to help us locate specific user
-# activities faster.
-UnidentifiedActivity = generate_proxy(UserActivity, 'filter', 
+UnidentifiedProxy = generate_proxy('Unidentified', UserActivity, 'filter', 
   Q(ua_name__iexact='unknown') | Q(ua_name='') | Q(ua_name=None) )
 
-IdentifiedActivity = generate_proxy(UserActivity, 'exclude',
+IdentifiedProxy = generate_proxy('Identified', UserActivity, 'exclude',
   Q(ua_name__iexact='unknown') | Q(ua_name='') | Q(ua_name=None) )
 
-RobotActivity = generate_proxy(IdentifiedActivity, 'filter', 
+RobotProxy = generate_proxy('Robot', IdentifiedProxy, 'filter', 
     Q(ua_type__iexact='robot') )
 
-class HumanActivityManager(IdentifiedActivityManager):
-  """Select human activity"""
+HumanProxy = generate_proxy('Human', IdentifiedProxy, 'exclude',
+    Q(ua_type__iexact='robot') )
 
-  def get_query_set(self):
-    return super(HumanActivity, self).get_query_set().exclude(ua_type__iexact='robot')
+InternalProxy = generate_proxy('Internal', UserActivity, 'filter',
+    Q(client_address__startswith='10.') |
+    Q(client_address__startswith='192.168.') |
+    Q(client_address__startswith='127.0.0') |
+    Q(client_address__startswith='169.254.') )
 
-class HumanActivity(IdentifiedActivity):
-  """Activites by humans."""
-  manager = HumanActivityManager()
+ExternalProxy = generate_proxy('External', UserActivity, 'exclude',
+    Q(client_address__startswith='10.') |
+    Q(client_address__startswith='192.168.') |
+    Q(client_address__startswith='127.0.0') |
+    Q(client_address__startswith='169.254.') )
 
-  class Meta:
-    proxy = True
+UnlocatedProxy = generate_proxy('Unlocated', ExternalProxy, 'filter',
+    Q(city='') | Q(country='') )
 
-class InternalActivityManager(models.Manager):
-  """Selects activites that are generated on our internal network."""
-  
-  def get_query_set(self):
-    return super(InternalActivityManager, self).get_query_set().filter(
-          Q(client_address__startswith='10.') |
-          Q(client_address__startswith='192.168.') |
-          Q(client_address__startswith='127.0.0') |
-          Q(client_address__startswith='169.254.') )
+LocatedProxy = generate_proxy('Located', ExternalProxy, 'exclude',
+    Q(city='') & Q(country='') )
 
-class InternalActivity(UserActivity):
-  """Activities from a private network."""
-  manager = InternalActivityManager()
+SiteUserProxy = generate_proxy('SiteUser', UserActivity, 'exclude', 
+    Q(user=None) )
 
-  class Meta:
-    proxy = True
-
-class ExternalActivityManager(models.Manager):
-  """Selects activites that are generated from the outside of our network."""
-  
-  def get_query_set(self):
-    return super(ExternalActivityManager, self).get_query_set().exclude(
-          Q(client_address__startswith='10.') |
-          Q(client_address__startswith='192.168.') |
-          Q(client_address__startswith='127.0.0') |
-          Q(client_address__startswith='169.254.') )
-
-class ExternalActivity(UserActivity):
-  """Activities from an external network."""
-  manager = ExternalActivityManager() 
-
-  class Meta:
-    proxy = True
-
-class UnlocatedActivityManager(ExternalActivityManager):
-  """Selects activites that are generated on our internal network."""
-
-  def get_query_set(self):
-    return super(UnlocatedActivityManager, 
-        self).get_query_set().filter( Q(city='') | Q(country='') )
-
-class UnlocatedActivity(ExternalActivity):
-  """Activites without city or country located."""
-  manager = UnlocatedActivityManager()
-
-  class Meta:
-    proxy = True
-
-class LocatedActivityManager(models.Manager):
-  """Selects activities that were well located."""
-
-  def get_query_set(self):
-    return super(LocatedActivityManager, self).get_query_set().exclude(Q(city='')|Q(country=''))
-
-class LocatedActivity(UserActivity):
-  """Activites with city and country located."""
-  manager = LocatedActivityManager()
-
-  class Meta:
-    proxy = True
-
-class SiteUserActivityManager(models.Manager):
-  """Selects activities by site users."""
-
-  def get_query_set(self):
-    return super(SiteUserActivity, self).get_query_set().exclude(user=None)
-
-class SiteUserActivityManager(UserActivity):
-  """Activites by authenticated users."""
-  manager = SiteUserActivityManager()
-
-  class Meta:
-    proxy = True
-
-class AnonymousActivityManager(models.Manager):
-  """Selects activities by unauthenticated users."""
-
-  def get_query_set(self):
-    return super(AnonymousActivity, self).get_query_set().filter(user=None)
-
-class AnonymousActivity(UserActivity):
-  """Activites by unauthenticated users."""
-
-  manager = AnonymousActivityManager()
-
-  class Meta:
-    proxy = True
+AnonymousProxy = generate_proxy('Anonymous', UserActivity, 'filter',
+    Q(user=None) )

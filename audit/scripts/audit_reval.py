@@ -26,8 +26,8 @@ def main():
     q = UserActivity.objects.all() # q = to re-parse UA string
     print 'Full processing, %d entries...' % q.count()
   else:
-    p = UnlocatedActivity.objects.all() 
-    q = UnidentifiedActivity.objects.all() 
+    p = UnlocatedProxy.objects.all() 
+    q = UnidentifiedProxy.objects.all() 
     print 'Partial processing, %d entries...' % (p.count() + q.count())
 
   print 'Trying to find location of %d entries...' % p.count()
