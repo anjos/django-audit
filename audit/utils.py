@@ -356,28 +356,3 @@ def usage_hours(width, height, caption, q):
 
   return {'url': chart.get_url(), 'width': width, 'height': height,
       'caption': caption}
-
-def generate_proxy(name, parent, method, query):
-  """Generates a new Django proxy taking into consideration:
-  name -- Is the base name of the new class to generate
-  parent -- This will be the parent object for this class
-  query  -- The query that will be generated for this class
-  method -- The name of the method for the query ('get', 'exclude', 'filter')
-  """
-  ParentManager = getattr(parent, 'Manager', models.Manager)
-
-  class Manager(ParentManager):
-    __query__ = query
-    __method__ = 
-    def get_query_set(self):
-      func = getattr(ParentManager.get_query_set(self), method)
-      func(self.__query__)
-
-  class Proxy(parent):
-    objects = Manager()
-    class Meta:
-      proxy = True
-
-  print Proxy.objects, id(Proxy.objects)
-  return Proxy
-

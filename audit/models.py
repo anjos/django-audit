@@ -14,7 +14,6 @@ from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
-from utils import generate_proxy
 
 class UserActivity(models.Model):
   """Represents a user (single) hit at our website."""
@@ -108,38 +107,110 @@ class UserActivity(models.Model):
   def set_processing_time(self):
     self.processing_time = (datetime.now()-self.date).microseconds
 
-UnidentifiedProxy = generate_proxy('Unidentified', UserActivity, 'filter', 
-  Q(ua_name__iexact='unknown') | Q(ua_name='') | Q(ua_name=None) )
+#
+# Queries setup to facilitate our work
+#
 
-IdentifiedProxy = generate_proxy('Identified', UserActivity, 'exclude',
-  Q(ua_name__iexact='unknown') | Q(ua_name='') | Q(ua_name=None) )
+# Tells if a User Agent string has already been identified on the Activity
+NoIdQ = (Q(ua_name__iexact='unknown') | Q(ua_name='') | Q(ua_name=None))
 
-RobotProxy = generate_proxy('Robot', IdentifiedProxy, 'filter', 
-    Q(ua_type__iexact='robot') )
+# Tells if the User Agent string comes from a web robot. Please note this
+# should only be applied if the UserActivity has been identified
+RobotQ = Q(ua_type__iexact='robot')
 
-HumanProxy = generate_proxy('Human', IdentifiedProxy, 'exclude',
-    Q(ua_type__iexact='robot') )
+# Tells if the request came from a local network or from outside
+LocalNetQ = (Q(client_address__startswith='10.') | \
+             Q(client_address__startswith='192.168.') | \
+             Q(client_address__startswith='127.0.0') | \
+             Q(client_address__startswith='169.254.'))
 
-InternalProxy = generate_proxy('Internal', UserActivity, 'filter',
-    Q(client_address__startswith='10.') |
-    Q(client_address__startswith='192.168.') |
-    Q(client_address__startswith='127.0.0') |
-    Q(client_address__startswith='169.254.') )
+# Tells if the origin (IP) of the request has be localized
+UnlocatedQ = (Q(city='') | Q(country=''))
 
-ExternalProxy = generate_proxy('External', UserActivity, 'exclude',
-    Q(client_address__startswith='10.') |
-    Q(client_address__startswith='192.168.') |
-    Q(client_address__startswith='127.0.0') |
-    Q(client_address__startswith='169.254.') )
+# Tells if the request comes from an Anonymous user or someone registered on
+# the site.
+AnonymousQ = Q(user=None)
 
-UnlocatedProxy = generate_proxy('Unlocated', ExternalProxy, 'filter',
-    Q(city='') | Q(country='') )
+#
+# A series of Proxies to simplify the querying of the database
+#
 
-LocatedProxy = generate_proxy('Located', ExternalProxy, 'exclude',
-    Q(city='') & Q(country='') )
+class UnparsedManager(models.Manager):
+  def get_query_set(self):
+    return super(UnparsedManager, self).get_query_set().filter(NoIdQ)
+class UnparsedProxy(UserActivity):
+  objects = UnparsedManager()
+  class Meta:
+    proxy = True
 
-SiteUserProxy = generate_proxy('SiteUser', UserActivity, 'exclude', 
-    Q(user=None) )
+class ParsedManager(models.Manager):
+  def get_query_set(self):
+    return super(ParsedManager, self).get_query_set().exclude(NoIdQ)
+class ParsedProxy(UserActivity):
+  objects = ParsedManager()
+  class Meta:
+    proxy = True
 
-AnonymousProxy = generate_proxy('Anonymous', UserActivity, 'filter',
-    Q(user=None) )
+class RobotManager(ParsedManager):
+  def get_query_set(self):
+    return super(RobotManager, self).get_query_set().filter(RobotQ)
+class RobotProxy(ParsedProxy):
+  objects = RobotManager()
+  class Meta:
+    proxy = True
+
+class HumanManager(ParsedManager):
+  def get_query_set(self):
+    return super(HumanManager, self).get_query_set().exclude(RobotQ)
+class HumanProxy(ParsedProxy):
+  objects = HumanManager()
+  class Meta:
+    proxy = True
+
+class InternalManager(models.Manager):
+  def get_query_set(self):
+    return super(InternalManager, self).get_query_set().filter(LocalNetQ)
+class InternalProxy(UserActivity):
+  objects = InternalManager()
+  class Meta:
+    proxy = True
+
+class ExternalManager(models.Manager):
+  def get_query_set(self):
+    return super(ExternalManager, self).get_query_set().exclude(LocalNetQ)
+class ExternalProxy(UserActivity):
+  objects = ExternalManager()
+  class Meta:
+    proxy = True
+
+class UnlocatedManager(ExternalManager):
+  def get_query_set(self):
+    return super(UnlocatedManager, self).get_query_set().filter(UnlocatedQ)
+class UnlocatedProxy(ExternalProxy):
+  objects = UnlocatedManager()
+  class Meta:
+    proxy = True
+
+class LocatedManager(ExternalManager):
+  def get_query_set(self):
+    return super(LocatedManager, self).get_query_set().exclude(UnlocatedQ)
+class LocatedProxy(ExternalProxy):
+  objects = LocatedManager()
+  class Meta:
+    proxy = True
+
+class AnonymousManager(models.Manager):
+  def get_query_set(self):
+    return super(AnonymousManager, self).get_query_set().filter(AnonymousQ)
+class AnonymousProxy(UserActivity):
+  objects = AnonymousManager()
+  class Meta:
+    proxy = True
+
+class SiteUserManager(models.Manager):
+  def get_query_set(self):
+    return super(SiteUserManager, self).get_query_set().exclude(AnonymousQ)
+class SiteUserProxy(UserActivity):
+  objects = SiteUserManager()
+  class Meta:
+    proxy = True

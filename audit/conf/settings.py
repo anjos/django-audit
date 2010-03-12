@@ -51,31 +51,11 @@ AUDIT_CHART_COLORS = getattr(settings, 'AUDIT_CHART_COLORS', ['ff5555', '55ff55'
 AUDIT_IMAGE_BACKGROUND = getattr(settings, 'AUDIT_IMAGE_BACKGROUND', 'ffffff')
 AUDIT_CHART_BACKGROUND = getattr(settings, 'AUDIT_CHART_BACKGROUND', 'ffffff')
 
-# Cache the views for about 10 minutes. If you want to disable caching, please
-# set this value to 0. Also note that if you enable this, you need to make the
-# proper changes to your project's settings.py file, enabling the cache system
-# with at least CACHE_BACKEND='dummy://'. Please read details here:
-# http://docs.djangoproject.com/en/dev/topics/cache/
-AUDIT_CACHE_ALL_VIEWS = getattr(settings, 'AUDIT_CACHE_ALL_VIEWS', 0)
-
 # Keep the amount of bot statistics to a fraction of the total amount of
 # non-robot statistics. If you set this to to a number smaller than zero, no
 # statistics for bots will be kept. 
 AUDIT_KEEP_BOT_STATISTICS = getattr(settings, 'AUDIT_KEEP_BOT_STATISTICS', 0.2)
 
-# On this variable, you should keep a list of known bots.
-AUDIT_KNOWN_BOTS = getattr(settings, 'AUDIT_KNOWN_BOTS', 
-    [
-     'inktomi',
-     'slurp',
-     'bot',
-     'crawler',
-     'engine',
-     'baidu',
-     'spider',
-     'twiceler',
-     'research projects',
-     'teoma',
-    ]
-  )
-
+# URLs we are not supposed to track
+AUDIT_NO_TRACKING = ['^media', '^admin', '^openid', '^login', '^logout',
+    '^robots.txt', '^.*favicon.ico'] 

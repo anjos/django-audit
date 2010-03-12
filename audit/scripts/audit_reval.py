@@ -27,7 +27,7 @@ def main():
     print 'Full processing, %d entries...' % q.count()
   else:
     p = UnlocatedProxy.objects.all() 
-    q = UnidentifiedProxy.objects.all() 
+    q = UnparsedProxy.objects.all() 
     print 'Partial processing, %d entries...' % (p.count() + q.count())
 
   print 'Trying to find location of %d entries...' % p.count()
