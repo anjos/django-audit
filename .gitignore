@@ -13,3 +13,5 @@ test/audit
 audit/media/db/
 audit/uasparser.py
 *.sql3
+*.swp
+*.swo

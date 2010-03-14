@@ -210,6 +210,14 @@ class AnonymousProxy(UserActivity):
   class Meta:
     proxy = True
 
+class ParsedAnonymousManager(HumanManager):
+  def get_query_set(self):
+    return super(ParsedAnonymousManager, self).get_query_set().filter(AnonymousQ)
+class ParsedAnonymousProxy(HumanProxy):
+  objects = ParsedAnonymousManager()
+  class Meta:
+    proxy = True
+
 class SiteUserManager(models.Manager):
   def get_query_set(self):
     return super(SiteUserManager, self).get_query_set().exclude(AnonymousQ)
@@ -231,6 +239,14 @@ class ErrorManager(models.Manager):
     return super(ErrorManager, self).get_query_set().exclude(SuccessQ)
 class ErrorProxy(UserActivity):
   objects = SiteUserManager()
+  class Meta:
+    proxy = True
+
+class ParsedSiteUserManager(HumanManager):
+  def get_query_set(self):
+    return super(ParsedSiteUserManager, self).get_query_set().exclude(AnonymousQ)
+class ParsedSiteUserProxy(HumanProxy):
+  objects = ParsedSiteUserManager()
   class Meta:
     proxy = True
 

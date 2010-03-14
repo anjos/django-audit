@@ -1,0 +1,5 @@
+{% if height %}
+<img class="googlechart" src="{{ chart.url }}" height="{{ height }}" width="{% widthratio chart.width chart.height height %}"/>
+{% else %}
+<img class="googlechart" src="{{ chart.url }}" height="{{ chart.height }}" width="{{ chart.width }}"/>
+{% endif %}

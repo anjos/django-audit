@@ -28,13 +28,10 @@ AUDIT_MONTHS_TO_LOG = getattr(settings, 'AUDIT_MONTHS_TO_LOG', 24)
 # Default number of months to show in views
 AUDIT_MONTHS_TO_SHOW = getattr(settings, 'AUDIT_MONTHS_TO_SHOW', 6)
 
-# Users to show when displaying the fidelity
-AUDIT_USERS_TO_SHOW = getattr(settings, 'AUDIT_USERS_TO_SHOW', 6)
-
 # The width and height of pie charts produced
-AUDIT_PIE_WIDTH = getattr(settings, 'AUDIT_PIE_WIDTH', 450) #pixels
-AUDIT_PIE_HEIGHT = getattr(settings, 'AUDIT_PIE_HEIGHT', 120) #pixels
-AUDIT_PLOT_WIDTH = getattr(settings, 'AUDIT_PLOT_WIDTH', 600) #pixels
+AUDIT_PIE_WIDTH = getattr(settings, 'AUDIT_PIE_WIDTH', 500) #pixels
+AUDIT_PIE_HEIGHT = getattr(settings, 'AUDIT_PIE_HEIGHT', 200) #pixels
+AUDIT_PLOT_WIDTH = getattr(settings, 'AUDIT_PLOT_WIDTH', 500) #pixels
 AUDIT_PLOT_HEIGHT = getattr(settings, 'AUDIT_PLOT_HEIGHT', 200) #pixels
 
 # The number of countries and cities on the statistics

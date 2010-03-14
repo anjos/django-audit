@@ -30,13 +30,19 @@ if os.path.exists(settings.AUDIT_CITY_DATABASE):
   CITY = GeoIP(settings.AUDIT_CITY_DATABASE)
 else: CITY=None
 
-from pygooglechart import PieChart3D, SimpleLineChart, StackedVerticalBarChart, Axis, Chart
+from pygooglechart import * 
 import operator
 import datetime
 from dateutil.relativedelta import *
 
-def pie_chart(width, height, caption, data, labels):
-  chart = PieChart3D(width, height)
+def add_title_style(url, size='13.5', color='333333'):
+  """Adds the title style for the Google Chart in URL"""
+  return url + '&chts=%s,%s' % (color,size)
+
+def pie_chart(data, labels, legend):
+  width = settings.AUDIT_PIE_WIDTH
+  height = settings.AUDIT_PIE_HEIGHT
+  chart = PieChart2D(width, height)
   chart.set_colours(settings.AUDIT_CHART_COLORS)
   chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
   chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
@@ -44,15 +50,23 @@ def pie_chart(width, height, caption, data, labels):
   # calculates the percentages
   total = sum(data)
   if not total: return
-  lab = [k.encode('utf-8') for k in labels]
-  for l in range(len(lab)): lab[l] += ' (%.1f%%)' % (100.0*data[l]/total)
-  chart.set_pie_labels(lab)
-  return {'url': chart.get_url(), 'width': width, 'height': height,
-      'caption': caption}
+  if legend:
+    lab = [k.encode('utf-8') for k in labels]
+    for l in range(len(lab)): lab[l] += ' (%.1f%%)' % (100.0*data[l]/total)
+    chart.set_pie_labels(lab)
+  return {
+          'url': chart.get_url(), 
+          'width': width,
+          'height': height,
+         }
 
-def pie_usage(width, height, caption, log, unlog):
-  return pie_chart(width, height, caption, [log.count(), unlog.count()],
-      [ugettext(u'Logged users'), ugettext(u'Anonymous')])
+def pie_usage(q, legend):
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ).exclude(RobotQ)
+  robot = q.filter(AnonymousQ).filter(RobotQ)
+  return pie_chart([log.count(), unlog.count(), robot.count()],
+    [ugettext(u'Logged users'), ugettext(u'Anonymous'), ugettext(u'Robots')],
+    legend)
 
 def clutter(data, n, other_label):
   if len(data) > n:
@@ -65,12 +79,12 @@ def clutter(data, n, other_label):
         delete.append(k)
     for k in delete: del data[k]
 
-def user_fidelity(width, height, caption, log, n):
-  users = log.values('user__username').annotate(count=Count('user'))
+def pie_fidelity(q, n, legend):
+  users = q.values('user__username').annotate(count=Count('user'))
   data = {}
   for k in users: data[k['user__username']] = k['count']
   clutter(data, n, ugettext('others'))
-  return pie_chart(width, height, caption, data.values(), data.keys())
+  return pie_chart(data.values(), data.keys(), legend)
 
 def country_lookup(ip):
   return {
@@ -119,11 +133,11 @@ def eval_field(q, n, field):
   clutter(tmp, n, ugettext(u'others').encode('utf-8'))
   return tmp 
 
-def pie_country(width, height, caption, q, n=6):
+def pie_country(q, n, legend):
   hits = eval_field(q, n, 'country')
-  return pie_chart(width, height, caption, hits.values(), hits.keys())
+  return pie_chart(hits.values(), hits.keys(), legend)
 
-def pie_city(width, height, caption, q, n=10):
+def pie_city(q, n, legend):
   data = q.values('city', 'country_code').annotate(count=Count('city'))
   hits = {}
   for k in data: 
@@ -132,38 +146,28 @@ def pie_city(width, height, caption, q, n=10):
         + k['country_code']] = k['count']
     else: hits[ugettext(u'Unknown').encode('utf-8')] = k['count']
   clutter(hits, n, ugettext(u'others').encode('utf-8'))
-  return pie_chart(width, height, caption, hits.values(), hits.keys())
+  return pie_chart(hits.values(), hits.keys(), legend)
 
-def eval_browsers(q, clip=8):
-  """Evaluate browser statistics."""
-
+def pie_browser(q, clip, legend):
+  """Evaluates browser statistics."""
   browser = {} 
+  for k in q: browser[k.ua_family] = browser.get(k.ua_family, 0) + 1
+  clutter(browser, clip, ugettext(u'others').encode('utf-8'))
+  return pie_chart(browser.values(), browser.keys(), legend)
+
+def pie_os(q, clip, legend):
+  """Evaluates OS statistics."""
   os = {}
-  for k in q:
-    browser[k.ua_family] = browser.get(k.ua_family, 0) + 1
-    os[k.os_family] = os.get(k.os_family, 0) + 1
-
-  clutter(browser, clip, ugettext(u'others').encode('utf-8'))
+  for k in q: os[k.os_family] = os.get(k.os_family, 0) + 1
   clutter(os, clip, ugettext(u'others').encode('utf-8'))
-  
-  return os, browser
+  return pie_chart(os.values(), os.keys(), legend)
 
-def pie_browsers(width, height, caption, q):
-  os, browser = eval_browsers(q)
-  return (pie_chart(width, height, caption, os.values(), os.keys()),
-      pie_chart(width, height, caption, browser.values(), browser.keys()))
-
-def eval_bots(q, clip=8):
-  """Evaluate browser statistics."""
+def pie_bots(q, clip, legend):
+  """Evaluates bot statistics."""
   browser = {} 
-  for k in q:
-    browser[k.ua_family] = browser.get(k.ua_family, 0) + 1
+  for k in q: browser[k.ua_family] = browser.get(k.ua_family, 0) + 1
   clutter(browser, clip, ugettext(u'others').encode('utf-8'))
-  return browser 
-
-def pie_bots(width, height, caption, q):
-  browser = eval_bots(q)
-  return pie_chart(width, height, caption, browser.values(), browser.keys())
+  return pie_chart(browser.values(), browser.keys(), legend)
 
 def monthy_popularity(width, height, caption, q):
   """Calculates a popularity barchart per month."""
@@ -216,9 +220,10 @@ def monthy_popularity(width, height, caption, q):
     if label1[k] == label1[k-1]: label1[k] = ''
   chart.set_axis_labels(Axis.BOTTOM, label1)
   chart.set_axis_labels(Axis.LEFT, (0, max))
+  chart.set_title(caption)
+  url = add_title_style(chart.get_url(), size='16')
  
-  return {'url': chart.get_url(), 'width': width, 'height': height,
-      'caption': caption}
+  return {'url': url, 'width': width, 'height': height, 'caption': caption}
 
 def daily_popularity(width, height, caption, q, days=30):
   """Calculates a popularity barchart per day."""
@@ -251,7 +256,7 @@ def daily_popularity(width, height, caption, q, days=30):
   if not max: return 
 
   chart = StackedVerticalBarChart(width, height, y_range=(0, max))
-  chart.set_bar_width(10) #pixels
+  chart.set_bar_width(13) #pixels
   chart.set_colours(settings.AUDIT_CHART_COLORS)
   chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
   chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
@@ -261,16 +266,18 @@ def daily_popularity(width, height, caption, q, days=30):
   chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
     ugettext(u'Anonymous').encode('utf-8'),
     ugettext(u'Search bots').encode('utf-8')])
+  chart.set_legend_position('b')
   chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
   unit = [''] * 30 
   unit[15] = ugettext(u'days ago').encode('utf-8')
   chart.set_axis_labels(Axis.BOTTOM, unit)
   chart.set_axis_labels(Axis.LEFT, (0, max))
+  chart.set_title(caption)
+  url = add_title_style(chart.get_url(), size='16')
  
-  return {'url': chart.get_url(), 'width': width, 'height': height,
-      'caption': caption}
+  return {'url': url, 'width': width, 'height': height, 'caption': caption}
 
-def weekly_popularity(width, height, caption, q):
+def weekly_popularity(q, legend):
   """Calculates a popularity barchart per week."""
 
   if not q: return
@@ -321,8 +328,7 @@ def weekly_popularity(width, height, caption, q):
   chart.set_axis_labels(Axis.BOTTOM, label1)
   chart.set_axis_labels(Axis.LEFT, (0, max))
  
-  return {'url': chart.get_url(), 'width': width, 'height': height,
-      'caption': caption}
+  return {'url': chart.get_url(), 'width': width, 'height': height, 'caption': caption}
 
 def most_visited(q, n):
   """Calculates the most visited URLs."""
@@ -337,44 +343,66 @@ def most_visited(q, n):
   else:
     return {}
 
-def serving_time(width, height, caption, q, bins=15):
+def serving_time(since, bins, legend):
   """An histogram of the time to serve a request."""
-  data = [k.processing_time/1000 for k in q] 
+
+  q = ParsedProxy.objects.filter(date__gte=since) 
+  q_log = ParsedSiteUserProxy.objects.filter(date__gte=since) 
+  q_unlog = ParsedAnonymousProxy.objects.filter(date__gte=since) 
+  q_robots = RobotProxy.objects.filter(date__gte=since) 
+
+  data = [k.processing_time/1000 for k in q]
   
   # we calculate the maximum, the minimum and the width of each bin, finally,
   # the intervals for the histogram
   minimum = 0 
   maximum = max(data)
-  binwidth = maximum / bins
-  intervals = [k*binwidth for k in range(bins)]
-  # intervals.append(maximum)
+  binwidth = float(maximum) / (bins)
+  intervals = [k*binwidth for k in range(bins+1)]
 
-  log = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.exclude(AnonymousQ)]]
-  unlog = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.filter(AnonymousQ).exclude(RobotQ)]]
-  bots = [int(k/binwidth) for k in [k.processing_time/1000 for k in q.filter(AnonymousQ).filter(RobotQ)]]
+  log = [int(k/binwidth) for k in [k.processing_time/1000 for k in q_log]]
+  unlog = [int(k/binwidth) for k in [k.processing_time/1000 for k in q_unlog]]
+  bots = [int(k/binwidth) for k in [k.processing_time/1000 for k in q_robots]]
+
   bar_log = [log.count(k) for k in range(bins)]
   bar_unlog = [unlog.count(k) for k in range(bins)]
   bar_bots = [bots.count(k) for k in range(bins)]
+
   max_y = max([sum(k) for k in zip(bar_log, bar_unlog, bar_bots)])
 
-  chart = StackedVerticalBarChart(width, height, y_range=(0, max_y))
+  chart = StackedVerticalBarChart(settings.AUDIT_PLOT_WIDTH, 
+      settings.AUDIT_PIE_HEIGHT, y_range=(0, max_y))
+
+  chart.set_bar_width(18) # pixels
   chart.set_colours(settings.AUDIT_CHART_COLORS)
   chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
   chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data(bar_log)
   chart.add_data(bar_unlog)
   chart.add_data(bar_bots)
-  chart.set_axis_labels(Axis.BOTTOM, intervals)
-  unit = [''] * bins
-  unit[bins/2] = ugettext(u'milliseconds').encode('utf-8')
+  chart.set_axis_labels(Axis.BOTTOM, [int(round(k)) for k in intervals])
+  chart.set_axis_positions(0, [(100*k)/max(intervals) for k in intervals]) 
+
+  unit = [''] * len(intervals) 
+  unit[len(intervals)/2] = ugettext(u'milliseconds').encode('utf-8')
   chart.set_axis_labels(Axis.BOTTOM, unit)
   chart.set_axis_labels(Axis.LEFT, (0, max_y))
-  chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-    ugettext(u'Anonymous users').encode('utf-8'),
-    ugettext(u'Search bots').encode('utf-8')])
 
-  return {'url': chart.get_url(), 'width': width, 'height': height,
-      'caption': caption}
+  if legend:
+    # Legends 
+    legend = [
+              ugettext(u'Logged users').encode('utf-8'),
+              ugettext(u'Anonymous users').encode('utf-8'),
+              ugettext(u'Search bots').encode('utf-8'),
+             ]
+    chart.set_legend(legend)
+    chart.set_legend_position('b')
+
+  return {
+          'url': chart.get_url(), 
+          'width': settings.AUDIT_PLOT_WIDTH, 
+          'heigth': settings.AUDIT_PLOT_HEIGHT,
+         }
 
 def usage_hours(width, height, caption, q):
   """An histogram of the usage hours"""
@@ -395,7 +423,7 @@ def usage_hours(width, height, caption, q):
   chart.add_data(bar_log)
   chart.add_data(bar_unlog)
   chart.add_data(bar_bots)
-  chart.set_bar_width(15) #pixels
+  chart.set_bar_width(20) #pixels
   chart.set_axis_labels(Axis.BOTTOM, intervals)
   unit = [''] * 24
   unit[12] = ugettext(u'day hours').encode('utf-8')
@@ -404,6 +432,8 @@ def usage_hours(width, height, caption, q):
   chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
     ugettext(u'Anonymous').encode('utf-8'),
     ugettext(u'Search bots').encode('utf-8')])
+  chart.set_legend_position('b')
+  chart.set_title(caption)
+  url = add_title_style(chart.get_url(), size='16')
 
-  return {'url': chart.get_url(), 'width': width, 'height': height,
-      'caption': caption}
+  return {'url': url, 'width': width, 'height': height, 'caption': caption}

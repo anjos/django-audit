@@ -1,0 +1,7 @@
+{% load i18n %}
+<ul>
+  <li>{% trans "Start date" %}: {{ date|date:"j/M/Y" }} ({{ date|timesince }} {% trans "ago" %})</li>
+  <li>{% trans "Total hits for logged-in users" %}: {{ hits.log }} ({% blocktrans count errors.log as counter %}{{ counter }} error{% plural %}{{ counter }} errors{% endblocktrans %})</li>
+  <li>{% trans "Total hits for anonymous users" %}: {{ hits.unlog }} ({% blocktrans count errors.unlog as counter %}{{ counter }} error{% plural %}{{ counter }} errors{% endblocktrans %})</li>
+  <li>{% trans "Total hits for robots" %}: {{ hits.bots }} ({% blocktrans count errors.bots as counter %}{{ counter }} error{% plural %}{{ counter }} errors{% endblocktrans %})</li>
+</ul>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n audit_tags %}
+
+{% block media %}
+  {{ block.super }}
+{% endblock %}
+
+{% block title %}{% trans "Website Access Statistics" %} :: {% trans "User fidelity" %}{% endblock %}
+
+{% block content %}
+<div class="audit">
+
+{% audit_navigation months %}
+
+{% audit_summary months %} 
+
+<p class="subtitle">{% trans "Site usage" %}</p>
+
+{% audit_usage_pie months 200 1 %}  
+
+<p class="subtitle">{% trans "User fidelity" %}</p>
+
+{% audit_fidelity_pie months 10 200 1 %} 
+
+</div><!-- class="audit" -->
+{% endblock %}
