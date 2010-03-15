@@ -169,7 +169,7 @@ def pie_bots(q, clip, legend):
   clutter(browser, clip, ugettext(u'others').encode('utf-8'))
   return pie_chart(browser.values(), browser.keys(), legend)
 
-def monthy_popularity(width, height, caption, q):
+def monthly_popularity(q, legend):
   """Calculates a popularity barchart per month."""
 
   if not q: return
@@ -203,6 +203,8 @@ def monthy_popularity(width, height, caption, q):
   # here we have all labels organized and entries counted.
   if not max: return 
 
+  width = settings.AUDIT_PLOT_WIDTH
+  height = settings.AUDIT_PLOT_HEIGHT
   chart = StackedVerticalBarChart(width, height, y_range=(0, max))
   chart.set_colours(settings.AUDIT_CHART_COLORS)
   chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
@@ -210,9 +212,10 @@ def monthy_popularity(width, height, caption, q):
   chart.add_data([k['logged'] for k in bars])
   chart.add_data([k['anon'] for k in bars])
   chart.add_data([k['bots'] for k in bars])
-  chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-    ugettext(u'Anonymous').encode('utf-8'),
-    ugettext(u'Search bots').encode('utf-8')])
+  if legend:
+    chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
+      ugettext(u'Anonymous').encode('utf-8'),
+      ugettext(u'Search bots').encode('utf-8')])
   chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
   label1 = [k['label1'] for k in bars]
   # avoid duplicates in the year axis
@@ -220,12 +223,10 @@ def monthy_popularity(width, height, caption, q):
     if label1[k] == label1[k-1]: label1[k] = ''
   chart.set_axis_labels(Axis.BOTTOM, label1)
   chart.set_axis_labels(Axis.LEFT, (0, max))
-  chart.set_title(caption)
-  url = add_title_style(chart.get_url(), size='16')
  
-  return {'url': url, 'width': width, 'height': height, 'caption': caption}
+  return {'url': chart.get_url(), 'width': width, 'height': height}
 
-def daily_popularity(width, height, caption, q, days=30):
+def daily_popularity(q, days, legend):
   """Calculates a popularity barchart per day."""
 
   if not q: return
@@ -240,6 +241,7 @@ def daily_popularity(width, height, caption, q, days=30):
   log = q.exclude(AnonymousQ)
   unlog = q.filter(AnonymousQ).exclude(RobotQ)
   bots = q.filter(AnonymousQ).filter(RobotQ)
+
   max = 0
   bars = []
   for k in range(len(intervals)-1):
@@ -255,27 +257,29 @@ def daily_popularity(width, height, caption, q, days=30):
   # here we have all labels organized and entries counted.
   if not max: return 
 
+  width = settings.AUDIT_PLOT_WIDTH
+  height = settings.AUDIT_PLOT_HEIGHT
   chart = StackedVerticalBarChart(width, height, y_range=(0, max))
-  chart.set_bar_width(13) #pixels
+  chart.set_bar_width(11) #pixels
   chart.set_colours(settings.AUDIT_CHART_COLORS)
   chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
   chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data([k['logged'] for k in bars])
   chart.add_data([k['anon'] for k in bars])
   chart.add_data([k['bots'] for k in bars])
-  chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-    ugettext(u'Anonymous').encode('utf-8'),
-    ugettext(u'Search bots').encode('utf-8')])
-  chart.set_legend_position('b')
+  if legend:
+    chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
+      ugettext(u'Anonymous').encode('utf-8'),
+      ugettext(u'Search bots').encode('utf-8')])
+    chart.set_legend_position('b')
+
   chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
   unit = [''] * 30 
   unit[15] = ugettext(u'days ago').encode('utf-8')
   chart.set_axis_labels(Axis.BOTTOM, unit)
   chart.set_axis_labels(Axis.LEFT, (0, max))
-  chart.set_title(caption)
-  url = add_title_style(chart.get_url(), size='16')
  
-  return {'url': url, 'width': width, 'height': height, 'caption': caption}
+  return {'url': chart.get_url(), 'width': width, 'height': height}
 
 def weekly_popularity(q, legend):
   """Calculates a popularity barchart per week."""
@@ -310,6 +314,8 @@ def weekly_popularity(q, legend):
   # here we have all labels organized and entries counted.
   if not max: return 
 
+  width = settings.AUDIT_PLOT_WIDTH
+  height = settings.AUDIT_PLOT_HEIGHT
   chart = StackedVerticalBarChart(width, height, y_range=(0, max))
   chart.set_colours(settings.AUDIT_CHART_COLORS)
   chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
@@ -317,9 +323,10 @@ def weekly_popularity(q, legend):
   chart.add_data([k['logged'] for k in bars])
   chart.add_data([k['anon'] for k in bars])
   chart.add_data([k['bots'] for k in bars])
-  chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-    ugettext(u'Anonymous').encode('utf-8'),
-    ugettext(u'Search bots').encode('utf-8')])
+  if legend:
+    chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
+      ugettext(u'Anonymous').encode('utf-8'),
+      ugettext(u'Search bots').encode('utf-8')])
   chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
   label1 = [k['label1'] for k in bars]
   # avoid duplicates in the year axis
@@ -328,7 +335,7 @@ def weekly_popularity(q, legend):
   chart.set_axis_labels(Axis.BOTTOM, label1)
   chart.set_axis_labels(Axis.LEFT, (0, max))
  
-  return {'url': chart.get_url(), 'width': width, 'height': height, 'caption': caption}
+  return {'url': chart.get_url(), 'width': width, 'height': height}
 
 def most_visited(q, n):
   """Calculates the most visited URLs."""
@@ -404,8 +411,9 @@ def serving_time(since, bins, legend):
           'heigth': settings.AUDIT_PLOT_HEIGHT,
          }
 
-def usage_hours(width, height, caption, q):
+def usage_hours(q, legend):
   """An histogram of the usage hours"""
+
   log = [k.date.hour for k in q.exclude(AnonymousQ)]
   unlog = [k.date.hour for k in q.filter(AnonymousQ).exclude(RobotQ)]
   bots = [k.date.hour for k in q.filter(AnonymousQ).filter(RobotQ)]
@@ -416,6 +424,8 @@ def usage_hours(width, height, caption, q):
   bar_bots = [bots.count(k) for k in intervals]
   maximum = max([sum(k) for k in zip(bar_log, bar_unlog, bar_bots)])
 
+  width = settings.AUDIT_PLOT_WIDTH
+  height = settings.AUDIT_PLOT_HEIGHT
   chart = StackedVerticalBarChart(width, height, y_range=(0, maximum))
   chart.set_colours(settings.AUDIT_CHART_COLORS)
   chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
@@ -423,17 +433,16 @@ def usage_hours(width, height, caption, q):
   chart.add_data(bar_log)
   chart.add_data(bar_unlog)
   chart.add_data(bar_bots)
-  chart.set_bar_width(20) #pixels
+  chart.set_bar_width(15) #pixels
   chart.set_axis_labels(Axis.BOTTOM, intervals)
   unit = [''] * 24
   unit[12] = ugettext(u'day hours').encode('utf-8')
   chart.set_axis_labels(Axis.BOTTOM, unit)
   chart.set_axis_labels(Axis.LEFT, (0, maximum))
-  chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-    ugettext(u'Anonymous').encode('utf-8'),
-    ugettext(u'Search bots').encode('utf-8')])
-  chart.set_legend_position('b')
-  chart.set_title(caption)
-  url = add_title_style(chart.get_url(), size='16')
+  if legend:
+    chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
+      ugettext(u'Anonymous').encode('utf-8'),
+      ugettext(u'Search bots').encode('utf-8')])
+    chart.set_legend_position('b')
 
-  return {'url': url, 'width': width, 'height': height, 'caption': caption}
+  return {'url': chart.get_url(), 'width': width, 'height': height}

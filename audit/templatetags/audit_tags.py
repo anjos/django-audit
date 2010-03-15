@@ -170,3 +170,56 @@ def audit_fidelity_pie(months=settings.AUDIT_MONTHS_TO_SHOW,
           'chart': pie_fidelity(getq(months, 'logged'), clip, legend),
           'height': height,
          }
+
+@register.inclusion_tag('audit/embed/chart.html')
+def audit_daily_plot(months=settings.AUDIT_MONTHS_TO_SHOW, 
+                     height=settings.AUDIT_PIE_HEIGHT,
+                     legend=True,
+                    ):
+  
+  return {
+          'chart': daily_popularity(getq(months, 'all'), 30, legend),
+          'height': height,
+         }
+
+@register.inclusion_tag('audit/embed/chart.html')
+def audit_weekly_plot(months=settings.AUDIT_MONTHS_TO_SHOW, 
+                      height=settings.AUDIT_PIE_HEIGHT,
+                      legend=True,
+                     ):
+  
+  return {
+          'chart': weekly_popularity(getq(months, 'all'), legend),
+          'height': height,
+         }
+
+@register.inclusion_tag('audit/embed/chart.html')
+def audit_monthly_plot(months=settings.AUDIT_MONTHS_TO_SHOW, 
+                       height=settings.AUDIT_PIE_HEIGHT,
+                       legend=True,
+                      ):
+  
+  return {
+          'chart': monthly_popularity(getq(months, 'all'), legend),
+          'height': height,
+         }
+
+@register.inclusion_tag('audit/embed/chart.html')
+def audit_usagehours_plot(months=settings.AUDIT_MONTHS_TO_SHOW, 
+                          height=settings.AUDIT_PIE_HEIGHT,
+                          legend=True,
+                         ):
+  
+  return {
+          'chart': usage_hours(getq(months, 'all'), legend),
+          'height': height,
+         }
+
+@register.inclusion_tag('audit/embed/mostpop.html')
+def audit_popular_urls(months=settings.AUDIT_MONTHS_TO_SHOW,
+                       maxurls=settings.AUDIT_MAXIMUM_URLS):
+  
+  return {
+          'visited': most_visited(getq(months, 'anonymous'), maxurls), 
+         }
+

@@ -12,25 +12,23 @@
 
 {% audit_navigation months %}
 
-<p class="title">{% trans "Popularity" %}</p>
-
 {% audit_summary months %} 
 
-<img src="{{ daily.url }}" width="{{ daily.width }}" height="{{ daily.height }}"/>
+<p class="subtitle">{% trans "Daily usage" %}</p>
+{% audit_daily_plot months 200 1 %}
 
-<img src="{{ weekly.url }}" width="{{ weekly.width }}" height="{{ weekly.height }}"/>
+<p class="subtitle">{% trans "Weekly usage" %}</p>
+{% audit_weekly_plot months 200 1 %}
 
-<img src="{{ monthly.url }}" width="{{ monthly.width }}" height="{{ monthly.height }}"/>
+<p class="subtitle">{% trans "Monthly usage" %}</p>
+{% audit_monthly_plot months 200 1 %}
 
-<img src="{{ hours.url }}" width="{{ hours.width }}" height="{{ hours.height }}"/>
+<p class="subtitle">{% trans "Daily usage hours" %}</p>
+{% audit_usagehours_plot months 200 1 %}
 
 <p class="subtitle">{% trans "Most popular URLs" %}</p>
+{% audit_popular_urls months 20 %}
 
-<p>{% trans "Statistics in this section does not cover visits by bots." %}</p>
-
-<ol>
-  {% for obj in visited %}<li><a href="{{ obj.0 }}">{{ obj.0 }}</a>: {{ obj.1 }} {% trans "visit" %}{{ obj.1|pluralize:_("s") }}</li>{% endfor %}
-</ol>
 
 </div><!-- class="audit" -->
 {% endblock %}

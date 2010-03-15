@@ -1,0 +1,6 @@
+{% load i18n %}
+<p class="note">{% trans "Statistics in this section only covers anonymous usage and excludes search engine bot hits." %}</p>
+
+<ol class="popular_urls">
+  {% for obj in visited %}<li><a href="{{ obj.0 }}">{{ obj.0 }}</a>: {% blocktrans count obj.1 as counter %}{{ counter }} visit{% plural %}{{ counter }} visits{% endblocktrans %}</li>{% endfor %}
+</ol>
