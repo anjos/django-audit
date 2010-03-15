@@ -42,7 +42,10 @@ AUDIT_NUMBER_OF_CITIES = getattr(settings, 'AUDIT_NUMBER_OF_CITIES', 8)
 AUDIT_MAXIMUM_URLS = getattr(settings, 'AUDIT_MAXIMUM_URLS', 10)
 
 # Colors for logged and anonymous users
-AUDIT_CHART_COLORS = getattr(settings, 'AUDIT_CHART_COLORS', ['ff5555', '55ff55', '5555ff'])
+AUDIT_PIE_COLORS = getattr(settings, 'AUDIT_PIE_COLORS', 
+    ['66CC00', '3366CC', ])
+AUDIT_PLOT_COLORS = getattr(settings, 'AUDIT_PLOT_COLORS',
+    ['33CC00', '3366CC', '330066', ])
 
 # Background colors for the charts
 AUDIT_IMAGE_BACKGROUND = getattr(settings, 'AUDIT_IMAGE_BACKGROUND', 'ffffff')

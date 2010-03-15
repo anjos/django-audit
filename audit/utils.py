@@ -35,57 +35,6 @@ import operator
 import datetime
 from dateutil.relativedelta import *
 
-def add_title_style(url, size='13.5', color='333333'):
-  """Adds the title style for the Google Chart in URL"""
-  return url + '&chts=%s,%s' % (color,size)
-
-def pie_chart(data, labels, legend):
-  width = settings.AUDIT_PIE_WIDTH
-  height = settings.AUDIT_PIE_HEIGHT
-  chart = PieChart2D(width, height)
-  chart.set_colours(settings.AUDIT_CHART_COLORS)
-  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
-  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
-  chart.add_data(data)
-  # calculates the percentages
-  total = sum(data)
-  if not total: return
-  if legend:
-    lab = [k.encode('utf-8') for k in labels]
-    for l in range(len(lab)): lab[l] += ' (%.1f%%)' % (100.0*data[l]/total)
-    chart.set_pie_labels(lab)
-  return {
-          'url': chart.get_url(), 
-          'width': width,
-          'height': height,
-         }
-
-def pie_usage(q, legend):
-  log = q.exclude(AnonymousQ)
-  unlog = q.filter(AnonymousQ).exclude(RobotQ)
-  robot = q.filter(AnonymousQ).filter(RobotQ)
-  return pie_chart([log.count(), unlog.count(), robot.count()],
-    [ugettext(u'Logged users'), ugettext(u'Anonymous'), ugettext(u'Robots')],
-    legend)
-
-def clutter(data, n, other_label):
-  if len(data) > n:
-    threshold = sorted(data.values(), reverse=True)[n-1]
-    data[other_label] = 0
-    delete = []
-    for k in data.iterkeys():
-      if data[k] < threshold and k != other_label:
-        data[other_label] += data[k]
-        delete.append(k)
-    for k in delete: del data[k]
-
-def pie_fidelity(q, n, legend):
-  users = q.values('user__username').annotate(count=Count('user'))
-  data = {}
-  for k in users: data[k['user__username']] = k['count']
-  clutter(data, n, ugettext('others'))
-  return pie_chart(data.values(), data.keys(), legend)
-
 def country_lookup(ip):
   return {
       'country_code': COUNTRY.country_code_by_addr(ip),
@@ -122,6 +71,49 @@ def try_ua_parsing(activity):
   activity.os_icon = result['os_icon']
   activity.os_family = result['os_family']
   activity.ua_type = result['typ']
+
+def pie_chart(data, labels, legend):
+  width = settings.AUDIT_PIE_WIDTH
+  height = settings.AUDIT_PIE_HEIGHT
+  chart = PieChart2D(width, height)
+  chart.set_colours(settings.AUDIT_PIE_COLORS)
+  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
+  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
+  chart.add_data(data)
+  # calculates the percentages
+  total = sum(data)
+  if not total: return
+  if legend:
+    lab = [k.encode('utf-8') for k in labels]
+    for l in range(len(lab)): lab[l] += ' (%.1f%%)' % (100.0*data[l]/total)
+    chart.set_pie_labels(lab)
+  return chart
+
+def clutter(data, n, other_label):
+  if len(data) > n:
+    threshold = sorted(data.values(), reverse=True)[n-1]
+    data[other_label] = 0
+    delete = []
+    for k in data.iterkeys():
+      if data[k] < threshold and k != other_label:
+        data[other_label] += data[k]
+        delete.append(k)
+    for k in delete: del data[k]
+
+def pie_usage(q, legend):
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ).exclude(RobotQ)
+  robot = q.filter(AnonymousQ).filter(RobotQ)
+  return pie_chart([log.count(), unlog.count(), robot.count()],
+    [ugettext(u'Logged users'), ugettext(u'Anonymous'), ugettext(u'Robots')],
+    legend)
+
+def pie_fidelity(q, n, legend):
+  users = q.values('user__username').annotate(count=Count('user'))
+  data = {}
+  for k in users: data[k['user__username']] = k['count']
+  clutter(data, n, ugettext('others'))
+  return pie_chart(data.values(), data.keys(), legend)
 
 def eval_field(q, n, field):
   """Evaluate field statistics."""
@@ -169,7 +161,57 @@ def pie_bots(q, clip, legend):
   clutter(browser, clip, ugettext(u'others').encode('utf-8'))
   return pie_chart(browser.values(), browser.keys(), legend)
 
-def monthly_popularity(q, legend):
+def bar_line_chart(values, legend, style):
+  """Calls the Google Chart service to draw either a line or bar chart of the
+  given values."""
+
+  width = settings.AUDIT_PLOT_WIDTH
+  height = settings.AUDIT_PLOT_HEIGHT
+
+  if style == 'bars':
+    M = max([sum((k['logged'], k['anon'], k['bots'])) for k in values])
+    chart = StackedVerticalBarChart(width, height, y_range=(0, M))
+    chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
+    chart.set_bar_width((width-50-(3*len(values)))/len(values))
+    chart.set_grid(0, 25, 2, 2)
+  elif style == 'lines':
+    M = max([max((k['logged'], k['anon'], k['bots'])) for k in values])
+    chart = SimpleLineChart(width, height, y_range=(0, M))
+    slice = 1/float(len(values)-1)
+    chart.fill_linear_stripes(Chart.CHART, 0, 'EEEEEE', slice, 
+                                              'FFFFFF', slice)
+    chart.set_grid(100*slice, 25, 2, 2)
+  else:
+    raise SyntaxError, '"style" parameter can only be "values" or "lines"'
+
+  if not M: return 
+
+  chart.set_colours(settings.AUDIT_PLOT_COLORS)
+  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
+  chart.add_data([k['logged'] for k in values])
+  chart.add_data([k['anon'] for k in values])
+  chart.add_data([k['bots'] for k in values])
+  if legend:
+    chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
+      ugettext(u'Anonymous').encode('utf-8'),
+      ugettext(u'Search bots').encode('utf-8')])
+    chart.set_legend_position('b')
+
+  chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in values])
+  left_labels = [int(round(k*M/4.0)) for k in range(5)]
+  chart.set_axis_labels(Axis.LEFT, left_labels)
+
+  # draws a second label if there is one
+  if values[0].has_key('label1'):
+    label1 = [k['label1'] for k in values]
+    # avoids duplicates in the second label axis
+    for k in reversed(range(1,len(label1))):
+      if label1[k] == label1[k-1]: label1[k] = ''
+    chart.set_axis_labels(Axis.BOTTOM, label1)
+ 
+  return chart
+
+def monthly_popularity(q, legend, style):
   """Calculates a popularity barchart per month."""
 
   if not q: return
@@ -187,7 +229,6 @@ def monthly_popularity(q, legend):
   log = q.exclude(AnonymousQ)
   unlog = q.filter(AnonymousQ).exclude(RobotQ)
   bots = q.filter(AnonymousQ).filter(RobotQ)
-  max = 0
   bars = []
   for k in range(len(intervals)-1):
     bars.append({
@@ -197,91 +238,10 @@ def monthly_popularity(q, legend):
       'anon': unlog.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       'bots': bots.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       })
-    hits = bars[-1]['logged'] + bars[-1]['anon'] + bars[-1]['bots']
-    if hits > max: max = hits
 
-  # here we have all labels organized and entries counted.
-  if not max: return 
+  return bar_line_chart(bars, legend, style)
 
-  width = settings.AUDIT_PLOT_WIDTH
-  height = settings.AUDIT_PLOT_HEIGHT
-  chart = StackedVerticalBarChart(width, height, y_range=(0, max))
-  chart.set_colours(settings.AUDIT_CHART_COLORS)
-  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
-  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
-  chart.add_data([k['logged'] for k in bars])
-  chart.add_data([k['anon'] for k in bars])
-  chart.add_data([k['bots'] for k in bars])
-  if legend:
-    chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-      ugettext(u'Anonymous').encode('utf-8'),
-      ugettext(u'Search bots').encode('utf-8')])
-  chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
-  label1 = [k['label1'] for k in bars]
-  # avoid duplicates in the year axis
-  for k in reversed(range(1,len(label1))):
-    if label1[k] == label1[k-1]: label1[k] = ''
-  chart.set_axis_labels(Axis.BOTTOM, label1)
-  chart.set_axis_labels(Axis.LEFT, (0, max))
- 
-  return {'url': chart.get_url(), 'width': width, 'height': height}
-
-def daily_popularity(q, days, legend):
-  """Calculates a popularity barchart per day."""
-
-  if not q: return
-
-  maximum = q.aggregate(Max('date'))['date__max']
-  maximum = datetime.datetime(maximum.year, maximum.month, maximum.day, 0, 0, 0)
-  minimum = maximum - relativedelta(days=days)
-
-  intervals = [minimum + relativedelta(days=k) for k in range(days)]
-  intervals += [maximum, maximum + relativedelta(days=1)]
-
-  log = q.exclude(AnonymousQ)
-  unlog = q.filter(AnonymousQ).exclude(RobotQ)
-  bots = q.filter(AnonymousQ).filter(RobotQ)
-
-  max = 0
-  bars = []
-  for k in range(len(intervals)-1):
-    bars.append({
-      'label0': days-k, 
-      'logged': log.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
-      'anon': unlog.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
-      'bots': bots.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
-      })
-    hits = bars[-1]['logged'] + bars[-1]['anon'] + bars[-1]['bots']
-    if hits > max: max = hits
-
-  # here we have all labels organized and entries counted.
-  if not max: return 
-
-  width = settings.AUDIT_PLOT_WIDTH
-  height = settings.AUDIT_PLOT_HEIGHT
-  chart = StackedVerticalBarChart(width, height, y_range=(0, max))
-  chart.set_bar_width(11) #pixels
-  chart.set_colours(settings.AUDIT_CHART_COLORS)
-  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
-  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
-  chart.add_data([k['logged'] for k in bars])
-  chart.add_data([k['anon'] for k in bars])
-  chart.add_data([k['bots'] for k in bars])
-  if legend:
-    chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-      ugettext(u'Anonymous').encode('utf-8'),
-      ugettext(u'Search bots').encode('utf-8')])
-    chart.set_legend_position('b')
-
-  chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
-  unit = [''] * 30 
-  unit[15] = ugettext(u'days ago').encode('utf-8')
-  chart.set_axis_labels(Axis.BOTTOM, unit)
-  chart.set_axis_labels(Axis.LEFT, (0, max))
- 
-  return {'url': chart.get_url(), 'width': width, 'height': height}
-
-def weekly_popularity(q, legend):
+def weekly_popularity(q, legend, style):
   """Calculates a popularity barchart per week."""
 
   if not q: return
@@ -298,7 +258,6 @@ def weekly_popularity(q, legend):
   log = q.exclude(AnonymousQ)
   unlog = q.filter(AnonymousQ).exclude(RobotQ)
   bots = q.filter(AnonymousQ).filter(RobotQ)
-  max = 0
   bars = []
   for k in range(len(intervals)-1):
     bars.append({
@@ -308,34 +267,54 @@ def weekly_popularity(q, legend):
       'anon': unlog.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       'bots': bots.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
       })
-    hits = bars[-1]['logged'] + bars[-1]['anon'] + bars[-1]['bots']
-    if hits > max: max = hits
 
-  # here we have all labels organized and entries counted.
-  if not max: return 
+  return bar_line_chart(bars, legend, style)
 
-  width = settings.AUDIT_PLOT_WIDTH
-  height = settings.AUDIT_PLOT_HEIGHT
-  chart = StackedVerticalBarChart(width, height, y_range=(0, max))
-  chart.set_colours(settings.AUDIT_CHART_COLORS)
-  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
-  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
-  chart.add_data([k['logged'] for k in bars])
-  chart.add_data([k['anon'] for k in bars])
-  chart.add_data([k['bots'] for k in bars])
-  if legend:
-    chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-      ugettext(u'Anonymous').encode('utf-8'),
-      ugettext(u'Search bots').encode('utf-8')])
-  chart.set_axis_labels(Axis.BOTTOM, [k['label0'] for k in bars])
-  label1 = [k['label1'] for k in bars]
-  # avoid duplicates in the year axis
-  for k in reversed(range(1,len(label1))):
-    if label1[k] == label1[k-1]: label1[k] = ''
-  chart.set_axis_labels(Axis.BOTTOM, label1)
-  chart.set_axis_labels(Axis.LEFT, (0, max))
- 
-  return {'url': chart.get_url(), 'width': width, 'height': height}
+def daily_popularity(q, days, legend, style):
+  """Calculates a popularity barchart per day."""
+
+  if not q: return
+
+  maximum = q.aggregate(Max('date'))['date__max']
+  maximum = datetime.datetime(maximum.year, maximum.month, maximum.day, 0, 0, 0)
+  minimum = maximum - relativedelta(days=days)
+
+  intervals = [minimum + relativedelta(days=k) for k in range(days)]
+  intervals += [maximum, maximum + relativedelta(days=1)]
+
+  log = q.exclude(AnonymousQ)
+  unlog = q.filter(AnonymousQ).exclude(RobotQ)
+  bots = q.filter(AnonymousQ).filter(RobotQ)
+
+  bars = []
+  for k in range(len(intervals)-1):
+    bars.append({
+      'label0': days-k, 
+      'logged': log.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      'anon': unlog.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      'bots': bots.filter(date__gte=intervals[k]).filter(date__lt=intervals[k+1]).count(),
+      })
+
+  return bar_line_chart(bars, legend, style)
+
+def usage_hours(q, legend):
+  """An histogram of the usage hours"""
+
+  log = [k.date.hour for k in q.exclude(AnonymousQ)]
+  unlog = [k.date.hour for k in q.filter(AnonymousQ).exclude(RobotQ)]
+  bots = [k.date.hour for k in q.filter(AnonymousQ).filter(RobotQ)]
+  intervals = range(24)
+
+  bars = []
+  for k in intervals:
+    bars.append({
+      'label0': k, 
+      'logged': log.count(k),
+      'anon': unlog.count(k),
+      'bots': bots.count(k),
+      })
+
+  return bar_line_chart(bars, legend, 'bars')
 
 def most_visited(q, n):
   """Calculates the most visited URLs."""
@@ -381,7 +360,7 @@ def serving_time(since, bins, legend):
       settings.AUDIT_PIE_HEIGHT, y_range=(0, max_y))
 
   chart.set_bar_width(18) # pixels
-  chart.set_colours(settings.AUDIT_CHART_COLORS)
+  chart.set_colours(settings.AUDIT_PLOT_COLORS)
   chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
   chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
   chart.add_data(bar_log)
@@ -405,44 +384,4 @@ def serving_time(since, bins, legend):
     chart.set_legend(legend)
     chart.set_legend_position('b')
 
-  return {
-          'url': chart.get_url(), 
-          'width': settings.AUDIT_PLOT_WIDTH, 
-          'heigth': settings.AUDIT_PLOT_HEIGHT,
-         }
-
-def usage_hours(q, legend):
-  """An histogram of the usage hours"""
-
-  log = [k.date.hour for k in q.exclude(AnonymousQ)]
-  unlog = [k.date.hour for k in q.filter(AnonymousQ).exclude(RobotQ)]
-  bots = [k.date.hour for k in q.filter(AnonymousQ).filter(RobotQ)]
-  intervals = range(24)
-
-  bar_log = [log.count(k) for k in intervals]
-  bar_unlog = [unlog.count(k) for k in intervals]
-  bar_bots = [bots.count(k) for k in intervals]
-  maximum = max([sum(k) for k in zip(bar_log, bar_unlog, bar_bots)])
-
-  width = settings.AUDIT_PLOT_WIDTH
-  height = settings.AUDIT_PLOT_HEIGHT
-  chart = StackedVerticalBarChart(width, height, y_range=(0, maximum))
-  chart.set_colours(settings.AUDIT_CHART_COLORS)
-  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_IMAGE_BACKGROUND)
-  chart.fill_solid(Chart.CHART, settings.AUDIT_CHART_BACKGROUND)
-  chart.add_data(bar_log)
-  chart.add_data(bar_unlog)
-  chart.add_data(bar_bots)
-  chart.set_bar_width(15) #pixels
-  chart.set_axis_labels(Axis.BOTTOM, intervals)
-  unit = [''] * 24
-  unit[12] = ugettext(u'day hours').encode('utf-8')
-  chart.set_axis_labels(Axis.BOTTOM, unit)
-  chart.set_axis_labels(Axis.LEFT, (0, maximum))
-  if legend:
-    chart.set_legend([ugettext(u'Logged users').encode('utf-8'), 
-      ugettext(u'Anonymous').encode('utf-8'),
-      ugettext(u'Search bots').encode('utf-8')])
-    chart.set_legend_position('b')
-
-  return {'url': chart.get_url(), 'width': width, 'height': height}
+  return chart 

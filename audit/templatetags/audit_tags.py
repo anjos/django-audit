@@ -175,10 +175,11 @@ def audit_fidelity_pie(months=settings.AUDIT_MONTHS_TO_SHOW,
 def audit_daily_plot(months=settings.AUDIT_MONTHS_TO_SHOW, 
                      height=settings.AUDIT_PIE_HEIGHT,
                      legend=True,
+                     style='bars',
                     ):
   
   return {
-          'chart': daily_popularity(getq(months, 'all'), 30, legend),
+          'chart': daily_popularity(getq(months, 'all'), 30, legend, style),
           'height': height,
          }
 
@@ -186,10 +187,11 @@ def audit_daily_plot(months=settings.AUDIT_MONTHS_TO_SHOW,
 def audit_weekly_plot(months=settings.AUDIT_MONTHS_TO_SHOW, 
                       height=settings.AUDIT_PIE_HEIGHT,
                       legend=True,
+                      style='bars',
                      ):
   
   return {
-          'chart': weekly_popularity(getq(months, 'all'), legend),
+          'chart': weekly_popularity(getq(months, 'all'), legend, style),
           'height': height,
          }
 
@@ -197,10 +199,11 @@ def audit_weekly_plot(months=settings.AUDIT_MONTHS_TO_SHOW,
 def audit_monthly_plot(months=settings.AUDIT_MONTHS_TO_SHOW, 
                        height=settings.AUDIT_PIE_HEIGHT,
                        legend=True,
+                       style='bars',
                       ):
   
   return {
-          'chart': monthly_popularity(getq(months, 'all'), legend),
+          'chart': monthly_popularity(getq(months, 'all'), legend, style),
           'height': height,
          }
 
