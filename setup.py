@@ -11,13 +11,14 @@ from setuptools import setup, find_packages
 setup(
 
     name = "audit",
-    version = "0.4", 
+    version = "0.4.1", 
     packages = find_packages(),
 
     # we also need all translation files and templates
     package_data = {
       'audit': [
         'templates/audit/*.html',
+        'templates/audit/embed/*.html',
         'locale/*/LC_MESSAGES/django.po',
         'locale/*/LC_MESSAGES/django.mo',
         ],
