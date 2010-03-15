@@ -5,11 +5,11 @@
   <a href="{% url audit:identity-months months %}" title="{% trans "Get an insight on where your users come from and which browsers and OSs they use" %}">{% trans "Identity" %}</a>
   <a href="{% url audit:performance-months months %}" title="{% trans "See how fast you are answering requests" %}">{% trans "Performance" %}</a>
 </p>
-<p class="window">
+<div class="time-window">
   <form>
     {% trans "Time window: " %} <select onchange="location.href=this.form.elements[0].options[this.form.elements[0].selectedIndex].value" name="months">
       {% for m in choice %}<option value="../{{ m }}/"{% ifequal months m|stringformat:"d" %} selected="selected"{% endifequal %}>{{ m }}</option>
       {% endfor %} 
     </select> {% trans "months" %}
   </form>
-</p>
+</div>
