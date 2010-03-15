@@ -2,23 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-15 17:38+0100\n"
-"PO-Revision-Date: 2009-09-29 18:39\n"
-"Last-Translator: <andre.dos.anjos@gmail.com>\n"
+"PO-Revision-Date: 2010-03-15 18:06\n"
+"Last-Translator: Admin Adminston <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Translated-Using: django-rosetta 0.4.5.svn\n"
+"X-Translated-Using: django-rosetta 0.5.3\n"
 
 #: admin.py:16 models.py:65
 msgid "OS"
-msgstr ""
+msgstr "SdE"
 
 #: admin.py:22 models.py:46 models.py:59
 msgid "Browser"
@@ -30,8 +30,7 @@ msgstr "anonyme"
 
 #: models.py:32
 msgid "If the request was by a site registered user, defined it here."
-msgstr ""
-"Si la demande a été faite par un utilisateur du site, il est défini ici."
+msgstr "Si la demande a été faite par un utilisateur du site, il doit être défini ici."
 
 #: models.py:34
 msgid "Date"
@@ -55,8 +54,7 @@ msgstr "Site anterieur"
 
 #: models.py:40
 msgid "If the user was re-directed from another website, define it here."
-msgstr ""
-"Si l'utilisateur était redirigé à partir un autre site, le définir ici."
+msgstr "Si l'utilisateur était redirigé à partir un autre site, le définir ici."
 
 #: models.py:42
 msgid "Client IP address"
@@ -67,13 +65,8 @@ msgid "Client hostname"
 msgstr "Nome du client"
 
 #: models.py:46
-msgid ""
-"The user agent tag from the browser. Please note this may not correspond to "
-"actual client being used since many browsers can send fake tags."
-msgstr ""
-"Le user agent tag du navigateur. S'il vous plaît prendre note que cette "
-"valeur peut ne pas correspondre aux valeurs effectifs parce que nombreux "
-"navigateurs peuvent envoyer des faux tags."
+msgid "The user agent tag from the browser. Please note this may not correspond to actual client being used since many browsers can send fake tags."
+msgstr "Le user agent tag du navigateur. S'il vous plaît prendre note que cette valeur peut ne pas correspondre aux valeurs effectifs parce que nombreux navigateurs peuvent envoyer des faux tags."
 
 #: models.py:48 models.py:86
 msgid "Error"
@@ -81,8 +74,7 @@ msgstr "Erreur"
 
 #: models.py:48
 msgid "If an error was produced during the user visit, log it here."
-msgstr ""
-"Si une erreur s'est produit lors de la visite d'utilisateur, écrivez-le ici."
+msgstr "Si une erreur s'est produit lors de la visite d'utilisateur, écrivez-le ici."
 
 #: models.py:50
 msgid "City"
@@ -101,7 +93,6 @@ msgid "The country from where the request originated."
 msgstr "Le pays d'où provient la demande."
 
 #: models.py:54
-#, fuzzy
 msgid "Country code"
 msgstr "Code du pays"
 
@@ -111,83 +102,79 @@ msgstr "Le code à 2 chiffres du pays d'où provient la demande."
 
 #: models.py:56
 msgid "Accepted languages"
-msgstr ""
+msgstr "Langues acceptés"
 
 #: models.py:56
 msgid "The language codes that would be better according to the requester."
-msgstr ""
+msgstr "Les codes des langues préférées par le demandeur."
 
 #: models.py:59
 msgid "The browser name"
-msgstr ""
+msgstr "Le nom du navigateur"
 
 #: models.py:61
-#, fuzzy
 msgid "Browser icon"
-msgstr "Navigateur"
+msgstr "Icône du browser"
 
 #: models.py:61
 msgid "The name of the browser icon to use for this user agent"
-msgstr ""
+msgstr "Le nom de l'icône du navigateur à utiliser pour les agents de cet utilisateur"
 
 #: models.py:63
-#, fuzzy
 msgid "Browser family"
-msgstr "Navigateur"
+msgstr "Famille de navigateurs"
 
 #: models.py:63
 msgid "The family of browsers this browser belongs to"
-msgstr ""
+msgstr "La famille de navigateurs que ce navigateur appartient"
 
 #: models.py:65
 msgid "The name of the OS the request came from"
-msgstr ""
+msgstr "Le nom de l'SdE du navigateur d'où provient la demande"
 
 #: models.py:67
 msgid "OS icon"
-msgstr ""
+msgstr "Icône de SdE"
 
 #: models.py:67
 msgid "The name of the OS icon to use for this operating system"
-msgstr ""
+msgstr "Le nom de l'icône du SdE à utiliser pour ce système d'exploitation"
 
 #: models.py:69
 msgid "OS family"
-msgstr ""
+msgstr "Famille de SdE"
 
 #: models.py:69
 msgid "The family of OSs this browser belongs to"
-msgstr ""
+msgstr "La famille de SdE à là quelle appartient ce nagivateur"
 
 #: models.py:71
-#, fuzzy
 msgid "Browser type"
-msgstr "Navigateur"
+msgstr "Type de navigateur"
 
 #: models.py:71
 msgid "The browser type"
-msgstr ""
+msgstr "Le type de navigateur"
 
 #: models.py:76
 msgid "OS icon URL"
-msgstr ""
+msgstr "URL du icône du SdE"
 
 #: models.py:81
-#, fuzzy
 msgid "Browser icon URL"
-msgstr "Navigateur"
+msgstr "URL du icône du navigateur"
 
 #: models.py:92
 msgid "Success"
-msgstr ""
+msgstr "Réussi"
 
 #: models.py:98
 msgid "Bot"
-msgstr ""
+msgstr "Moteur de recherche"
 
 #: models.py:104
 msgid "Human"
-msgstr ""
+msgstr "Humain"
 
 #: utils.py:108 utils.py:195 utils.py:380
 msgid "Logged users"
@@ -199,7 +186,7 @@ msgstr "Anonyme"
 
 #: utils.py:108
 msgid "Robots"
-msgstr ""
+msgstr "Moteurs de recherche"
 
 #: utils.py:115 utils.py:125 utils.py:140 utils.py:147 utils.py:154
 #: utils.py:161 utils.py:327
@@ -212,16 +199,15 @@ msgstr "Inconnu"
 
 #: utils.py:197 utils.py:382
 msgid "Search bots"
-msgstr ""
+msgstr "Moteurs de recherche"
 
 #: utils.py:373
 msgid "milliseconds"
 msgstr "millisecondes"
 
 #: utils.py:381
-#, fuzzy
 msgid "Anonymous users"
-msgstr "Anonyme"
+msgstr "Utilisateurs anonymes"
 
 #: templates/audit/fidelity.html:8 templates/audit/identity.html:8
 #: templates/audit/performance.html:8 templates/audit/popularity.html:8
@@ -237,94 +223,83 @@ msgid "Site usage"
 msgstr "Utilisation du site"
 
 #: templates/audit/identity.html:8
-#, fuzzy
 msgid "User identity"
 msgstr "Fidélité des utilisateurs"
 
 #: templates/audit/identity.html:17
 msgid "Access by country"
-msgstr ""
+msgstr "Accès par pays"
 
 #: templates/audit/identity.html:21
 msgid "Access by city"
-msgstr ""
+msgstr "Accès par ville"
 
 #: templates/audit/identity.html:25
 msgid "Access by OS"
-msgstr ""
+msgstr "Accès par SdE"
 
 #: templates/audit/identity.html:29
 msgid "Access by browser"
-msgstr ""
+msgstr "Accès par navigateur"
 
 #: templates/audit/identity.html:33
 msgid "Access by bots"
-msgstr ""
+msgstr "Accès par des moteurs de recherche"
 
 #: templates/audit/performance.html:8 templates/audit/performance.html:17
-#, fuzzy
 msgid "Engine performance"
-msgstr "Performance"
+msgstr "Performance du site"
 
 #: templates/audit/popularity.html:8 templates/audit/embed/navigation.html:3
 msgid "Popularity"
 msgstr "Popularité"
 
 #: templates/audit/popularity.html:17
-#, fuzzy
 msgid "Daily usage"
-msgstr "Utilisation du site"
+msgstr "Utilisation journalière"
 
 #: templates/audit/popularity.html:20
-#, fuzzy
 msgid "Weekly usage"
-msgstr "Utilisation du site"
+msgstr "Utilisation hebdomadaire"
 
 #: templates/audit/popularity.html:23
-#, fuzzy
 msgid "Monthly usage"
-msgstr "Utilisation du site"
+msgstr "Utilisation mensuel"
 
 #: templates/audit/popularity.html:26
-#, fuzzy
 msgid "Daily usage hours"
-msgstr "Heures d'utilisation"
+msgstr "Heures d'utilisation du jours"
 
 #: templates/audit/popularity.html:29
 msgid "Most popular URLs"
-msgstr ""
+msgstr "Le plus populaire des URL"
 
 #: templates/audit/embed/mostpop.html:2
-msgid ""
-"Statistics in this section only covers anonymous usage and excludes search "
-"engine bot hits."
-msgstr ""
+msgid "Statistics in this section only covers anonymous usage and excludes search engine bot hits."
+msgstr "Les statistiques de cette section ne couvrent que l'utilisation anonyme et exclut les hits des moteurs de recherche."
 
 #: templates/audit/embed/mostpop.html:5
 #, python-format
 msgid "%(counter)s visit"
 msgid_plural "%(counter)s visits"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(counter)s visite"
+msgstr[1] "%(counter)s visites"
 
 #: templates/audit/embed/navigation.html:3
 msgid "Check how popular is your website"
-msgstr ""
+msgstr "Vérifiez la popularité de votre site web"
 
 #: templates/audit/embed/navigation.html:4
 msgid "Keep track of your users interests"
-msgstr ""
+msgstr "Gardez une trace des intérêts des utilisateurs de votre site"
 
 #: templates/audit/embed/navigation.html:4
-#, fuzzy
 msgid "Fidelity"
-msgstr "Fidélité des utilisateurs"
+msgstr "Fidélité"
 
 #: templates/audit/embed/navigation.html:5
-msgid ""
-"Get an insight on where your users come from and which browsers and OSs they "
-"use"
-msgstr ""
+msgid "Get an insight on where your users come from and which browsers and OSs they use"
+msgstr "Obtenez un aperçu de l'endroit où vos utilisateurs viennent et quels navigateurs et systèmes d'exploitation qu'ils utilisent"
 
 #: templates/audit/embed/navigation.html:5
 msgid "Identity"
@@ -332,7 +307,7 @@ msgstr "Identité"
 
 #: templates/audit/embed/navigation.html:6
 msgid "See how fast you are answering requests"
-msgstr ""
+msgstr "Voir à quelle vitesse vous répondre à des demandes"
 
 #: templates/audit/embed/navigation.html:6
 msgid "Performance"
@@ -340,12 +315,11 @@ msgstr "Performance"
 
 #: templates/audit/embed/navigation.html:10
 msgid "Time window: "
-msgstr ""
+msgstr "Fenêtre de temps:"
 
 #: templates/audit/embed/navigation.html:13
-#, fuzzy
 msgid "months"
-msgstr "mois en arrière"
+msgstr "mois"
 
 #: templates/audit/embed/summary.html:3
 msgid "Start date"
@@ -353,65 +327,24 @@ msgstr "Date de début"
 
 #: templates/audit/embed/summary.html:3
 msgid "ago"
-msgstr ""
+msgstr "en arrière"
 
 #: templates/audit/embed/summary.html:4
 msgid "Total hits for logged-in users"
-msgstr "Nombre de pages pour les utilisateurs connectés"
+msgstr "Nombre de demandes pour les utilisateurs du site"
 
 #: templates/audit/embed/summary.html:4 templates/audit/embed/summary.html:5
 #: templates/audit/embed/summary.html:6
 #, python-format
 msgid "%(counter)s error"
 msgid_plural "%(counter)s errors"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(counter)s erreur"
+msgstr[1] "%(counter)s erreurs"
 
 #: templates/audit/embed/summary.html:5
 msgid "Total hits for anonymous users"
 msgstr "Nombre de pages pour les utilisateurs anonymes"
 
 #: templates/audit/embed/summary.html:6
-#, fuzzy
 msgid "Total hits for robots"
-msgstr "Nombre de pages pour les utilisateurs anonymes"
-
-#, fuzzy
-#~ msgid "The actual browser doing the request"
-#~ msgstr "La ville d'où la demande est originaire."
-
-#~ msgid "Others"
-#~ msgstr "D'autres"
-
-#~ msgid "day hours"
-#~ msgstr "heures du jour"
-
-#~ msgid "Hits per month"
-#~ msgstr "Visites par mois"
-
-#~ msgid "Hits per week"
-#~ msgstr "Visites par semaine"
-
-#~ msgid "Site users"
-#~ msgstr "Utilisateurs du site"
-
-#~ msgid "Request serving time"
-#~ msgstr "Temps de traitement des demandes"
-
-#~ msgid "Overview"
-#~ msgstr "Sommaire"
-
-#~ msgid "Summary"
-#~ msgstr "Sommaire"
-
-#~ msgid "Number of errors"
-#~ msgstr "Nombre d'erreurs"
-
-#~ msgid "No data available"
-#~ msgstr "Aucune donnée disponible"
-
-#~ msgid "visit"
-#~ msgstr "visite"
-
-#~ msgid "s"
-#~ msgstr "s"
+msgstr "Nombre de pages pour les moteurs de recherche"
