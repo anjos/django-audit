@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 setup(
 
     name = "audit",
-    version = "0.4.6", 
+    version = "0.4.7", 
     packages = find_packages(),
 
     # we also need all translation files and templates
@@ -21,6 +21,7 @@ setup(
         'templates/audit/embed/*.html',
         'locale/*/LC_MESSAGES/django.po',
         'locale/*/LC_MESSAGES/django.mo',
+        'media/css/*.css',
         ],
       },
 
