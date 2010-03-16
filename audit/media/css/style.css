@@ -1,0 +1,80 @@
+.audit p.title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.audit p.subtitle {
+  font-size: 1.6em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.audit p.navigation {
+  padding: 6px;
+  background-color: #fee;
+  border: #faa solid 1px;
+  text-align: center;
+}
+
+.audit p.navigation a {
+  background-color: #b00;
+  border-color: #b00;
+  color: white;
+  font-family: arial, helvetica, sans;
+  font-weight: bold;
+  border-style: outset;
+  border-width: 1px;
+  text-decoration: none;
+  padding: 2px;
+}
+
+.audit p.navigation a:hover  {
+  background-color: #d00;
+  border-color: #d00;
+  border-style: inset;
+}
+
+.audit .time-window {
+  padding: 6px;
+  text-align: center;
+  font-size: 90%;
+  width: 20%;
+  border-top: 1px #d00 solid;
+  border-bottom: 1px #d00 solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+}
+
+.audit .googlechart {
+  margin: 5px;
+  display: inline-block;
+}
+
+.audit .googlechart img {
+  padding: 5px;
+  border: 1px green solid;
+  background-color: #efe;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+.audit .googlechart p {
+  margin: 0px;
+  margin-right: 5px;
+  margin-left: auto;
+  text-indent: 0px;
+  text-align: right;
+  padding: 2px;
+}
+
+.audit .googlechart p .text {
+  font-size: smaller;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  font-family: sans;
+  padding: 2px;
+}

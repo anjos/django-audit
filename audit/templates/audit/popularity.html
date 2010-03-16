@@ -3,6 +3,7 @@
 
 {% block media %}
   {{ block.super }}
+  <link href="{{ MEDIA_URL }}audit/css/style.css" rel="stylesheet" type="text/css" media="screen" />
 {% endblock %}
 
 {% block title %}{% trans "Website Access Statistics" %} :: {% trans "Popularity" %}{% endblock %}

@@ -29,6 +29,8 @@ AUDIT_MONTHS_TO_LOG = getattr(settings, 'AUDIT_MONTHS_TO_LOG', 24)
 AUDIT_MONTHS_TO_SHOW = getattr(settings, 'AUDIT_MONTHS_TO_SHOW', 6)
 
 # The width and height of pie charts produced
+AUDIT_MAP_WIDTH = getattr(settings, 'AUDIT_MAP_WIDTH', 440) #pixels
+AUDIT_MAP_HEIGHT = getattr(settings, 'AUDIT_MAP_HEIGHT', 220) #pixels
 AUDIT_PIE_WIDTH = getattr(settings, 'AUDIT_PIE_WIDTH', 500) #pixels
 AUDIT_PIE_HEIGHT = getattr(settings, 'AUDIT_PIE_HEIGHT', 200) #pixels
 AUDIT_PLOT_WIDTH = getattr(settings, 'AUDIT_PLOT_WIDTH', 500) #pixels
@@ -42,6 +44,9 @@ AUDIT_NUMBER_OF_CITIES = getattr(settings, 'AUDIT_NUMBER_OF_CITIES', 8)
 AUDIT_MAXIMUM_URLS = getattr(settings, 'AUDIT_MAXIMUM_URLS', 10)
 
 # Colors for logged and anonymous users
+AUDIT_MAP_BACKGROUND = getattr(settings, 'AUDIT_MAP_BACKGROUND', 'CCEEFF')
+AUDIT_MAP_COLORS = getattr(settings, 'AUDIT_MAP_COLORS', 
+    ['FFFFFF', 'EEEE00', 'FF9900', 'FF0000'])
 AUDIT_PIE_COLORS = getattr(settings, 'AUDIT_PIE_COLORS', 
     ['66CC00', '3366CC', ])
 AUDIT_PLOT_COLORS = getattr(settings, 'AUDIT_PLOT_COLORS',

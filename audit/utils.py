@@ -122,12 +122,45 @@ def eval_field(q, n, field):
   for k in data: 
     if k[field]: tmp[k[field]] = k['count']
     else: tmp[ugettext(u'Unknown').encode('utf-8')] = k['count']
-  clutter(tmp, n, ugettext(u'others').encode('utf-8'))
+  if n: clutter(tmp, n, ugettext(u'others').encode('utf-8'))
   return tmp 
 
 def pie_country(q, n, legend):
   hits = eval_field(q, n, 'country')
   return pie_chart(hits.values(), hits.keys(), legend)
+
+def map_country(q, focus):
+
+  class MyMapChart(MapChart):
+    GEO = ['africa', 'asia', 'europe', 'middle_east', 
+           'south_america', 'usa', 'world']
+
+    def __init__(self, *args):
+      super(MyMapChart, self).__init__(*args)
+    def set_geo_area(self, focus):
+      geo = MyMapChart.GEO
+      if focus not in geo:
+        raise RuntimeError, '"focus" has to be one of %s' % ', '.join(geo)
+      self.geo_area = focus
+    def get_url(self, *args):
+      return super(MyMapChart, self).get_url(*args) + \
+          '&chtm=%s' % self.geo_area
+    def add_data(self, values):
+      self.auto_scale = False #we scale the data ourselves
+      scaled = [int(round(float(SimpleData.max_value)*v/max(values))) for v in values]
+      super(MyMapChart, self).add_data(scaled)
+
+  width = settings.AUDIT_MAP_WIDTH
+  height = settings.AUDIT_MAP_HEIGHT
+  chart = MyMapChart(width, height)
+  chart.set_geo_area(focus)
+  chart.set_colours(settings.AUDIT_MAP_COLORS)
+  chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_MAP_BACKGROUND)
+  hits = eval_field(q, 0, 'country_code')
+  del hits[ugettext(u'Unknown').encode('utf-8')]
+  chart.set_codes(hits.keys())
+  chart.add_data(hits.values())
+  return chart 
 
 def pie_city(q, n, legend):
   data = q.values('city', 'country_code').annotate(count=Count('city'))

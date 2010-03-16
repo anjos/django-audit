@@ -1,5 +1,4 @@
-{% if height %}
-<img class="googlechart" src="{{ chart.get_url|safe }}" height="{{ chart.height }}" width="{% widthratio chart.width chart.height height %}"/>
-{% else %}
-<img class="googlechart" src="{{ chart.get_url|safe }}" height="{{ chart.height }}" width="{{ chart.width }}"/>
-{% endif %}
+<div class="googlechart">
+<img src="{{ chart.get_url|safe }}" height="{{ chart.height }}" width="{% widthratio chart.width chart.height height %}"/>
+{% if caption %}<p><span class="text">{{ caption }}</span></p>{% endif %}
+</div>

@@ -65,6 +65,7 @@ def audit_response_time(months=settings.AUDIT_MONTHS_TO_SHOW,
                         bins=20,
                         height=settings.AUDIT_PLOT_HEIGHT,
                         legend=True,
+                        caption='',
                        ):
   """Plots the response time for the website."""
 
@@ -73,6 +74,7 @@ def audit_response_time(months=settings.AUDIT_MONTHS_TO_SHOW,
   return { 
            'chart': serving_time(since, bins, legend),
            'height': height,
+           'caption': caption,
          }
 
 def getq(months, type):
@@ -90,15 +92,30 @@ def getq(months, type):
   return q.filter(date__gte=since)
 
 @register.inclusion_tag('audit/embed/chart.html')
+def audit_country_map(months=settings.AUDIT_MONTHS_TO_SHOW, 
+                      type='all',
+                      height=settings.AUDIT_MAP_HEIGHT,
+                      focus='world',
+                      caption='',
+                     ):
+  return {
+          'chart': map_country(getq(months, type), focus),
+          'height': height,
+          'caption': caption,
+         }
+
+@register.inclusion_tag('audit/embed/chart.html')
 def audit_country_pie(months=settings.AUDIT_MONTHS_TO_SHOW, 
                       type='all',
                       clip=settings.AUDIT_NUMBER_OF_COUNTRIES,
                       height=settings.AUDIT_PLOT_HEIGHT,
                       legend=True,
+                      caption='',
                      ):
   return {
           'chart': pie_country(getq(months, type), clip, legend),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
@@ -107,10 +124,12 @@ def audit_city_pie(months=settings.AUDIT_MONTHS_TO_SHOW,
                    clip=settings.AUDIT_NUMBER_OF_CITIES,
                    height=settings.AUDIT_PIE_HEIGHT,
                    legend=True,
+                   caption='',
                   ):
   return {
           'chart': pie_city(getq(months, type), clip, legend),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
@@ -119,10 +138,12 @@ def audit_browser_pie(months=settings.AUDIT_MONTHS_TO_SHOW,
                       clip=8,
                       height=settings.AUDIT_PIE_HEIGHT,
                       legend=True,
+                      caption='',
                      ):
   return {
           'chart': pie_browser(getq(months, type), clip, legend),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
@@ -131,10 +152,12 @@ def audit_os_pie(months=settings.AUDIT_MONTHS_TO_SHOW,
                  clip=8,
                  height=settings.AUDIT_PIE_HEIGHT,
                  legend=True,
+                 caption='',
                 ):
   return {
           'chart': pie_os(getq(months, type), clip, legend),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
@@ -142,21 +165,25 @@ def audit_bot_pie(months=settings.AUDIT_MONTHS_TO_SHOW,
                   clip=12,
                   height=settings.AUDIT_PIE_HEIGHT,
                   legend=True,
+                  caption='',
                  ):
   return {
           'chart': pie_bots(getq(months, 'robots'), clip, legend),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
 def audit_usage_pie(months=settings.AUDIT_MONTHS_TO_SHOW, 
                     height=settings.AUDIT_PIE_HEIGHT,
                     legend=True,
+                    caption='',
                     ):
   
   return {
           'chart': pie_usage(getq(months, 'all'), legend),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
@@ -164,11 +191,13 @@ def audit_fidelity_pie(months=settings.AUDIT_MONTHS_TO_SHOW,
                        clip=12,
                        height=settings.AUDIT_PIE_HEIGHT,
                        legend=True,
+                       caption='',
                        ):
   
   return {
           'chart': pie_fidelity(getq(months, 'logged'), clip, legend),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
@@ -176,11 +205,13 @@ def audit_daily_plot(months=settings.AUDIT_MONTHS_TO_SHOW,
                      height=settings.AUDIT_PIE_HEIGHT,
                      legend=True,
                      style='bars',
+                     caption='',
                     ):
   
   return {
           'chart': daily_popularity(getq(months, 'all'), 30, legend, style),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
@@ -188,11 +219,13 @@ def audit_weekly_plot(months=settings.AUDIT_MONTHS_TO_SHOW,
                       height=settings.AUDIT_PIE_HEIGHT,
                       legend=True,
                       style='bars',
+                      caption='',
                      ):
   
   return {
           'chart': weekly_popularity(getq(months, 'all'), legend, style),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
@@ -200,22 +233,26 @@ def audit_monthly_plot(months=settings.AUDIT_MONTHS_TO_SHOW,
                        height=settings.AUDIT_PIE_HEIGHT,
                        legend=True,
                        style='bars',
+                       caption='',
                       ):
   
   return {
           'chart': monthly_popularity(getq(months, 'all'), legend, style),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/chart.html')
 def audit_usagehours_plot(months=settings.AUDIT_MONTHS_TO_SHOW, 
                           height=settings.AUDIT_PIE_HEIGHT,
                           legend=True,
+                          caption='',
                          ):
   
   return {
           'chart': usage_hours(getq(months, 'all'), legend),
           'height': height,
+          'caption': caption,
          }
 
 @register.inclusion_tag('audit/embed/mostpop.html')
