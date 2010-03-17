@@ -253,7 +253,7 @@ msgstr "Acessor por indexadores"
 
 #: templates/audit/performance.html:8 templates/audit/performance.html:17
 msgid "Engine performance"
-msgstr "Desempenho data platforma"
+msgstr "Desempenho da máquina"
 
 #: templates/audit/popularity.html:8 templates/audit/embed/navigation.html:3
 msgid "Popularity"

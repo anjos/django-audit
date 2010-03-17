@@ -15,13 +15,9 @@
 
 {% audit_summary months %} 
 
-<p class="subtitle">{% trans "Site usage" %}</p>
+{% audit_usage_pie months _("Site usage") 1 160 %}  
 
-{% audit_usage_pie months 200 1 %}  
-
-<p class="subtitle">{% trans "User fidelity" %}</p>
-
-{% audit_fidelity_pie months 10 200 1 %} 
+{% audit_fidelity_pie months 10 _("User fidelity") 1 160 %} 
 
 </div><!-- class="audit" -->
 {% endblock %}

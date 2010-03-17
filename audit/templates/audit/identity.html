@@ -16,25 +16,25 @@
 {% audit_summary months %} 
 
 <p class="subtitle">{% trans "Access by country" %}</p>
-{% audit_country_pie months "logged" 10 200 1 _("Logged users") %}
-{% audit_country_pie months "anonymous" 10 200 1 _("Anonymous users") %}<br/>
-{% audit_country_map months "logged" 250 "europe" _("Logged users") %}
-{% audit_country_map months "anonymous" 250 "world" _("Anonymous users") %}
+{% audit_country_pie months "logged" 10 _("Logged users") 1 160 %}
+{% audit_country_pie months "anonymous" 10 _("Anonymous users") 1 160 %}<br/>
+{% audit_country_map months "logged" "world" _("Logged users") 200 %}
+{% audit_country_map months "anonymous" "world" _("Anonymous users") 200 %}
 
 <p class="subtitle">{% trans "Access by city" %}</p>
-{% audit_city_pie months "logged" 6 200 1 _("Logged users") %}
-{% audit_city_pie months "anonymous" 12 200 1 _("Anonymous users") %}
+{% audit_city_pie months "logged" 6 _("Logged users") 1 160 %}
+{% audit_city_pie months "anonymous" 12 _("Anonymous users") 1 160 %}
 
 <p class="subtitle">{% trans "Access by OS" %}</p>
-{% audit_os_pie months "logged" 8 200 1 _("Logged users") %}
-{% audit_os_pie months "anonymous" 8 200 1 _("Anonymous users") %}
+{% audit_os_pie months "logged" 8 _("Logged users") 1 160 %}
+{% audit_os_pie months "anonymous" 8 _("Anonymous users") 1 160 %}
 
 <p class="subtitle">{% trans "Access by browser" %}</p>
-{% audit_browser_pie months "logged" 8 200 1 _("Logged users") %}
-{% audit_browser_pie months "anonymous" 8 200 1 _("Anonymous users") %}
+{% audit_browser_pie months "logged" 8 _("Logged users") 1 160 %}
+{% audit_browser_pie months "anonymous" 8 _("Anonymous users") 1 160 %}
 
 <p class="subtitle">{% trans "Access by bots" %}</p>
-{% audit_bot_pie months 12 200 1 %}
+{% audit_bot_pie months 12 %}
 
 </div><!-- class="audit" -->
 {% endblock %}

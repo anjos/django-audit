@@ -61,6 +61,6 @@ AUDIT_CHART_BACKGROUND = getattr(settings, 'AUDIT_CHART_BACKGROUND', 'ffffff')
 # statistics for bots will be kept. 
 AUDIT_KEEP_BOT_STATISTICS = getattr(settings, 'AUDIT_KEEP_BOT_STATISTICS', 0.2)
 
-# URLs we are not supposed to track
-AUDIT_NO_TRACKING = ['^media', '^admin', '^openid', '^login', '^logout',
-    '^robots.txt', '^.*favicon.ico'] 
+# URLs regular expressions we are not supposed to track
+AUDIT_NO_TRACKING = ['^media/(?!cv\/cv\.pdf$)', '^admin', '^openid',
+    '^login', '^logout', '^robots.txt', '^.*favicon.ico'] 

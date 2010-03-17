@@ -15,17 +15,13 @@
 
 {% audit_summary months %} 
 
-<p class="subtitle">{% trans "Daily usage" %}</p>
-{% audit_daily_plot months 200 1 "lines" %}
+{% audit_daily_plot months "lines" _("Daily usage") 1 160 %}
 
-<p class="subtitle">{% trans "Weekly usage" %}</p>
-{% audit_weekly_plot months 200 1 "bars" %}
+{% audit_weekly_plot months "bars" _("Weekly usage") 1 160 %}<br/>
 
-<p class="subtitle">{% trans "Monthly usage" %}</p>
-{% audit_monthly_plot months 200 1 "bars" %}
+{% audit_monthly_plot months "bars" _("Monthly usage") 1 160 %}
 
-<p class="subtitle">{% trans "Daily usage hours" %}</p>
-{% audit_usagehours_plot months 200 1 %}
+{% audit_usagehours_plot months _("Daily usage hours") 1 160 %}
 
 <p class="subtitle">{% trans "Most popular URLs" %}</p>
 {% audit_popular_urls months 20 %}
