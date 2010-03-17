@@ -157,7 +157,8 @@ def map_country(q, focus):
   chart.set_colours(settings.AUDIT_MAP_COLORS)
   chart.fill_solid(Chart.BACKGROUND, settings.AUDIT_MAP_BACKGROUND)
   hits = eval_field(q, 0, 'country_code')
-  del hits[ugettext(u'Unknown').encode('utf-8')]
+  unk = ugettext(u'Unknown').encode('utf-8')
+  if hits.has_key(unk): del hits[unk]
   chart.set_codes(hits.keys())
   chart.add_data(hits.values())
   return chart 
