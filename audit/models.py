@@ -56,7 +56,7 @@ class UserActivity(models.Model):
   languages = models.CharField(_(u'Accepted languages'), help_text=_(u'The language codes that would be better according to the requester.'), blank=True, null=True, max_length=100, default='')
 
   # information that will get parsed by UASparser
-  ua_name = models.CharField(_(u'Browser'), help_text=_(u'The browser name'), blank=True, null=True, max_length=50)
+  ua_name = models.CharField(_(u'Browser'), help_text=_(u'The browser name'), blank=True, null=True, max_length=100)
 
   ua_icon = models.CharField(_(u'Browser icon'), help_text=_(u'The name of the browser icon to use for this user agent'), blank=True, null=True, max_length=50)
 
