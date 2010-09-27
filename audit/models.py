@@ -35,9 +35,9 @@ class UserActivity(models.Model):
 
   processing_time = models.IntegerField(_(u'Processing time'), help_text=_(u'Time the request took to process (in microseconds)'), null=True, blank=True)
 
-  request_url = models.CharField(_(u'Requested URL'), max_length=800, db_index=True)
+  request_url = models.CharField(_(u'Requested URL'), max_length=800)
 
-  referer_url = models.URLField(_(u'Referer'), help_text=_(u'If the user was re-directed from another website, define it here.'), verify_exists=False, db_index=True, blank=True, null=True)
+  referer_url = models.URLField(_(u'Referer'), help_text=_(u'If the user was re-directed from another website, define it here.'), verify_exists=False, max_length=800, blank=True, null=True)
 
   client_address = models.IPAddressField(_(u'Client IP address'), blank=True, null=True)
 
